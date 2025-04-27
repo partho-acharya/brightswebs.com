@@ -1,0 +1,500 @@
+:root {
+    --primary-1: #4285f4;
+    --primary-2: #34a853;
+    --primary-3: #ea4335;
+    --accent-1: #fbbc05;
+    --accent-2: #673ab7;
+    --dark: #202124;
+    --light: #f8f9fa;
+    --gray: #5f6368;
+}
+
+
+/* body {
+    background-color: var(--light);
+    color: var(--dark);
+    padding: 20px;
+} */
+
+/* .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-align: center;
+    color: var(--dark);
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: var(--gray);
+} */
+
+/* .games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+} */
+
+/* .game-card {
+    padding: 25px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+} */
+
+/* .game-card:hover {
+    transform: translateY(-5px);
+}
+
+.game-card i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.game-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.game-card p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+} */
+
+/* .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: white;
+    color: var(--dark);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+} */
+
+/* .btn:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+} */
+/* .small-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+} */
+
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 70px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: auto;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, 
+    #de0b8d 0%, 
+    #D98324 50%, 
+    #2563EB 100%);
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    text-align: center;
+
+    p{
+        color: white;
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+
+    button{
+        padding: 5px 10px;
+        color: white;
+        background-color:var(--lite-blue-color) ;
+        border: none;
+    }
+
+    h2{
+        color: var(--lite-blue-color);
+        font-size: 36px;
+    }
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--gray);
+    cursor: pointer;
+}
+
+.close:hover {
+    color: var(--dark);
+}
+
+
+
+
+/* Memory Game Styles */
+.memory-game {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+.memory-card {
+    height: 100px;
+    background-color: var(--primary-1);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.memory-card.flipped {
+    background-color: white;
+    color: var(--dark);
+    transform: rotateY(180deg);
+}
+
+.memory-card.matched {
+    background-color: var(--primary-2);
+    cursor: default;
+}
+
+.game-info {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+
+/* 2048 Game Styles */
+.game-container {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.score-container {
+    background-color: #bbada0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+}
+
+.score-title {
+    font-size: 0.8rem;
+    display: block;
+}
+
+.score-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.grid-container {
+    background-color: #bbada0;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.grid-row {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.grid-row:last-child {
+    margin-bottom: 0;
+}
+
+.grid-cell {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    background-color: #cdc1b4;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #776e65;
+}
+
+.grid-cell:last-child {
+    margin-right: 0;
+}
+
+.tile-2 {
+    background-color: #eee4da;
+}
+
+.tile-4 {
+    background-color: #ede0c8;
+}
+
+.tile-8 {
+    background-color: #f2b179;
+    color: white;
+}
+
+.tile-16 {
+    background-color: #f59563;
+    color: white;
+}
+
+.tile-32 {
+    background-color: #f67c5f;
+    color: white;
+}
+
+.tile-64 {
+    background-color: #f65e3b;
+    color: white;
+}
+
+.tile-128 {
+    background-color: #edcf72;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.tile-256 {
+    background-color: #edcc61;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.tile-512 {
+    background-color: #edc850;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.tile-1024 {
+    background-color: #edc53f;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.tile-2048 {
+    background-color: #edc22e;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.restart-button {
+    background-color: #8f7a66;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.restart-button:hover {
+    background-color: #9f8b77;
+}
+
+.game-intro {
+    color: var(--gray);
+    margin-top: 20px;
+}
+
+
+
+
+/* Snake Game Styles */
+.snake-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#snake-canvas {
+    width: 70%;
+    border: 2px solid var(--gray);
+    background-color: #f0f0f0;
+}
+
+.snake-info {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+
+
+
+/* Basketball Game Styles */
+.basketball-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#basketball-canvas {
+    border: 2px solid var(--gray);
+    background-color: #f0f0f0;
+}
+
+.basketball-info {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+
+
+/* Space Invaders Styles */
+.space-invaders-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#space-invaders-canvas {
+    border: 2px solid var(--gray);
+    background-color: #000;
+}
+
+.space-invaders-info {
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+}
+
+
+/* 2048 Game Styles */
+.game-container {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.score-container {
+    background-color: #bbada0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+}
+
+.grid-container {
+    background-color: #bbada0;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.grid-row {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.grid-cell {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    background-color: #cdc1b4;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #776e65;
+}
+
+.tile-2 { background-color: #eee4da; }
+.tile-4 { background-color: #ede0c8; }
+.tile-8 { background-color: #f2b179; color: white; }
+.tile-16 { background-color: #f59563; color: white; }
+.tile-32 { background-color: #f67c5f; color: white; }
+.tile-64 { background-color: #f65e3b; color: white; }
+.tile-128 { background-color: #edcf72; color: white; font-size: 1.5rem; }
+.tile-256 { background-color: #edcc61; color: white; font-size: 1.5rem; }
+.tile-512 { background-color: #edc850; color: white; font-size: 1.5rem; }
+.tile-1024 { background-color: #edc53f; color: white; font-size: 1.2rem; }
+.tile-2048 { background-color: #edc22e; color: white; font-size: 1.2rem; }
+
+.restart-button {
+    background-color: #8f7a66;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .games-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+    }
+
+    #snake-canvas,
+    #basketball-canvas,
+    #space-invaders-canvas {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+    }
+}
+
+
+
