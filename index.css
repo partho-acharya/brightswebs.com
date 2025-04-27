@@ -1671,9 +1671,6 @@ footer {
         flex-direction: column;
     }
 
-    /* .stats-grid {
-        grid-template-columns: 1fr;
-    } */
 }
 
 /* ===========================================
@@ -2029,8 +2026,6 @@ footer {
         border-radius: 0;
         padding: 8px 10px;
     }
-
-
 
 
     .partner-cta {
