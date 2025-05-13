@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <!-- Primary Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <title>Accessibility Contrast Checker | Contrast Ratio | WCAG Compliance Tool | BrightsWebs</title>
+
+    <meta name="description"
+        content="Ensure web accessibility compliance with real-time contrast checking. Validate color combinations against WCAG 2.1/2.2 standards. Get instant pass/fail reports for AA/AAA compliance with HEX/RGB analysis. Free accessibility validator for designers & developers.">
+
+    <!-- Keywords -->
+    <meta name="keywords"
+        content="accessibility checker, WCAG compliance, color contrast analyzer, ADA compliance tool, web accessibility testing, contrast ratio calculator, A11Y tools, accessible color combinations, WCAG 2.2 validator, color contrast checker, accessibility audit, visual impairment simulator">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Professional Accessibility Contrast Checker Tool">
+    <meta property="og:description"
+        content="Test color accessibility instantly with WCAG 2.2 standards compliance. Ensure your designs meet ADA requirements with real-time contrast ratio analysis">
+    <meta property="og:image" content="https://brightswebs.com/images/og-contrast-checker.jpg">
+    <meta property="og:url" content="https://brightswebs.com/contrast-checker">
+
+    <!-- Common Elements -->
+    <meta name="author" content="BrightsWebs">
+    <meta name="copyright" content="BrightsWebs.com">
+    <link rel="canonical" href="https://brightswebs.com/contrast-checker">
+    
+    <!-- ad ver -->
+    <meta name="google-adsense-account" content="ca-pub-9660515804448328">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9660515804448328"
+    crossorigin="anonymous"></script>
+
+    <!-- Favicons (Optimized Path Structure) -->
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Universal Fallback -->
+    <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+    <!-- Apple Devices -->
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon/favicon.ico?v=2">
+    <link rel="icon" href="/favicon/favicon.svg?v=2">
+    <!-- Windows Support -->
+    <meta name="msapplication-TileImage" content="/favicon/favicon-144x144.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free WCAG Contrast Checker - ADA Compliance Tool">
+    <meta name="twitter:description"
+        content="Validate color accessibility for websites & apps. Check contrast ratios, simulate visual impairments, and generate compliance reports instantly">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Accessibility Contrast Checker",
+    "url": "https://brightswebs.com/contrast-checker",
+    "description": "Advanced web accessibility tool for testing color contrast ratios against WCAG 2.1/2.2 standards",
+    "applicationCategory": ["Accessibility Tool", "Web Development"],
+    "featureList": "Contrast ratio calculation, WCAG compliance checking, Color deficiency simulation, Compliance reporting",
+    "operatingSystem": ["Web"],
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "1200"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "BrightsWebs",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://brightswebs.com/logo.png"
+      }
+    }
+  }
+  </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <link rel="stylesheet" href="/nav&footer.css/toolui.css">
+
+    <!-- Add Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            background-color: var(--rear-lite-blue);
+        }
+
+        .cont {
+            padding: 2rem;
+        }
+
+        .main-container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+            max-width: 100%;
+            margin: 5rem auto 5rem;
+            padding: 0 5rem;
+            text-align: center;
+            flex: 1;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--lite-blue-color);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Color Picker Section */
+        .color-pickers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .color-control {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+
+            label {
+                font-size: 20px;
+                font-weight: 600;
+            }
+
+            h3 {
+                font-size: 25px;
+            }
+        }
+
+        .red {
+            color: red;
+        }
+
+        .green {
+            color: rgb(21, 187, 21);
+        }
+
+        .blue {
+            color: blue;
+        }
+
+        .color-control:hover {
+            transform: translateY(-3px);
+        }
+
+        .slider-container {
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            background: var(--lite-gray);
+            accent-color: var(--primary-1);
+        }
+
+        input[type="color"] {
+            width: 100%;
+            height: 60px;
+            border: 3px solid var(--border-color);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        input[type="color"]:hover {
+            border-color: var(--primary-3);
+        }
+
+
+        .sp {
+            margin-left: 19px;
+        }
+
+
+        /* Preview Section */
+        .preview {
+            padding: 4rem;
+            margin: 3rem 0;
+            border-radius: 16px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            border: 1px solid var(--pink-color);
+            background: var(--lite-purple-0);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .preview::after {
+            content: "Live Preview";
+            position: absolute;
+            top: 10px;
+            left: 28px;
+            /* Adjusted for red dot */
+            font-size: 1rem;
+            color: var(--accent-1);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .preview::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 10px;
+            width: 10px;
+            height: 10px;
+            background: #ff4444;
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(255, 68, 68, 0.4);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(0.95);
+            }
+        }
+
+
+
+        /* Results Section */
+        .results {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-top: 3rem;
+            border: 1px solid var(--accent-1);
+            position: relative;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .contrast-ratio {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--primary-1);
+            margin: 1.5rem 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .export-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        button {
+            background: var(--lite-blue-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* New Info Sections */
+        .info-card-grid {
+            display: grid;
+            width: 90%;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem auto;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 5px solid var(--primary-1);
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-card h3 {
+            color: var(--primary-2);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .info-card i {
+            font-size: 1.5rem;
+            color: var(--accent-1);
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .feature-list i {
+            color: var(--primary-1);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(180deg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .preview {
+                padding: 2rem;
+                font-size: 1.5rem;
+                margin: 0;
+            }
+
+            .contrast-ratio {
+                font-size: 2.5rem;
+            }
+
+            .color-pickers {
+                gap: 1rem;
+                margin: 1.5rem 0;
+            }
+
+            .color-control {
+                padding: 1rem;
+
+                label {
+                    font-size: 15px;
+                }
+
+                h3 {
+                    margin-bottom: .5rem;
+                }
+            }
+
+            .sp {
+                margin-left: 14px;
+            }
+
+            .results {
+                margin-top: 1.5rem;
+                padding: 1.5rem;
+            }
+
+            .slider-container {
+                margin: .5rem 0;
+            }
+
+            .main-container {
+                margin: 0;
+                display: flex;
+                padding: 0;
+            }
+        }
+
+        button {
+            padding: .5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .info-card-grid {
+            margin: 2rem auto;
+        }
+
+        .info-card {
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ==========================================Navbar start -->
+    <nav>
+        <div class="logo-container">
+            <div class="logo-1">
+                <img src="/image/BSL1.png" alt="">
+            </div>
+            <span> BrightsWebs</span>
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search..." class="search-input" id="searchInput">
+            <i class="fas fa-search search-icon"></i>
+            <div class="search-suggestions">
+                <div class="search-suggestion-items"></div>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <div class="dropdown">
+                <a href="#">BG REMOVE <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Image Background Remove</a>
+                    <a href="#">Change Background Color</a>
+                    <a href="#">Image Editor</a>
+                    <a href="#">Background Crop</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">CONVERTER <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">PDF Converter</a>
+                    <a href="#">Image Converter</a>
+                    <a href="#">Photo Converter</a>
+                    <a href="#">Image Compressor</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">GENERATOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Image To SVG</a>
+                    <a href="#">SVG Blob</a>
+                    <a href="#">AI Color Palette</a>
+                    <a href="#">QR Code</a>
+                    <a href="#">PIN</a>
+                    <a href="#">Password Generator</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">COLOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Color Picker</a>
+                    <a href="#">Gradient</a>
+                    <a href="#">Color Mixer</a>
+                    <a href="#">Color Shades</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">CALCULATOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">SIP</a>
+                    <a href="#">BMI</a>
+                    <a href="#">EMI</a>
+                    <a href="#">AGE</a>
+                    <a href="#">COMPOUND</a>
+                    <a href="#">LOAN</a>
+                    <a href="#">INCOME TAX</a>
+                    <a href="#">FD</a>
+                    <a href="#">CAGR</a>
+                    <a href="#">CAR LOAN</a>
+                    <a href="#">FRACTION</a>
+                    <a href="#">SALARY</a>
+                    <a href="#">CUBE ROOT</a>
+                    <a href="#">INFLATION</a>
+                    <a href="#">RATIO</a>
+                    <a href="#">RULE OF 72</a>
+                    <a href="#">SALES TAX</a>
+                    <a href="#">SPHERE</a>
+                    <a href="#">PRESSURE</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#" class="special-btn">More <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content more">
+                    <a href="#">HELP</a>
+                    <a href="#">ABOUT</a>
+                    <a href="#">CONTACT</a>
+                </div>
+            </div>
+        </ul>
+
+        <button class="menu-toggle">
+            <span class="menu-icon">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </span>
+        </button>
+    </nav>
+    <!-- ==========================================Navbar end -->
+
+    <!-- Modify your top ad section like this -->
+    <div class="ad-container adswitch" style="overflow:hidden; max-width:100vw; padding-bottom:10px">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9660515804448328" data-ad-slot="ooooooo"
+            data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+    <div class="main-container">
+        <div class="cont">
+            <h1>Real-Time Contrast Checker</h1>
+            <div class="color-pickers">
+                <div class="color-control">
+                    <h3>Text Color</h3>
+                    <input type="color" id="textColor" value="#000000">
+                    <div class="sliders">
+                        <div class="slider-container">
+                            <label class="red">Red:</label>
+                            <input type="range" min="0" max="255" value="0" class="text-slider sp" data-channel="red">
+                        </div>
+                        <div class="slider-container">
+                            <label class="green">Green:</label>
+                            <input type="range" min="0" max="255" value="0" class="text-slider" data-channel="green">
+                        </div>
+                        <div class="slider-container">
+                            <label class="blue">Blue:</label>
+                            <input type="range" min="0" max="255" value="0" class="text-slider sp" data-channel="blue">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="color-control">
+                    <h3>Background Color</h3>
+                    <input type="color" id="bgColor" value="#ffffff">
+                    <div class="sliders">
+                        <div class="slider-container">
+                            <label class="red">Red:</label>
+                            <input type="range" min="0" max="255" value="255" class="bg-slider sp" data-channel="red">
+                        </div>
+                        <div class="slider-container">
+                            <label class="green">Green:</label>
+                            <input type="range" min="0" max="255" value="255" class="bg-slider" data-channel="green">
+                        </div>
+                        <div class="slider-container">
+                            <label class="blue">Blue:</label>
+                            <input type="range" min="0" max="255" value="255" class="bg-slider sp" data-channel="blue">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="preview" id="preview">
+                Sample Text
+            </div>
+
+            <div class="results">
+                <h2>Contrast Ratio: <span class="contrast-ratio" id="ratio">--:1</span></h2>
+                <p id="compliance"></p>
+                <div class="suggestions" id="suggestions"></div>
+                <div class="export-buttons">
+                    <button onclick="exportCSV()">📊 Export CSV</button>
+                    <button onclick="exportPDF()">📄 Export PDF</button>
+                </div>
+            </div>
+        </div>
+        <!-- SIDEBAR AD -->
+        <div class="ad-section sidebar-ad adswitch">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                data-ad-slot="0987654321" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        </div>
+    </div>
+
+
+    <!-- New Info Sections -->
+    <div class="info-card-grid">
+        <div class="info-card">
+            <h3><i class="fas fa-question-circle"></i>How to Use</h3>
+            <ul class="feature-list">
+                <li><i class="fas fa-mouse-pointer"></i>Select text & background colors</li>
+                <li><i class="fas fa-chart-bar"></i>Check real-time contrast ratio</li>
+                <li><i class="fas fa-download"></i>Export compliance reports</li>
+            </ul>
+        </div>
+
+        <div class="info-card">
+            <h3><i class="fas fa-info-circle"></i>About This Tool</h3>
+            <ul class="feature-list">
+                <li><i class="fas fa-shield-alt"></i>WCAG 2.2 compliant checks</li>
+                <li><i class="fas fa-palette"></i>Color deficiency simulations</li>
+                <li><i class="fas fa-file-contract"></i>ADA compliance reporting</li>
+            </ul>
+        </div>
+
+        <div class="info-card">
+            <h3><i class="fas fa-bullseye"></i>Key Features</h3>
+            <ul class="feature-list">
+                <li><i class="fas fa-tachometer-alt"></i>Real-time analysis</li>
+                <li><i class="fas fa-sliders-h"></i>Precision RGB controls</li>
+                <li><i class="fas fa-magic"></i>Smart suggestions</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- Bottom Ad -->
+    <div class="ad-section bottom-ad adswitch">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="1357924680" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- footer -->
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+
+                <!-- Connect Section -->
+                <div class="footer-column top-1">
+
+                    <div class="logo-container footer-logo">
+                        <div class="logo-2">
+                            <img src="/image/BSL1.png" alt=""><span> BrightsWebs</span>
+                        </div>
+
+                        <!-- <h4 class="footer-heading">Connect</h4> -->
+                        <div class="social-container">
+                            <div class="social-icons">
+                                <a href="#" class="social-link" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company Section -->
+                <div class="footer-column">
+                    <h3 class="footer-heading"> Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">About Us</a></li>
+                        <li><a href="#" class="footer-link">Our Team</a></li>
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                        <li><a href="#" class="footer-link">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Tools Section -->
+                <div class="footer-column l-left">
+                    <h3 class="footer-heading"> Tools</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">PDF Tools</a></li>
+                        <li><a href="#" class="footer-link">Image Tools</a></li>
+                        <li><a href="#" class="footer-link">Developer Tools</a></li>
+                        <li><a href="#" class="footer-link">Security Tools</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Section -->
+                <div class="footer-column">
+                    <h3 class="footer-heading"> Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li><a href="#" class="footer-link">GDPR</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Section -->
+                <div class="footer-column l-left">
+                    <h3 class="footer-heading"> card</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li><a href="#" class="footer-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="social-icons-m">
+                <a href="#" class="social--m" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2023 PDF Craft (BS WEB). All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <script>
+        // Initialize AdSense ads
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+
+    <div class="search-suggestions" id="searchSuggestions">
+        <div class="search-suggestion-items" id="suggestionItems"></div>
+    </div>
+
+    <script src="/nav&footer.css/navfooter.js"></script>
+
+    <script>
+        // Previous JavaScript remains unchanged
+        // Add smooth scroll and animation triggers
+        document.querySelectorAll('.info-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            observer.observe(card);
+        });
+
+        // Add hover effect to color controls
+        document.querySelectorAll('.color-control').forEach(control => {
+            control.addEventListener('mouseover', () => {
+                control.style.boxShadow = `0 12px 30px rgba(0, 0, 0, 0.1)`;
+            });
+
+            control.addEventListener('mouseout', () => {
+                control.style.boxShadow = `0 8px 24px rgba(0, 0, 0, 0.05)`;
+            });
+        });
+    </script>
+
+
+    <script>
+        const textColor = document.getElementById('textColor');
+        const bgColor = document.getElementById('bgColor');
+        const preview = document.getElementById('preview');
+        const ratioSpan = document.getElementById('ratio');
+        const complianceSpan = document.getElementById('compliance');
+        const suggestionsDiv = document.getElementById('suggestions');
+
+        // Initialize sliders
+        document.querySelectorAll('.text-slider, .bg-slider').forEach(slider => {
+            slider.addEventListener('input', updateColor);
+        });
+
+        textColor.addEventListener('input', updateColors);
+        bgColor.addEventListener('input', updateColors);
+
+        function updateColor(e) {
+            const isText = e.target.classList.contains('text-slider');
+            const colorInput = isText ? textColor : bgColor;
+            const sliders = document.querySelectorAll(isText ? '.text-slider' : '.bg-slider');
+            const rgb = Array.from(sliders).map(slider => parseInt(slider.value));
+            colorInput.value = rgbToHex(...rgb);
+            updateColors();
+        }
+
+        function updateColors() {
+            preview.style.color = textColor.value;
+            preview.style.backgroundColor = bgColor.value;
+            updateSliders();
+            checkContrast();
+        }
+
+        function updateSliders() {
+            updateSliderSet(textColor.value, '.text-slider');
+            updateSliderSet(bgColor.value, '.bg-slider');
+        }
+
+        function updateSliderSet(hex, selector) {
+            const rgb = hexToRgb(hex);
+            document.querySelectorAll(selector).forEach(slider => {
+                slider.value = rgb[slider.dataset.channel];
+            });
+        }
+
+        function checkContrast() {
+            const ratio = getContrastRatio(textColor.value, bgColor.value);
+            const compliance = getCompliance(ratio);
+
+            ratioSpan.textContent = `${ratio.toFixed(2)}:1`;
+            complianceSpan.innerHTML = `WCAG AA: ${ratio >= 4.5 ? '✅ Pass' : '❌ Fail'}<br>
+                                  WCAG AAA: ${ratio >= 7 ? '✅ Pass' : '❌ Fail'}`;
+            complianceSpan.style.color = ratio >= 4.5 ? 'var(--success-color)' : 'var(--accent-1)';
+            showSuggestions(ratio);
+        }
+
+        function getContrastRatio(color1, color2) {
+            const lum1 = getLuminance(color1);
+            const lum2 = getLuminance(color2);
+            return (Math.max(lum1, lum2) + 0.05) / (Math.min(lum1, lum2) + 0.05);
+        }
+
+        function getLuminance(hex) {
+            const rgb = hexToRgb(hex);
+            const [r, g, b] = Object.values(rgb).map(v => {
+                v /= 255;
+                return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+            });
+            return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+        }
+
+        function getCompliance(ratio) {
+            return {
+                pass: ratio >= 4.5,
+                message: `WCAG AA: ${ratio >= 4.5 ? 'Pass' : 'Fail'}, AAA: ${ratio >= 7 ? 'Pass' : 'Fail'}`
+            };
+        }
+
+        function showSuggestions(ratio) {
+            suggestionsDiv.innerHTML = ratio >= 4.5 ? '' :
+                `<strong>Suggestions:</strong> Try adjusting colors to increase contrast. 
+             ${ratio < 4.5 ? 'Consider using darker text or lighter background.' : ''}`;
+        }
+
+        // Utility functions
+        function hexToRgb(hex) {
+            const bigint = parseInt(hex.slice(1), 16);
+            return {
+                red: (bigint >> 16) & 255,
+                green: (bigint >> 8) & 255,
+                blue: bigint & 255
+            };
+        }
+
+        function rgbToHex(r, g, b) {
+            return '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('');
+        }
+
+        // Export functions
+        function exportCSV() {
+            const data = [
+                ['Text Color', 'Background Color', 'Contrast Ratio', 'WCAG AA', 'WCAG AAA'],
+                [
+                    textColor.value,
+                    bgColor.value,
+                    ratioSpan.textContent,
+                    getContrastRatio(textColor.value, bgColor.value) >= 4.5 ? 'Pass' : 'Fail',
+                    getContrastRatio(textColor.value, bgColor.value) >= 7 ? 'Pass' : 'Fail'
+                ]
+            ].map(row => row.join(',')).join('\n');
+
+            const blob = new Blob([data], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'contrast-check.csv';
+            a.click();
+        }
+
+        function exportPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Set theme colors
+            const textCol = getComputedStyle(document.documentElement)
+                .getPropertyValue('--text-color').trim();
+            const primaryCol = getComputedStyle(document.documentElement)
+                .getPropertyValue('--primary-color').trim();
+
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(18);
+            doc.setTextColor(primaryCol);
+            doc.text('Contrast Check Report', 15, 20);
+
+            doc.setFontSize(12);
+            doc.setTextColor(textCol);
+            doc.text(`Generated: ${new Date().toLocaleString()}`, 15, 30);
+
+            // Color swatches
+            doc.setFillColor(textColor.value);
+            doc.rect(15, 40, 20, 20, 'F');
+            doc.setFillColor(bgColor.value);
+            doc.rect(40, 40, 20, 20, 'F');
+
+            // Report data
+            doc.text(`Text Color: ${textColor.value}`, 70, 45);
+            doc.text(`Background Color: ${bgColor.value}`, 70, 55);
+            doc.text(`Contrast Ratio: ${ratioSpan.textContent}`, 15, 80);
+
+            const compliance = getCompliance(getContrastRatio(textColor.value, bgColor.value));
+            doc.setTextColor(compliance.pass ? primaryCol : '#FF0000');
+            doc.text(`WCAG Compliance: ${compliance.pass ? 'PASS' : 'FAIL'}`, 15, 90);
+
+            doc.save('contrast-report.pdf');
+        }
+
+        // Initial setup
+        updateColors();
+    </script>
+</body>
+
+</html>

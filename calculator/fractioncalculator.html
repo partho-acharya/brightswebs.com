@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Primary Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <title>Fraction Calculator Online - Add, Subtract, Multiply & Divide Fractions | BrightsWebs</title>
+
+    <meta name="description"
+        content="Advanced fraction calculator with step-by-step solutions. Perform addition, subtraction, multiplication, and division of fractions and mixed numbers. Simplify fractions, convert between improper fractions and mixed numbers instantly. Free math tool for students and teachers.">
+
+    <!-- Keywords -->
+    <meta name="keywords"
+        content="fraction calculator, adding fractions, subtracting fractions, multiplying fractions, dividing fractions, mixed number calculator, improper fractions, simplify fractions, equivalent fractions, fraction solver, math calculator, step-by-step fractions, decimal to fraction">
+
+    <!-- Common Elements -->
+    <meta name="author" content="BrightsWebs">
+    <meta name="copyright" content="BrightsWebs.com">
+    <link rel="canonical" href="https://brightswebs.com/fraction-calculator">
+    <meta name="language" content="English">
+
+    <!-- Favicons (Optimized Path Structure) -->
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Universal Fallback -->
+    <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+    <!-- Apple Devices -->
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon/favicon.ico?v=2">
+    <link rel="icon" href="/favicon/favicon.svg?v=2">
+    <!-- Windows Support -->
+    <meta name="msapplication-TileImage" content="/favicon/favicon-144x144.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+
+    <!-- Google Adsense -->
+    <meta name="google-adsense-account" content="ca-pub-9660515804448328">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9660515804448328"
+        crossorigin="anonymous"></script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Fraction Calculator - Solve Fractions with Step-by-Step Solutions">
+    <meta property="og:description"
+        content="Free online fraction calculator for all operations. Get instant results with detailed explanations. Perfect for homework help and mathematical calculations.">
+    <meta property="og:image" content="https://brightswebs.com/images/og-fraction-calculator.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fraction Calculator | BrightsWebs Math Tools">
+    <meta name="twitter:description"
+        content="Calculate fractions with confidence! Visual solutions and detailed steps for all fraction operations. Mobile-friendly educational tool for students and professionals.">
+    <meta name="twitter:image" content="https://brightswebs.com/images/twitter-fraction-calculator.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Calculator",
+  "name": "Fraction Calculator",
+  "url": "https://brightswebs.com/fraction-calculator",
+  "description": "Advanced mathematical tool for solving fraction operations with visual explanations",
+  "applicationCategory": ["EducationalTool", "MathApplication"],
+  "operatingSystem": "Web",
+  "featureList": [
+    "Fraction Addition/Subtraction",
+    "Fraction Multiplication/Division",
+    "Mixed Number Conversion",
+    "Step-by-Step Solutions",
+    "Visual Fraction Representation",
+    "Simplification Algorithms",
+    "Mobile-optimized Interface"
+  ],
+  "screenshot": {
+    "@type": "ImageObject",
+    "url": "https://brightswebs.com/images/fraction-calculator-interface.png",
+    "caption": "Fraction calculator interface with visual mathematical solutions"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": "950"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+    <!-- Styles & Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/nav&footer.css/toolui.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+        }
+
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            min-height: 100vh;
+        }
+
+        /* ====================================Ad Section Styles end */
+        /* Update the sidebar ad styles */
+        .sidebar-ad {
+            position: fixed;
+            top: 150px;
+            right: 20px;
+        }
+
+        /* Adjust main container to prevent overlap */
+        .main-container {
+            margin-right: 340px;
+            padding: 1rem;
+            position: relative;
+        }
+
+        /* ====================================Ad Section Styles end */
+
+
+        /*=========================================== main */
+
+        .container {
+            width: 100%;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .calculator-container {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calculator-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-1), var(--primary-2), var(--primary-3));
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--primary-2);
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-1), var(--accent-1));
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-group label {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-2);
+            display: flex;
+            align-items: center;
+        }
+
+        .input-group label i {
+            margin-right: 8px;
+            color: var(--primary-3);
+        }
+
+        .fraction-input {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .fraction-input input {
+            width: 70px;
+            height: 45px;
+            text-align: center;
+            font-size: 18px;
+            border: 1px solid var(--pink-color);
+            border-radius: 8px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding: 5px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .fraction-input input:focus {
+            outline: none;
+            border-color: var(--primary-2);
+            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.2);
+        }
+
+        .fraction-input div {
+            width: 25px;
+            text-align: center;
+            font-size: 20px;
+            color: var(--primary-3);
+        }
+
+        .operation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 25px 0;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .operation-btn {
+            background-color: var(--primary-2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 15px;
+            font-size: 18px;
+            cursor: pointer;
+            flex: 1;
+            min-width: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .operation-btn:hover {
+            background-color: var(--lite-blue-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .operation-btn i {
+            margin-right: 8px;
+        }
+
+        .calculate-btn {
+            background-color: var(--primary-1);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .calculate-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .calculate-btn i {
+            margin-right: 10px;
+        }
+
+        .result-container {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: var(--lite-purple-0);
+            text-align: center;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px dashed var(--primary-3);
+            transition: all 0.3s;
+        }
+
+        .result-container:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-fraction {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: var(--primary-3);
+            font-weight: 700;
+        }
+
+        .result-decimal {
+            font-size: 18px;
+            color: var(--pink-color);
+            margin-bottom: 5px;
+        }
+
+        .simplified {
+            font-size: 16px;
+            margin-top: 10px;
+            color: var(--primary-1);
+            font-style: italic;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(15deg);
+        }
+
+        select {
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--pink-color);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin-bottom: 15px;
+            font-size: 16px;
+            transition: all 0.3s;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 1em;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: var(--primary-2);
+            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.2);
+        }
+
+        /* Info Section */
+        .info-section {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 1500px;
+            margin: 40px auto;
+            border: 1px solid var(--pink-color);
+        }
+
+        .info-section h2 {
+            color: var(--primary-2);
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .info-section h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-1), var(--accent-1));
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .info-card {
+            background-color: var(--background-color);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            border-left: 5px solid var(--primary-2);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card h3 {
+            color: var(--primary-3);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 1.4rem;
+        }
+
+        .info-card h3 i {
+            margin-right: 12px;
+            color: var(--accent-1);
+        }
+
+        .info-card p {
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+
+        .info-card ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .info-card li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .info-card li::before {
+            content: '•';
+            color: var(--primary-1);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        @media (max-width: 768px) {
+
+            .main-container {
+                margin: 0;
+            }
+
+            .calculator-container,
+            .info-section {
+                padding: 20px;
+            }
+
+            /* .operation-buttons {
+                flex-direction: column;
+            } */
+
+            .operation-btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .info-section h2 {
+                font-size: 1.6rem;
+            }
+
+            .info-section {
+                margin-bottom: 0;
+            }
+        }
+
+        /* Animation */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ==========================================Navbar start -->
+    <nav>
+        <div class="logo-container">
+            <div class="logo-1">
+                <img src="/image/BSL1.png" alt="">
+            </div>
+            <span> BrightsWebs</span>
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search..." class="search-input" id="searchInput">
+            <i class="fas fa-search search-icon"></i>
+            <div class="search-suggestions">
+                <div class="search-suggestion-items"></div>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <div class="dropdown">
+                <a href="#">BG REMOVE <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Image Background Remove</a>
+                    <a href="#">Change Background Color</a>
+                    <a href="#">Image Editor</a>
+                    <a href="#">Background Crop</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">CONVERTER <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">PDF Converter</a>
+                    <a href="#">Image Converter</a>
+                    <a href="#">Photo Converter</a>
+                    <a href="#">Image Compressor</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">GENERATOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Image To SVG</a>
+                    <a href="#">SVG Blob</a>
+                    <a href="#">AI Color Palette</a>
+                    <a href="#">QR Code</a>
+                    <a href="#">PIN</a>
+                    <a href="#">Password Generator</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">COLOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Color Picker</a>
+                    <a href="#">Gradient</a>
+                    <a href="#">Color Mixer</a>
+                    <a href="#">Color Shades</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">CALCULATOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">SIP</a>
+                    <a href="#">BMI</a>
+                    <a href="#">EMI</a>
+                    <a href="#">AGE</a>
+                    <a href="#">COMPOUND</a>
+                    <a href="#">LOAN</a>
+                    <a href="#">INCOME TAX</a>
+                    <a href="#">FD</a>
+                    <a href="#">CAGR</a>
+                    <a href="#">CAR LOAN</a>
+                    <a href="#">FRACTION</a>
+                    <a href="#">SALARY</a>
+                    <a href="#">CUBE ROOT</a>
+                    <a href="#">INFLATION</a>
+                    <a href="#">RATIO</a>
+                    <a href="#">RULE OF 72</a>
+                    <a href="#">SALES TAX</a>
+                    <a href="#">SPHERE</a>
+                    <a href="#">PRESSURE</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#" class="special-btn">More <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content more">
+                    <a href="#">HELP</a>
+                    <a href="#">ABOUT</a>
+                    <a href="#">CONTACT</a>
+                </div>
+            </div>
+        </ul>
+
+        <button class="menu-toggle">
+            <span class="menu-icon">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </span>
+        </button>
+    </nav>
+    <!-- ==========================================Navbar end -->
+
+    <!-- Modify your top ad section like this -->
+    <div class="ad-container" style="overflow:hidden; max-width:100vw; padding-bottom:10px">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9660515804448328" data-ad-slot="ooooooo"
+            data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+
+    <div class="main-container">
+        <div class="container">
+            <div class="calculator-container floating">
+                <h1><i class="fas fa-calculator"></i> Fraction Calculator</h1>
+
+                <div class="input-group">
+                    <label for="fraction1"><i class="fas fa-fraction"></i> Fraction 1</label>
+                    <div class="fraction-input">
+                        <input type="number" id="numerator1" placeholder="Num">
+                        <div>/</div>
+                        <input type="number" id="denominator1" placeholder="Den">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="operation"><i class="fas fa-cogs"></i> Operation</label>
+                    <select id="operation">
+                        <option value="add">Addition (+)</option>
+                        <option value="subtract">Subtraction (-)</option>
+                        <option value="multiply">Multiplication (×)</option>
+                        <option value="divide">Division (÷)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="fraction2"><i class="fas fa-fraction"></i> Fraction 2</label>
+                    <div class="fraction-input">
+                        <input type="number" id="numerator2" placeholder="Num">
+                        <div>/</div>
+                        <input type="number" id="denominator2" placeholder="Den">
+                    </div>
+                </div>
+
+                <div class="operation-buttons">
+                    <button class="operation-btn" data-op="add"><i class="fas fa-plus"></i> Add</button>
+                    <button class="operation-btn" data-op="subtract"><i class="fas fa-minus"></i> Subtract</button>
+                    <button class="operation-btn" data-op="multiply"><i class="fas fa-times"></i> Multiply</button>
+                    <button class="operation-btn" data-op="divide"><i class="fas fa-divide"></i> Divide</button>
+                </div>
+
+                <button class="calculate-btn" id="calculate"><i class="fas fa-equals"></i> Calculate</button>
+
+                <div class="result-container" id="result">
+                    <div class="result-fraction">Result will appear here</div>
+                    <div class="result-decimal"></div>
+                    <div class="simplified"></div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2><i class="fas fa-info-circle"></i> About Fractions</h2>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fas fa-question-circle"></i> What Are Fractions?</h3>
+                        <p>Fractions represent parts of a whole. They consist of a numerator (top number) and a
+                            denominator (bottom number), separated by a fraction bar.</p>
+                        <p>Example: <strong>3/4</strong> means 3 parts out of 4 equal parts.</p>
+                        <p>Fractions are fundamental in mathematics, used in measurements, ratios, probabilities, and
+                            many real-world applications like cooking, construction, and finance.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fas fa-cogs"></i> How Our Calculator Works</h3>
+                        <p>Our advanced fraction calculator performs operations following precise mathematical rules:
+                        </p>
+                        <ul>
+                            <li><strong>Addition/Subtraction:</strong> Finds common denominator, then adds/subtracts
+                                numerators</li>
+                            <li><strong>Multiplication:</strong> Multiplies numerators and denominators directly</li>
+                            <li><strong>Division:</strong> Multiplies by the reciprocal of the second fraction</li>
+                        </ul>
+                        <p>The calculator automatically simplifies results to their lowest terms using the greatest
+                            common divisor (GCD).</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fas fa-user-graduate"></i> How To Use This Tool</h3>
+                        <ol>
+                            <li>Enter numerators and denominators for both fractions</li>
+                            <li>Select the operation you want to perform</li>
+                            <li>Click "Calculate" or press Enter</li>
+                            <li>View your result as a simplified fraction and decimal equivalent</li>
+                        </ol>
+                        <p><strong>Pro Tip:</strong> You can click the operation buttons to quickly change operations
+                            without reselecting from the dropdown.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fas fa-lightbulb"></i> Practical Applications</h3>
+                        <p>Fraction calculations are essential in many fields:</p>
+                        <ul>
+                            <li><strong>Cooking:</strong> Adjusting recipe quantities and measurements</li>
+                            <li><strong>Construction:</strong> Precise measurements of materials</li>
+                            <li><strong>Finance:</strong> Calculating interest rates and proportions</li>
+                            <li><strong>Education:</strong> Fundamental math concepts and problem solving</li>
+                            <li><strong>Science:</strong> Data analysis, measurements, and ratios</li>
+                            <li><strong>Everyday Life:</strong> Comparing prices, measuring ingredients, time management
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- SIDEBAR AD -->
+    <div class="ad-section sidebar-ad">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="0987654321" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- Bottom Ad -->
+    <div class="ad-section bottom-ad">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="1357924680" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- footer -->
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+
+                <!-- Connect Section -->
+                <div class="footer-column top-1">
+
+                    <div class="logo-container footer-logo">
+                        <div class="logo-2">
+                            <img src="/image/BSL1.png" alt=""><span> BrightsWebs</span>
+                        </div>
+
+                        <!-- <h4 class="footer-heading">Connect</h4> -->
+                        <div class="social-container">
+                            <div class="social-icons">
+                                <a href="#" class="social-link" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company Section -->
+                <div class="footer-column">
+                    <h3 class="footer-heading"> Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">About Us</a></li>
+                        <li><a href="#" class="footer-link">Our Team</a></li>
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                        <li><a href="#" class="footer-link">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Tools Section -->
+                <div class="footer-column l-left">
+                    <h3 class="footer-heading"> Tools</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">PDF Tools</a></li>
+                        <li><a href="#" class="footer-link">Image Tools</a></li>
+                        <li><a href="#" class="footer-link">Developer Tools</a></li>
+                        <li><a href="#" class="footer-link">Security Tools</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Section -->
+                <div class="footer-column">
+                    <h3 class="footer-heading"> Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li><a href="#" class="footer-link">GDPR</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Section -->
+                <div class="footer-column l-left">
+                    <h3 class="footer-heading"> card</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li><a href="#" class="footer-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="social-icons-m">
+                <a href="#" class="social--m" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2023 PDF Craft (BS WEB). All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AdSense ads
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <div class="search-suggestions" id="searchSuggestions">
+        <div class="search-suggestion-items" id="suggestionItems"></div>
+    </div>
+
+    <script src="/nav&footer.css/navfooter.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+
+            // Fraction calculator logic
+            const calculateBtn = document.getElementById('calculate');
+            const operationBtns = document.querySelectorAll('.operation-btn');
+            const operationSelect = document.getElementById('operation');
+
+            // Add click handlers to operation buttons
+            operationBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    operationSelect.value = this.dataset.op;
+                    // Highlight the selected button
+                    operationBtns.forEach(b => b.style.opacity = '0.7');
+                    this.style.opacity = '1';
+                    this.style.transform = 'translateY(-2px) scale(1.05)';
+                });
+            });
+
+            calculateBtn.addEventListener('click', calculateFractions);
+
+            // Also calculate when pressing Enter in any input
+            document.querySelectorAll('input').forEach(input => {
+                input.addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') {
+                        calculateFractions();
+                    }
+                });
+            });
+
+            function calculateFractions() {
+                // Get input values
+                const num1 = parseInt(document.getElementById('numerator1').value) || 0;
+                const den1 = parseInt(document.getElementById('denominator1').value) || 1;
+                const num2 = parseInt(document.getElementById('numerator2').value) || 0;
+                const den2 = parseInt(document.getElementById('denominator2').value) || 1;
+                const operation = operationSelect.value;
+
+                // Validate denominators
+                if (den1 === 0 || den2 === 0) {
+                    showResult("Error: Denominator cannot be zero", "", "");
+                    return;
+                }
+
+                let resultNum, resultDen;
+
+                // Perform the selected operation
+                switch (operation) {
+                    case 'add':
+                        resultNum = num1 * den2 + num2 * den1;
+                        resultDen = den1 * den2;
+                        break;
+                    case 'subtract':
+                        resultNum = num1 * den2 - num2 * den1;
+                        resultDen = den1 * den2;
+                        break;
+                    case 'multiply':
+                        resultNum = num1 * num2;
+                        resultDen = den1 * den2;
+                        break;
+                    case 'divide':
+                        if (num2 === 0) {
+                            showResult("Error: Cannot divide by zero", "", "");
+                            return;
+                        }
+                        resultNum = num1 * den2;
+                        resultDen = den1 * num2;
+                        break;
+                    default:
+                        resultNum = 0;
+                        resultDen = 1;
+                }
+
+                // Simplify the fraction
+                const simplified = simplifyFraction(resultNum, resultDen);
+                const decimalValue = (resultNum / resultDen).toFixed(4);
+
+                // Display results
+                showResult(
+                    `${simplified.num}/${simplified.den}`,
+                    `Decimal: ${decimalValue}`,
+                    simplified.simplified ? "" : `Simplified from ${resultNum}/${resultDen}`
+                );
+
+                // Add celebration effect for nice results
+                if (simplified.simplified && resultNum !== 0) {
+                    celebrate();
+                }
+            }
+
+            function simplifyFraction(numerator, denominator) {
+                if (numerator === 0) {
+                    return { num: 0, den: 1, simplified: true };
+                }
+
+                const gcd = findGCD(Math.abs(numerator), Math.abs(denominator));
+                const simplifiedNum = numerator / gcd;
+                const simplifiedDen = denominator / gcd;
+
+                return {
+                    num: simplifiedNum,
+                    den: simplifiedDen,
+                    simplified: gcd === 1
+                };
+            }
+
+            function findGCD(a, b) {
+                return b ? findGCD(b, a % b) : a;
+            }
+
+            function showResult(fraction, decimal, simplified) {
+                document.querySelector('.result-fraction').textContent = fraction;
+                document.querySelector('.result-decimal').textContent = decimal;
+                document.querySelector('.simplified').textContent = simplified;
+            }
+
+            function celebrate() {
+                const resultContainer = document.getElementById('result');
+                resultContainer.style.animation = 'none';
+                void resultContainer.offsetWidth; // Trigger reflow
+                resultContainer.style.animation = 'float 1s ease-in-out';
+
+                // Add temporary color change
+                resultContainer.style.backgroundColor = 'var(--lite-green-0)';
+                setTimeout(() => {
+                    resultContainer.style.backgroundColor = 'var(--lite-purple-0)';
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+
+</html>

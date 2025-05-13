@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Primary Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <title>Compound Interest Calculator - Calculate Daily/Monthly/Yearly Growth | BrightsWebs</title>
+
+    <meta name="description"
+        content="Free compound interest calculator with daily, monthly, and yearly compounding. Project investment growth, debt accumulation, and savings goals. Compare scenarios with interactive charts and export results.">
+
+    <!-- Keywords -->
+    <meta name="keywords"
+        content="compound interest calculator, daily compound calculator, investment growth calculator, savings calculator, interest calculator, compound growth calculator, debt calculator, financial compounding calculator, monthly compound interest, yearly compounding, retirement savings calculator, crypto compound calculator, stock market compounding">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Advanced Compound Interest Calculator - Visualize Growth Over Time">
+    <meta property="og:description"
+        content="Calculate compound interest for investments, loans, or savings accounts. Adjust contributions, rates, and compounding frequency. Export projections and compare multiple scenarios instantly.">
+    <meta property="og:image" content="https://brightswebs.com/images/og-compound-calculator.jpg">
+
+    <!-- Google Adsense -->
+    <meta name="google-adsense-account" content="ca-pub-9660515804448328">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9660515804448328"
+        crossorigin="anonymous"></script>
+
+    <!-- Favicons (Optimized Path Structure) -->
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Universal Fallback -->
+    <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+    <!-- Apple Devices -->
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon/favicon.ico?v=2">
+    <link rel="icon" href="/favicon/favicon.svg?v=2">
+    <!-- Windows Support -->
+    <meta name="msapplication-TileImage" content="/favicon/favicon-144x144.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+
+    <!-- Common Elements -->
+    <meta name="author" content="BrightsWebs">
+    <meta name="copyright" content="BrightsWebs.com">
+    <link rel="canonical" href="https://brightswebs.com/compound-calculator">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:title" content="Free Compound Calculator - Project Investment Growth Accurately">
+    <meta name="twitter:description"
+        content="Visualize compounding effects with interactive graphs. Calculate crypto/stocks/savings growth with regular contributions. Mobile-optimized financial planning tool.">
+    <meta name="twitter:image" content="https://brightswebs.com/images/twitter-compound-calculator.jpg">
+
+    <!-- Structured Data -->
+
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Compound Calculator",
+          "url": "https://brightswebs.com/compound-calculator",
+          "description": "Financial tool for calculating compound interest with adjustable frequency and contributions",
+          "applicationCategory": ["Financial Calculator", "Investment Tool"],
+          "featureList": "Multi-scenario comparisons, Growth charts, CSV/PDF exports, Crypto/Stock presets",
+          "screenshot": {
+            "@type": "ImageObject",
+            "url": "https://brightswebs.com/images/compound-calculator-interface.png",
+            "caption": "Compound interest interface with interactive timeline"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0.00",
+            "priceCurrency": "USD"
+          },
+          "audience": {
+            "@type": "Audience",
+            "audienceType": "Investors, Students, Financial Planners"
+          }
+        }
+        </script>
+
+    <!-- Core Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="/nav&footer.css/toolui.css">
+    <link rel="stylesheet" href="/nav&footer.css/calculatorbuttoncard.css">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            min-height: 100vh;
+        }
+
+        /* ====================================Ad Section Styles end */
+        /* Update the sidebar ad styles */
+        .sidebar-ad {
+            position: fixed;
+            top: 150px;
+            right: 20px;
+        }
+
+        /* Adjust main container to prevent overlap */
+        .main-container {
+            margin-right: 340px;
+            /* Make space for the sidebar ad */
+            position: relative;
+        }
+
+        /* ====================================Ad Section Styles end */
+
+
+        /*=========================================== MAIN */
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .calculator {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        h1 {
+            margin-bottom: 1.5rem;
+            color: var(--lite-blue-color);
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--pink-color);
+            border-radius: 6px;
+            background: var(--background-color);
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.8rem center;
+            background-size: 2em;
+            padding-right: 2.5rem !important;
+            color: var(--text-color);
+        }
+
+        /* For dark theme */
+        [data-theme="dark"] select {
+            color: white;
+            /* Text color */
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+        }
+
+        button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background: var(--secondary-color);
+        }
+
+        .results {
+            margin-top: 2rem;
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .result-item {
+            background: var(--rear-lite-blue);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .result-item h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .result-item p {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .chart-container {
+            margin-top: 2rem;
+            height: 300px;
+            position: relative;
+            border-radius: 10px;
+            border: 1px solid var(--pink-color);
+        }
+
+        #themeToggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            padding: 1rem;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-color);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #themeToggle i {
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                margin: 0;
+            }
+
+            .container {
+                padding: 1rem;
+
+                h1 {
+                    font-size: 30px;
+                    margin-bottom: 30px;
+                }
+            }
+
+            .chart-container {
+                height: 250px;
+            }
+
+            .calculator {
+                padding: 1rem;
+            }
+
+            .input-group {
+                margin-bottom: 1.5rem;
+                gap: .5rem;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+
+
+        /* =====================Guide Sections */
+        .info {
+            max-width: 1500px;
+            margin: 10px auto 50px;
+
+            h3 {
+                color: var(--pink-color);
+                margin-bottom: 10px;
+            }
+        }
+
+        .guide-section,
+        .about-section {
+            width: 100%;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-header i {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+
+        .section-header h2 {
+            color: var(--lite-blue-color);
+            margin: 0;
+        }
+
+        .guide-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .step-card {
+            background: var(--rear-lite-blue);
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            position: relative;
+            /* overflow: hidden; */
+            border: .5px solid var(--pink-color);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-icon {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+
+        .step-icon i {
+            font-size: 2rem;
+            color: var(--pink-color);
+            position: absolute;
+            z-index: 1;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: var(--primary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .about-content {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .about-card {
+            background: linear-gradient(135deg, var(--lite-purple-0), var(--rear-lite-blue));
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--pink-color);
+            border-right: 1px solid var(--accent-2);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover,
+        .about-card:hover {
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-card i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .about-card.highlight {
+            background: linear-gradient(135deg, var(--lite-purple-0), var(--lite-green-0));
+            border-color: var(--primary-color);
+        }
+
+        .about-card ul {
+            padding-left: 1.5rem;
+        }
+
+        .about-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+
+            .guide-steps,
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .step-card,
+            .about-card {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ==========================================Navbar start -->
+    <nav>
+        <div class="logo-container">
+            <div class="logo-1">
+                <img src="/image/BSL1.png" alt="">
+            </div>
+            <span> BrightsWebs</span>
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search..." class="search-input" id="searchInput">
+            <i class="fas fa-search search-icon"></i>
+            <div class="search-suggestions">
+                <div class="search-suggestion-items"></div>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <div class="dropdown">
+                <a href="#">BG REMOVE <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Image Background Remove</a>
+                    <a href="#">Change Background Color</a>
+                    <a href="#">Image Editor</a>
+                    <a href="#">Background Crop</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">CONVERTER <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">PDF Converter</a>
+                    <a href="#">Image Converter</a>
+                    <a href="#">Photo Converter</a>
+                    <a href="#">Image Compressor</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">GENERATOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Image To SVG</a>
+                    <a href="#">SVG Blob</a>
+                    <a href="#">AI Color Palette</a>
+                    <a href="#">QR Code</a>
+                    <a href="#">PIN</a>
+                    <a href="#">Password Generator</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">COLOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Color Picker</a>
+                    <a href="#">Gradient</a>
+                    <a href="#">Color Mixer</a>
+                    <a href="#">Color Shades</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">CALCULATOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">SIP</a>
+                    <a href="#">BMI</a>
+                    <a href="#">EMI</a>
+                    <a href="#">AGE</a>
+                    <a href="#">COMPOUND</a>
+                    <a href="#">LOAN</a>
+                    <a href="#">INCOME TAX</a>
+                    <a href="#">FD</a>
+                    <a href="#">CAGR</a>
+                    <a href="#">CAR LOAN</a>
+                    <a href="#">FRACTION</a>
+                    <a href="#">SALARY</a>
+                    <a href="#">CUBE ROOT</a>
+                    <a href="#">INFLATION</a>
+                    <a href="#">RATIO</a>
+                    <a href="#">RULE OF 72</a>
+                    <a href="#">SALES TAX</a>
+                    <a href="#">SPHERE</a>
+                    <a href="#">PRESSURE</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#" class="special-btn">More <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content more">
+                    <a href="#">HELP</a>
+                    <a href="#">ABOUT</a>
+                    <a href="#">CONTACT</a>
+                </div>
+            </div>
+        </ul>
+
+        <button class="menu-toggle">
+            <span class="menu-icon">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </span>
+        </button>
+    </nav>
+    <!-- ==========================================Navbar end -->
+
+    <!-- Modify your top ad section like this -->
+    <div class="ad-container" style="overflow:hidden; max-width:100vw; padding-bottom:10px">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9660515804448328" data-ad-slot="ooooooo"
+            data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+    <div class="main-container">
+        <div class="container">
+            <h1>Compound Interest Calculator</h1>
+            <div class="calculator">
+
+                <div class="input-group">
+                    <label>Initial Investment ($)</label>
+                    <input type="number" id="principal" value="1000" min="0">
+                </div>
+
+                <div class="input-group">
+                    <label>Annual Interest Rate (%)</label>
+                    <input type="number" id="rate" step="0.1" value="5" min="0" max="100">
+                </div>
+
+                <div class="input-group">
+                    <label>Time Period (years)</label>
+                    <input type="number" id="time" value="10" min="1">
+                </div>
+
+                <div class="input-group">
+                    <label>Compound Frequency</label>
+                    <select id="frequency">
+                        <option value="1">Annually</option>
+                        <option value="12">Monthly</option>
+                        <option value="365">Daily</option>
+                    </select>
+                </div>
+
+                <button onclick="calculate()">Calculate</button>
+
+                <div class="results">
+                    <div class="result-item">
+                        <h3>Total Amount</h3>
+                        <p id="totalAmount">-</p>
+                    </div>
+                    <div class="result-item">
+                        <h3>Interest Earned</h3>
+                        <p id="interestEarned">-</p>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="growthChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- <button class="theme-toggle" onclick="toggleTheme()">
+            <i class="fas fa-moon"></i>
+        </button> -->
+
+        <button id="themeToggle" onclick="toggleTheme()">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon" style="display: none;"></i>
+        </button>
+
+    </div>
+
+    <!-- SIDEBAR AD -->
+    <div class="ad-section sidebar-ad">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="0987654321" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- Bottom Ad -->
+    <div class="ad-section bottom-ad">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="1357924680" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+
+    <!--=================== info -->
+    <div class="info">
+        <div class="guide-section">
+            <div class="section-header">
+                <i class="fas fa-info-circle"></i>
+                <h2>How to Use This Calculator</h2>
+            </div>
+
+            <div class="guide-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Initial Investment</h3>
+                    <p>Enter your starting amount (principal investment)</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3>Interest Rate</h3>
+                    <p>Input annual interest rate (APR)</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Time Period</h3>
+                    <p>Select investment duration in years</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Compound Frequency</h3>
+                    <p>Choose compounding interval (daily, monthly, yearly)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <div class="section-header">
+                <i class="fas fa-chart-line"></i>
+                <h2>About Compound Interest</h2>
+            </div>
+
+            <div class="about-content">
+                <div class="about-card highlight">
+                    <i class="fas fa-magic"></i>
+                    <h3>The Eighth Wonder</h3>
+                    <p>Albert Einstein called compound interest "the eighth wonder of the world." It's the process where
+                        your earnings generate their own earnings over time.</p>
+                </div>
+
+                <div class="about-card">
+                    <i class="fas fa-calculator"></i>
+                    <h3>How It Works</h3>
+                    <p>Compound interest = P(1 + r/n)<sup>nt</sup> - P<br>
+                        Where:<br>
+                        P = Principal amount<br>
+                        r = Annual interest rate<br>
+                        n = Compounding periods per year<br>
+                        t = Time in years</p>
+                </div>
+
+                <div class="about-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Key Benefits</h3>
+                    <ul>
+                        <li>Exponential growth potential</li>
+                        <li>Rewards long-term investing</li>
+                        <li>Beats inflation</li>
+                        <li>Automated wealth building</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- other-calculator-cards -->
+    <div class="other-calculator-cards">
+        <!-- CAGR Card -->
+        <div class="card" id="cagr-card">
+            <h2>CAGR Calculator</h2>
+            <p>Calculate compound annual growth rate for your investments. Measure average yearly growth over multiple
+                periods.</p>
+            <a href="/calculator/cagrcalculator.html" class="card-button">Calculate CAGR</a>
+        </div>
+
+        <!-- FD & RD Card -->
+        <div class="card" id="fd-card">
+            <h2>Fixed & Recurring Deposits</h2>
+            <p>Plan your fixed deposit and recurring deposit investments. Compare returns and maturity values with
+                different tenure options.</p>
+            <a href="/calculator/fd&rdcalculater.html" class="card-button">Explore FD/RD</a>
+        </div>
+
+        <!-- SIP & SWP Card -->
+        <div class="card" id="sip-card">
+            <h2>SIP & SWP Planner</h2>
+            <p>Plan systematic investment plans and systematic withdrawal plans. Manage your investment strategy
+                effectively.</p>
+            <a href="/calculator/sip&swpcalculator.html" class="card-button">Start Planning</a>
+        </div>
+    </div>
+    <!-- other-calculator-cards -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+
+                <!-- Connect Section -->
+                <div class="footer-column top-1">
+
+                    <div class="logo-container footer-logo">
+                        <div class="logo-2">
+                            <img src="/image/BSL1.png" alt=""><span> BrightsWebs</span>
+                        </div>
+
+                        <!-- <h4 class="footer-heading">Connect</h4> -->
+                        <div class="social-container">
+                            <div class="social-icons">
+                                <a href="#" class="social-link" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company Section -->
+                <div class="footer-column">
+                    <h3 class="footer-heading"> Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">About Us</a></li>
+                        <li><a href="#" class="footer-link">Our Team</a></li>
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                        <li><a href="#" class="footer-link">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Tools Section -->
+                <div class="footer-column l-left">
+                    <h3 class="footer-heading"> Tools</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">PDF Tools</a></li>
+                        <li><a href="#" class="footer-link">Image Tools</a></li>
+                        <li><a href="#" class="footer-link">Developer Tools</a></li>
+                        <li><a href="#" class="footer-link">Security Tools</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Section -->
+                <div class="footer-column">
+                    <h3 class="footer-heading"> Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li><a href="#" class="footer-link">GDPR</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Section -->
+                <div class="footer-column l-left">
+                    <h3 class="footer-heading"> card</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li><a href="#" class="footer-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="social-icons-m">
+                <a href="#" class="social--m" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2023 PDF Craft (BS WEB). All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AdSense ads
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <div class="search-suggestions" id="searchSuggestions">
+        <div class="search-suggestion-items" id="suggestionItems"></div>
+    </div>
+
+    <script src="/nav&footer.css/navfooter.js"></script>
+
+    <script>
+        let chart;
+        const defaultTheme = 'light';
+
+        function calculate() {
+            const principal = parseFloat(document.getElementById('principal').value);
+            const rate = parseFloat(document.getElementById('rate').value) / 100;
+            const time = parseFloat(document.getElementById('time').value);
+            const frequency = parseInt(document.getElementById('frequency').value);
+
+            if (isNaN(principal) || isNaN(rate) || isNaN(time)) {
+                alert('Please fill in all fields with valid numbers');
+                return;
+            }
+
+            const amount = principal * Math.pow(1 + rate / frequency, frequency * time);
+            const interest = amount - principal;
+
+            document.getElementById('totalAmount').textContent = `$${amount.toLocaleString('en-US', { maximumFractionDigits: 2 })}`;
+            document.getElementById('interestEarned').textContent = `$${interest.toLocaleString('en-US', { maximumFractionDigits: 2 })}`;
+
+            updateChart(principal, rate, time, frequency);
+        }
+
+        function updateChart(principal, rate, time, frequency) {
+            const ctx = document.getElementById('growthChart').getContext('2d');
+            const years = Array.from({ length: time + 1 }, (_, i) => i);
+            const data = years.map(year =>
+                principal * Math.pow(1 + rate / frequency, frequency * year)
+            );
+
+            const chartColor = getComputedStyle(document.documentElement)
+                .getPropertyValue('--primary-color');
+
+            if (chart) chart.destroy();
+
+            chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: years,
+                    datasets: [{
+                        label: 'Investment Growth',
+                        data: data,
+                        borderColor: chartColor,
+                        backgroundColor: chartColor + '20',
+                        tension: 0.4,
+                        fill: true,
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: getComputedStyle(document.documentElement)
+                                    .getPropertyValue('--text-color')
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Years',
+                                color: getComputedStyle(document.documentElement)
+                                    .getPropertyValue('--text-color')
+                            },
+                            grid: {
+                                color: getComputedStyle(document.documentElement)
+                                    .getPropertyValue('--border-color')
+                            },
+                            ticks: {
+                                color: getComputedStyle(document.documentElement)
+                                    .getPropertyValue('--text-color')
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Amount ($)',
+                                color: getComputedStyle(document.documentElement)
+                                    .getPropertyValue('--text-color')
+                            },
+                            grid: {
+                                color: getComputedStyle(document.documentElement)
+                                    .getPropertyValue('--border-color')
+                            },
+                            ticks: {
+                                color: getComputedStyle(document.documentElement)
+                                    .getPropertyValue('--text-color'),
+                                callback: function (value) {
+                                    return '$' + value.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            const themeToggle = document.getElementById('themeToggle');
+
+            // Reverse the logic for toggling
+            html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            themeToggle.querySelector('.fa-sun').style.display = isDark ? 'block' : 'none';
+            themeToggle.querySelector('.fa-moon').style.display = isDark ? 'none' : 'block';
+
+            if (chart) chart.update();
+        }
+
+        // Initialize theme and chart
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set initial theme to light
+            document.documentElement.setAttribute('data-theme', defaultTheme);
+            // Update icon visibility
+            document.querySelector('.fa-sun').style.display = 'block';
+            document.querySelector('.fa-moon').style.display = 'none';
+            calculate();
+        });
+    </script>
+</body>
+
+</html>

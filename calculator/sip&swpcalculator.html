@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Primary Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <title>SWP & SIP Calculator - Calculate Investment Returns & Withdrawals | BrightsWebs</title>
+
+    <meta name="description"
+        content="Advanced SIP & SWP calculator for mutual fund investments. Calculate Systematic Investment Plan returns and Systematic Withdrawal Plan income. Compare growth scenarios with compound interest and withdrawal strategies.">
+
+    <!-- Keywords -->
+    <meta name="keywords"
+        content="SIP calculator, SWP calculator, mutual fund calculator, investment returns, systematic withdrawal plan, systematic investment plan, wealth creation calculator, financial planning, monthly investment calculator, withdrawal strategy, compound interest calculator, investment growth, retirement planning">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Free SIP & SWP Calculator - Investment & Withdrawal Planner | BrightsWebs">
+    <meta property="og:description"
+        content="Plan long-term investments with SIP calculations and generate regular income through SWP withdrawals. Visualize growth charts and compare different financial scenarios.">
+    <meta property="og:image" content="https://brightswebs.com/images/og-sip-swp-calculator.jpg">
+
+    <!-- Favicons (Optimized Path Structure) -->
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Universal Fallback -->
+    <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+    <!-- Apple Devices -->
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon/favicon.ico?v=2">
+    <link rel="icon" href="/favicon/favicon.svg?v=2">
+    <!-- Windows Support -->
+    <meta name="msapplication-TileImage" content="/favicon/favicon-144x144.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Advanced Investment Calculator for SIP & SWP Planning">
+    <meta name="twitter:description"
+        content="Calculate mutual fund investments with rupee cost averaging and systematic withdrawals. Optimize your financial strategy with interactive charts and exportable reports.">
+    <meta name="twitter:image" content="https://brightswebs.com/images/twitter-sip-swp-calculator.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "SIP & SWP Calculator",
+  "url": "https://brightswebs.com/sip-swp-calculator",
+  "description": "Comprehensive investment tool for systematic investment plans and withdrawal strategies",
+  "applicationCategory": ["Financial Calculator", "Investment Planning Tool"],
+  "featureList": [
+    "SIP maturity value calculator",
+    "SWP withdrawal planner",
+    "Compound interest visualization",
+    "Investment growth projections"
+  ],
+  "screenshot": {
+    "@type": "ImageObject",
+    "url": "https://brightswebs.com/images/sip-swp-calculator-interface.png",
+    "caption": "Interactive investment calculator with dual SIP/SWP modes"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Investors, Financial Advisors, Retirement Planners"
+  }
+}
+</script>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://brightswebs.com/sip-swp-calculator">
+
+    <!-- Common Elements (Same as existing structure) -->
+    <meta name="author" content="BrightsWebs">
+    <meta name="copyright" content="BrightsWebs.com">
+
+    <meta name="google-adsense-account" content="ca-pub-9660515804448328">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9660515804448328"
+        crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="/nav&footer.css/toolui.css">
+    <link rel="stylesheet" href="/nav&footer.css/calculatorbuttoncard.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* ====================================Ad Section Styles end */
+        /* Update the sidebar ad styles */
+        .sidebar-ad {
+            position: fixed;
+            top: 150px;
+            right: 20px;
+        }
+
+        /* Adjust main container to prevent overlap */
+        .main-container {
+            margin-right: 340px;
+            padding: 1rem;
+            position: relative;
+        }
+
+        /* ====================================Ad Section Styles end */
+
+
+        .calculator-container {
+            max-width: 1200px;
+            margin: 2rem;
+            padding: 0 1rem;
+        }
+
+        .calculator-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calculator-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-1) 0%, var(--primary-2) 100%);
+        }
+
+        .calculator-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            gap: 1rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: var(--lite-blue-color);
+            font-weight: 700;
+        }
+
+        .mode-selector {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: 2px solid var(--accent-2);
+            background: var(--card-bg);
+            color: var(--text-color);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .mode-selector:hover {
+            border-color: var(--primary-2);
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        label i {
+            color: var(--primary-2);
+            width: 24px;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--pink-color);
+            border-radius: 8px;
+            background: var(--card-bg);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: var(--primary-1);
+            box-shadow: 0 0 0 3px rgba(233, 5, 5, 0.2);
+            outline: none;
+        }
+
+        .calculate-btn {
+            background-color: var(--primary-1);
+            color: white;
+            padding: 1.2rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .calculate-btn:hover {
+            background: var(--blue-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .calculate-btn i {
+            font-size: 1.2rem;
+        }
+
+        .result {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--success-bg);
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid var(--primary-1);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .info-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--lite-gray);
+            border-radius: 12px;
+            display: none;
+            animation: slideUp 0.4s ease;
+        }
+
+        .info-section.active {
+            display: block;
+        }
+
+        .info-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--primary-2);
+        }
+
+        .formula {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', Courier, monospace;
+            border: 2px dashed var(--border-color);
+            color: var(--primary-1);
+            font-weight: 600;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .calculator-container,
+            .main-container {
+                margin: 0;
+            }
+
+            .calculator-card {
+                padding: 1rem;
+            }
+
+            .calculator-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .other-calculators {
+                grid-template-columns: 1fr;
+            }
+
+            .info-section {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mode-selector {
+                width: 100%;
+            }
+
+            .calculate-btn {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ==========================================Navbar start -->
+    <nav>
+        <div class="logo-container">
+            <div class="logo-1">
+                <img src="/image/BSL1.png" alt="">
+            </div>
+            <span> BrightsWebs</span>
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search..." class="search-input" id="searchInput">
+            <i class="fas fa-search search-icon"></i>
+            <div class="search-suggestions">
+                <div class="search-suggestion-items"></div>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <div class="dropdown">
+                <a href="#">BG REMOVE <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Image Background Remove</a>
+                    <a href="#">Change Background Color</a>
+                    <a href="#">Image Editor</a>
+                    <a href="#">Background Crop</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">CONVERTER <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">PDF Converter</a>
+                    <a href="#">Image Converter</a>
+                    <a href="#">Photo Converter</a>
+                    <a href="#">Image Compressor</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">GENERATOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Image To SVG</a>
+                    <a href="#">SVG Blob</a>
+                    <a href="#">AI Color Palette</a>
+                    <a href="#">QR Code</a>
+                    <a href="#">PIN</a>
+                    <a href="#">Password Generator</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">COLOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Color Picker</a>
+                    <a href="#">Gradient</a>
+                    <a href="#">Color Mixer</a>
+                    <a href="#">Color Shades</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">CALCULATOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">SIP</a>
+                    <a href="#">BMI</a>
+                    <a href="#">EMI</a>
+                    <a href="#">AGE</a>
+                    <a href="#">COMPOUND</a>
+                    <a href="#">LOAN</a>
+                    <a href="#">INCOME TAX</a>
+                    <a href="#">FD</a>
+                    <a href="#">CAGR</a>
+                    <a href="#">CAR LOAN</a>
+                    <a href="#">FRACTION</a>
+                    <a href="#">SALARY</a>
+                    <a href="#">CUBE ROOT</a>
+                    <a href="#">INFLATION</a>
+                    <a href="#">RATIO</a>
+                    <a href="#">RULE OF 72</a>
+                    <a href="#">SALES TAX</a>
+                    <a href="#">SPHERE</a>
+                    <a href="#">PRESSURE</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#" class="special-btn">More <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content more">
+                    <a href="#">HELP</a>
+                    <a href="#">ABOUT</a>
+                    <a href="#">CONTACT</a>
+                </div>
+            </div>
+        </ul>
+
+        <button class="menu-toggle">
+            <span class="menu-icon">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </span>
+        </button>
+    </nav>
+    <!-- ==========================================Navbar end -->
+
+
+
+    <div class="calculator-container">
+        <div class="calculator-card">
+            <div class="calculator-header">
+                <h1><i class="fas fa-calculator"></i> SIP & SWP Calculator</h1>
+                <select class="mode-selector" id="calcType">
+                    <option value="sip">SIP Calculator</option>
+                    <option value="swp">SWP Calculator</option>
+                </select>
+            </div>
+
+            <!-- SIP Calculator Form -->
+            <form id="sipForm" class="calculator-form">
+                <div class="input-group">
+                    <label><i class="fas fa-wallet"></i>Monthly Investment (₹)</label>
+                    <input type="number" placeholder="Monthly Investment Amount..." id="sipAmount" required>
+                </div>
+                <div class="input-group">
+                    <label><i class="fas fa-calendar-alt"></i>Investment Period (years)</label>
+                    <input type="number" placeholder="Years..." id="sipYears" required>
+                </div>
+                <div class="input-group">
+                    <label><i class="fas fa-chart-line"></i>Expected Return (%)</label>
+                    <input type="number" placeholder="Expected (%)" id="sipReturn" step="0.1" required>
+                </div>
+                <button type="submit" class="calculate-btn">
+                    <i class="fas fa-calculator"></i>Calculate SIP
+                </button>
+            </form>
+
+            <!-- SWP Calculator Form -->
+            <form id="swpForm" class="calculator-form" style="display: none;">
+                <div class="input-group">
+                    <label><i class="fas fa-coins"></i>Investment Amount (₹)</label>
+                    <input type="number" placeholder="Investment Amount..." id="swpAmount" required>
+                </div>
+                <div class="input-group">
+                    <label><i class="fas fa-clock"></i>Withdrawal Period (years)</label>
+                    <input type="number" placeholder="Years..." id="swpYears" required>
+                </div>
+                <div class="input-group">
+                    <label><i class="fas fa-percentage"></i>Expected Return (%)</label>
+                    <input type="number" placeholder="Expected (%)" id="swpReturn" step="0.1" required>
+                </div>
+                <button type="submit" class="calculate-btn">
+                    <i class="fas fa-calculator"></i>Calculate SWP
+                </button>
+            </form>
+
+            <div class="result" id="result"></div>
+
+            <!-- Information Sections -->
+            <div id="sipInfo" class="info-section">
+                <h2><i class="fas fa-info-circle"></i>SIP Calculator Guide</h2>
+                <p>Systematic Investment Plan (SIP) allows disciplined investing with benefits:</p>
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check-circle"></i> Rupee cost averaging</li>
+                    <li><i class="fas fa-check-circle"></i> Long-term wealth creation</li>
+                    <li><i class="fas fa-check-circle"></i> Flexible investment amounts</li>
+                </ul>
+                <div class="formula">
+                    M = P × [(1 + r)<sup>n</sup> - 1] / r × (1 + r)
+                </div>
+            </div>
+
+            <div id="swpInfo" class="info-section">
+                <h2><i class="fas fa-info-circle"></i>SWP Calculator Guide</h2>
+                <p>Systematic Withdrawal Plan (SWP) provides regular income with benefits:</p>
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check-circle"></i> Tax-efficient withdrawals</li>
+                    <li><i class="fas fa-check-circle"></i> Capital preservation</li>
+                    <li><i class="fas fa-check-circle"></i> Flexible withdrawal frequency</li>
+                </ul>
+                <div class="formula">
+                    PMT = PV × r / (1 - (1 + r)<sup>-n</sup>)
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="other-calculator-cards">
+        <!-- CAGR Card -->
+        <div class="card" id="cagr-card">
+            <h2>CAGR Calculator</h2>
+            <p>Calculate compound annual growth rate for your investments. Measure average yearly growth over
+                multiple
+                periods.</p>
+            <a href="/calculator/cagrcalculator.html" class="card-button">Calculate CAGR</a>
+        </div>
+
+        <!-- FD & RD Card -->
+        <div class="card" id="fd-card">
+            <h2>Fixed & Recurring Deposits</h2>
+            <p>Plan your fixed deposit and recurring deposit investments. Compare returns and maturity values
+                with
+                different tenure options.</p>
+            <a href="/calculator/fd&rdcalculater.html" class="card-button">Explore FD/RD</a>
+        </div>
+
+        <!-- Compound Interest Card -->
+        <div class="card" id="compound-card">
+            <h2>Compound Interest Calculator</h2>
+            <p>Understand the power of compounding. Calculate future value of investments with regular
+                contributions.
+            </p>
+            <a href="/calculator/compoundcalculator.html" class="card-button">Calculate Now</a>
+        </div>
+    </div>
+
+
+    <!-- SIDEBAR AD -->
+    <div class="ad-section sidebar-ad">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="0987654321" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- Bottom Ad -->
+    <div class="ad-section bottom-ad">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="1357924680" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- footer -->
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+
+                <!-- Connect Section -->
+                <div class="footer-column top-1">
+
+                    <div class="logo-container footer-logo">
+                        <div class="logo-2">
+                            <img src="/image/BSL1.png" alt=""><span> BrightsWebs</span>
+                        </div>
+
+                        <!-- <h4 class="footer-heading">Connect</h4> -->
+                        <div class="social-container">
+                            <div class="social-icons">
+                                <a href="#" class="social-link" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company Section -->
+                <div class="footer-column">
+                    <h3 class="footer-heading"> Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">About Us</a></li>
+                        <li><a href="#" class="footer-link">Our Team</a></li>
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                        <li><a href="#" class="footer-link">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Tools Section -->
+                <div class="footer-column l-left">
+                    <h3 class="footer-heading"> Tools</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">PDF Tools</a></li>
+                        <li><a href="#" class="footer-link">Image Tools</a></li>
+                        <li><a href="#" class="footer-link">Developer Tools</a></li>
+                        <li><a href="#" class="footer-link">Security Tools</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Section -->
+                <div class="footer-column">
+                    <h3 class="footer-heading"> Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li><a href="#" class="footer-link">GDPR</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Section -->
+                <div class="footer-column l-left">
+                    <h3 class="footer-heading"> card</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li><a href="#" class="footer-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="social-icons-m">
+                <a href="#" class="social--m" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2023 PDF Craft (BS WEB). All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AdSense ads
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <div class="search-suggestions" id="searchSuggestions">
+        <div class="search-suggestion-items" id="suggestionItems"></div>
+    </div>
+
+    <script src="/nav&footer.css/navfooter.js"></script>
+
+    <script>
+        // Previous JavaScript code remains the same
+        // Toggle between SIP/SWP forms and info
+        document.getElementById('calcType').addEventListener('change', function () {
+            const sipForm = document.getElementById('sipForm');
+            const swpForm = document.getElementById('swpForm');
+            const sipInfo = document.getElementById('sipInfo');
+            const swpInfo = document.getElementById('swpInfo');
+
+            if (this.value === 'sip') {
+                sipForm.style.display = 'block';
+                swpForm.style.display = 'none';
+                sipInfo.classList.add('active');
+                swpInfo.classList.remove('active');
+            } else {
+                sipForm.style.display = 'none';
+                swpForm.style.display = 'block';
+                sipInfo.classList.remove('active');
+                swpInfo.classList.add('active');
+            }
+        });
+
+        // SIP Calculation
+        document.getElementById('sipForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const amount = parseFloat(document.getElementById('sipAmount').value);
+            const years = parseFloat(document.getElementById('sipYears').value);
+            const rate = parseFloat(document.getElementById('sipReturn').value) / 100;
+
+            const months = years * 12;
+            const monthlyRate = rate / 12;
+            const futureValue = amount * (((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate));
+
+            document.getElementById('result').innerHTML = `
+                <h3>💰 Estimated Maturity Value: ₹${futureValue.toFixed(2)}</h3>
+                <p>📈 Total Invested: ₹${(amount * months).toFixed(2)}</p>
+            `;
+        });
+
+        // SWP Calculation
+        document.getElementById('swpForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const amount = parseFloat(document.getElementById('swpAmount').value);
+            const years = parseFloat(document.getElementById('swpYears').value);
+            const rate = parseFloat(document.getElementById('swpReturn').value) / 100;
+
+            const months = years * 12;
+            const monthlyRate = rate / 12;
+            const monthlyWithdrawal = (amount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -months));
+
+            document.getElementById('result').innerHTML = `
+                <h3>💸 Monthly Withdrawal: ₹${monthlyWithdrawal.toFixed(2)}</h3>
+                <p>📅 Total Withdrawn: ₹${(monthlyWithdrawal * months).toFixed(2)}</p>
+            `;
+        });
+
+        // Show SIP info by default
+        document.getElementById('sipInfo').classList.add('active');
+    </script>
+</body>
+
+</html>

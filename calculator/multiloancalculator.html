@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+   <!-- Primary Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<title>Multi-Loan Calculator - EMI, Mortgage, Auto & Personal Loan Calculator | BrightsWebs</title>
+
+<meta name="description" 
+      content="Free online loan calculator for EMI, mortgage payments, auto loans & personal loans. Compare interest rates, calculate monthly payments, and plan your finances with our comprehensive loan calculators. Mobile-friendly & secure financial tool.">
+
+<!-- Keywords -->
+<meta name="keywords" 
+      content="EMI calculator, mortgage calculator, auto loan calculator, personal loan calculator, loan payment calculator, interest rate calculator, financial calculator, debt calculator, monthly payment calculator, loan amortization, car loan calculator, home loan calculator">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Free Online Loan Calculator Suite - EMI, Mortgage, Auto & Personal Loans">
+<meta property="og:description" 
+      content="Calculate all types of loan payments instantly! Compare EMI options, mortgage rates, auto loan terms, and personal loan costs. Professional-grade financial calculators for better money management.">
+<meta property="og:image" content="https://brightswebs.com/images/og-loan-calculator.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:title" content="Multi-Loan Calculator - Financial Planning Made Easy">
+<meta name="twitter:description" 
+      content="Calculate EMI, mortgage payments, auto loans & personal loans with our advanced financial tools. Visual payment breakdowns & detailed amortization schedules.">
+<meta name="twitter:image" content="https://brightswebs.com/images/twitter-loan-calculator.jpg">
+
+<!-- Common Elements -->
+<meta name="author" content="BrightsWebs">
+<meta name="copyright" content="BrightsWebs.com">
+<link rel="canonical" href="https://brightswebs.com/loan-calculator">
+<meta name="language" content="English">
+
+<!-- Google Adsense (Use Your Own Publisher ID) -->
+<meta name="google-adsense-account" content="ca-pub-9660515804448328">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9660515804448328" 
+        crossorigin="anonymous"></script>
+
+
+ <!-- Favicons (Optimized Path Structure) -->
+ <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png">
+ <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+ <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+ <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+ <link rel="manifest" href="/favicon/site.webmanifest">
+ <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+ <meta name="msapplication-TileColor" content="#2d89ef">
+ <meta name="theme-color" content="#ffffff">
+
+ <!-- Universal Fallback -->
+ <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon">
+ <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+ <!-- Apple Devices -->
+ <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+ <link rel="shortcut icon" href="/favicon/favicon.ico?v=2">
+ <link rel="icon" href="/favicon/favicon.svg?v=2">
+ <!-- Windows Support -->
+ <meta name="msapplication-TileImage" content="/favicon/favicon-144x144.png">
+ <meta name="msapplication-TileColor" content="#ffffff">
+
+ <!-- Structured Data -->
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Multi-Loan Calculator",
+      "url": "https://brightswebs.com/loan-calculator",
+      "description": "Comprehensive suite of financial calculators for EMI, mortgage, auto, and personal loans",
+      "applicationCategory": ["Financial Calculator", "Tools"],
+      "operatingSystem": ["Web"],
+      "featureList": [
+        "EMI Calculation",
+        "Mortgage Payment Breakdown",
+        "Auto Loan Comparison",
+        "Personal Loan Analysis",
+        "Interest Rate Visualization",
+        "Amortization Schedule",
+        "Mobile-friendly Interface"
+      ],
+      "screenshot": {
+        "@type": "ImageObject",
+        "url": "https://brightswebs.com/images/loan-calculator-interface.png",
+        "caption": "Multi-loan calculator interface with interactive financial tools"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/nav&footer.css/toolui.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* ====================================Ad Section Styles end */
+        /* Update the sidebar ad styles */
+        .sidebar-ad {
+            position: fixed;
+            top: 150px;
+            right: 20px;
+        }
+
+        /* Adjust main container to prevent overlap */
+        .main-container {
+            margin-right: 340px;
+            padding: 1rem;
+            position: relative;
+        }
+
+        /* ====================================Ad Section Styles end */
+
+
+        /*=========================================== main */
+        .main-container {
+            margin-top: 0;
+
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+            h1 {
+                color: var(--lite-blue-color);
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Calculator Styles */
+        .calculator {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            margin-bottom: 3rem;
+        }
+
+        .calculator-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+
+            span {
+                font-size: 20px;
+                font-weight: 600;
+                margin-left: 100px;
+                color: var(--success-color);
+                align-items: center;
+
+                i {
+                    color: var(--unique-vivid-pink);
+                }
+            }
+        }
+
+        .calculator-selector {
+            padding: 0.8rem;
+            border: 1px solid var(--pink-color);
+            border-radius: 8px;
+            background: var(--background-color);
+            color: var(--text-color);
+            width: 250px;
+        }
+
+        .calculator-type {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .calculator-type.active {
+            display: block;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--pink-color);
+            border-radius: 8px;
+            background: var(--background-color);
+            color: var(--text-color);
+        }
+
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(27, 235, 72, 0.5);
+        }
+
+        button {
+            background: var(--lite-blue-color);
+            color: white;
+            border: none;
+            padding: 1rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        button::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%, -50%);
+            transform-origin: 50% 50%;
+        }
+
+        button:focus:not(:active)::after {
+            animation: ripple 0.6s ease-out;
+        }
+
+        .result {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--lite-green-0);
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.2rem;
+            border: .5px solid var(--pink-color);
+
+            h3 {
+                color: var(--primary-color);
+            }
+        }
+
+        .visualization {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--lite-purple-0);
+            border-radius: 8px;
+        }
+
+        /* Chart Styles */
+        .chart-container {
+            width: 100%;
+            height: 100px;
+            position: relative;
+            margin: 1.5rem 0;
+            border: .5px solid var(--pink-color);
+        }
+
+        .chart-legend {
+            display: flex;
+            justify-content: center;
+            gap: 10rem;
+            margin-top: 1rem;
+        }
+
+        .chart-legend-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .chart-legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+        }
+
+        .chart {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            display: flex;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-segment {
+            height: 60%;
+            transition: all 0.5s ease;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 2rem;
+            padding-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .chart-segment::after {
+            content: attr(data-label);
+            position: absolute;
+            bottom: -2rem;
+            font-size: .8rem;
+            color: var(--pink-color);
+            font-weight: normal;
+        }
+
+        .toggle-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .toggle-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--pink-color);
+            color: var(--text-color);
+            padding: 0.6rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            flex: 1;
+            text-align: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-transform: none;
+            letter-spacing: normal;
+            box-shadow: none;
+        }
+
+        .toggle-btn:hover {
+            transform: none;
+            box-shadow: none;
+            background: rgba(222, 11, 141, 0.1);
+        }
+
+        .toggle-btn.active {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 2px 8px rgba(222, 11, 141, 0.3);
+        }
+
+        /* Breakdown Grid */
+        .breakdown-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            text-align: left;
+        }
+
+        .breakdown-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .breakdown-label {
+            display: block;
+            font-size: 1rem;
+            color: var(--lite-blue-color);
+
+        }
+
+        .breakdown-value {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 0.3rem;
+        }
+
+        [data-theme="dark"] .breakdown-item {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: scale(25, 25);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                margin: 0;
+            }
+
+            .container {
+                padding: .2rem;
+
+                h1 {
+                    margin-bottom: 5px;
+                    font-size: 27px;
+                }
+
+                span {
+                    font-size: 15px;
+                    margin: 0;
+                    align-items: center;
+
+                    i {
+                        rotate: 90deg;
+                    }
+                }
+            }
+
+            .calculator {
+                padding: 1.5rem;
+                margin-bottom: 0;
+            }
+
+            .calculator-header {
+                flex-direction: column;
+                gap: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .input-group {
+                margin-bottom: .5rem;
+            }
+
+            .calculator-selector {
+                width: 100%;
+                padding: .5rem;
+                border-radius: 5px;
+            }
+
+            label {
+                margin-bottom: 0.2rem;
+                color: var(--text-color);
+                font-weight: 500;
+            }
+
+            .input-row {
+                grid-template-columns: 1fr;
+                gap: .4rem;
+            }
+
+            input {
+                padding: 0.4rem;
+                border-radius: 5px;
+            }
+
+            .chart-container {
+                height: 80px;
+                margin-top: 0;
+            }
+
+            .toggle-btn {
+                margin-top: 20px;
+                padding: 0.4rem .8rem;
+            }
+
+            button {
+                padding: 0.8rem 1rem;
+                margin-top: 20px;
+                font-size: 1rem;
+            }
+
+            .result {
+                margin-top: 1rem;
+                padding: 1rem;
+                font-size: .8rem;
+
+                h3 {
+                    color: var(--primary-color);
+                }
+            }
+
+            .visualization {
+                padding: 0;
+            }
+
+            .chart-segment {
+                font-size: 1rem;
+            }
+
+            .chart-segment::after {
+                bottom: -1.5rem;
+                font-size: .7rem;
+            }
+
+            .chart-legend {
+                flex-direction: column;
+                align-items: center;
+                gap: 8.5rem;
+                margin-top: 0;
+            }
+
+            .breakdown-item {
+                margin: 0;
+                padding: 4;
+            }
+
+            .breakdown-grid {
+                gap: .4rem;
+            }
+
+        }
+
+        /* ====================calculator end */
+
+        /* ====================Info Section Styling */
+        .info-section {
+            margin: 3rem auto 5rem;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background: var(--background-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+
+            i {
+                color: var(--text-color);
+            }
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .how-to-use {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            text-align: left;
+            align-items: center;
+            gap: 20px;
+            justify-content: center;
+            background: var(--lite-purple-0);
+            border-color: var(--lite-purple-1);
+        }
+
+        .howto-formula {
+            padding: 3rem;
+            text-align: left;
+            background-color: var(--lite-green-0);
+        }
+
+        .steps {
+            border-radius: 20px;
+            padding: 2rem;
+            background-color: var(--dark-green-0);
+            padding-left: 1.5rem;
+            list-style-type: none;
+        }
+
+        .steps li {
+            margin: 1rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .steps li i {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-1);
+        }
+
+        .info-header {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-header i {
+            font-size: 2rem;
+            color: var(--primary-1);
+        }
+
+        .info-section {
+            h3 {
+                color: var(--lite-blue-color);
+                margin-bottom: 1rem;
+            }
+
+            ul {
+                padding-left: 1.5rem;
+            }
+
+            ul li {
+                margin: 0.5rem 0;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                color: var(--text-color);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .info-section {
+                margin: 0;
+                padding: .5rem;
+            }
+
+            .info-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .how-to-use {
+                padding: .5rem;
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        /*=============== Formula Card Styling */
+        .formula-column {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .formula-card {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .formula-card.active {
+            display: block;
+        }
+
+        .formula-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-1);
+        }
+
+        .formula-header i {
+            font-size: 1.8rem;
+        }
+
+        .formula-content {
+            background: var(--background-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .formula {
+            font-size: 1.2rem;
+            padding: 1.5rem;
+            background: var(--lite-gray);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-family: monospace;
+            color: var(--pink-color);
+            text-align: center;
+        }
+
+        .formula-key p {
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .formula-key span {
+            font-weight: bold;
+            color: var(--primary-2);
+            min-width: 30px;
+        }
+
+        .formula-example {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--lite-green-0);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--unique-forest-green);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .calculator-container {
+                grid-template-columns: 1fr;
+            }
+
+            .formula-column {
+                position: static;
+                order: -1;
+            }
+        }
+
+
+        /*================= Info Card Button Styling */
+        .info-card-btn {
+            width: 100%;
+            padding: 10px 10px;
+            margin-top: 1.5rem;
+            background: var(--primary-1);
+            border: 2px solid var(--lite-purple-1);
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .info-card-btn:hover {
+            background: var(--lite-blue-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card-btn:hover i {
+            color: white;
+        }
+
+        .info-card-btn i {
+            color: var(--dark);
+            transition: color 0.3s ease;
+        }
+
+        /* Theme Compatibility */
+        [data-theme="dark"] .info-card-btn {
+            background: var(--card-bg);
+            border-color: var(--border-color);
+        }
+
+        /* btn design end */
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ==========================================Navbar start -->
+    <nav>
+        <div class="logo-container">
+            <div class="logo-1">
+                <img src="/image/BSL1.png" alt="">
+            </div>
+            <span> BrightsWebs</span>
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search..." class="search-input" id="searchInput">
+            <i class="fas fa-search search-icon"></i>
+            <div class="search-suggestions">
+                <div class="search-suggestion-items"></div>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <div class="dropdown">
+                <a href="#">BG REMOVE <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Image Background Remove</a>
+                    <a href="#">Change Background Color</a>
+                    <a href="#">Image Editor</a>
+                    <a href="#">Background Crop</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">CONVERTER <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">PDF Converter</a>
+                    <a href="#">Image Converter</a>
+                    <a href="#">Photo Converter</a>
+                    <a href="#">Image Compressor</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">GENERATOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Image To SVG</a>
+                    <a href="#">SVG Blob</a>
+                    <a href="#">AI Color Palette</a>
+                    <a href="#">QR Code</a>
+                    <a href="#">PIN</a>
+                    <a href="#">Password Generator</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">COLOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Color Picker</a>
+                    <a href="#">Gradient</a>
+                    <a href="#">Color Mixer</a>
+                    <a href="#">Color Shades</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">CALCULATOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">SIP</a>
+                    <a href="#">BMI</a>
+                    <a href="#">EMI</a>
+                    <a href="#">AGE</a>
+                    <a href="#">COMPOUND</a>
+                    <a href="#">LOAN</a>
+                    <a href="#">INCOME TAX</a>
+                    <a href="#">FD</a>
+                    <a href="#">CAGR</a>
+                    <a href="#">CAR LOAN</a>
+                    <a href="#">FRACTION</a>
+                    <a href="#">SALARY</a>
+                    <a href="#">CUBE ROOT</a>
+                    <a href="#">INFLATION</a>
+                    <a href="#">RATIO</a>
+                    <a href="#">RULE OF 72</a>
+                    <a href="#">SALES TAX</a>
+                    <a href="#">SPHERE</a>
+                    <a href="#">PRESSURE</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#" class="special-btn">More <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content more">
+                    <a href="#">HELP</a>
+                    <a href="#">ABOUT</a>
+                    <a href="#">CONTACT</a>
+                </div>
+            </div>
+        </ul>
+
+        <buttonB class="menu-toggle">
+            <span class="menu-icon">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </span>
+        </buttonB>
+    </nav>
+    <!-- ==========================================Navbar end -->
+
+    <!-- Modify your top ad section like this -->
+    <div class="ad-container" style="overflow:hidden; max-width:100vw; padding-bottom:10px">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9660515804448328" data-ad-slot="ooooooo"
+            data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+    <div class="main-container">
+        <div class="container">
+            <h1>Multi-Loan Calculator 💸</h1>
+            <div class="calculator">
+                <div class="calculator-header">
+                    <span>Select calculator and enter details <i class="fa-solid fa-arrow-right"></i></span>
+                    <select class="calculator-selector" id="calculatorType" onchange="switchCalculator(this.value)">
+                        <option value="emi">EMI Calculator</option>
+                        <option value="mortgage">Mortgage Calculator</option>
+                        <option value="auto">Auto Loan Calculator</option>
+                        <option value="personal">Personal Loan Calculator</option>
+                    </select>
+                </div>
+
+                <!-- EMI Calculator -->
+                <div class="calculator-type active" data-type="emi">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Loan Amount ($)</label>
+                            <input type="number" id="emiAmount" placeholder="50,000">
+                        </div>
+                        <div class="input-group">
+                            <label>Interest Rate (%)</label>
+                            <input type="number" id="emiRate" step="0.1" placeholder="8.5">
+                        </div>
+                        <div class="input-group">
+                            <label>Loan Tenure (years)</label>
+                            <input type="number" id="emiYears" placeholder="5">
+                        </div>
+                    </div>
+                    <div class="toggle-buttons">
+                        <button class="toggle-btn active" onclick="togglePayment('monthly', event)">Monthly</button>
+                        <button class="toggle-btn" onclick="togglePayment('yearly', event)">Yearly</button>
+                    </div>
+                </div>
+
+                <!-- Mortgage Calculator -->
+                <div class="calculator-type" data-type="mortgage">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Property Price ($)</label>
+                            <input type="number" id="propertyPrice" placeholder="300,000">
+                        </div>
+                        <div class="input-group">
+                            <label>Down Payment ($)</label>
+                            <input type="number" id="downPayment" placeholder="60,000">
+                        </div>
+                        <div class="input-group">
+                            <label>Interest Rate (%)</label>
+                            <input type="number" id="mortgageRate" step="0.1" placeholder="3.5">
+                        </div>
+                        <div class="input-group">
+                            <label>Loan Term (years)</label>
+                            <input type="number" id="mortgageTerm" placeholder="30">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Auto Loan Calculator -->
+                <div class="calculator-type" data-type="auto">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Vehicle Price ($)</label>
+                            <input type="number" id="vehiclePrice" placeholder="35,000">
+                        </div>
+                        <div class="input-group">
+                            <label>Trade-in Value ($)</label>
+                            <input type="number" id="tradeIn" placeholder="5,000">
+                        </div>
+                        <div class="input-group">
+                            <label>Loan Term (months)</label>
+                            <input type="number" id="autoTerm" placeholder="60">
+                        </div>
+                        <div class="input-group">
+                            <label>Interest Rate (%)</label>
+                            <input type="number" id="autoRate" step="0.1" placeholder="5.5">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Loan Calculator -->
+                <div class="calculator-type" data-type="personal">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Loan Amount ($)</label>
+                            <input type="number" id="personalAmount" placeholder="15,000">
+                        </div>
+                        <div class="input-group">
+                            <label>Interest Rate (%)</label>
+                            <input type="number" id="personalRate" step="0.1" placeholder="10.5">
+                        </div>
+                        <div class="input-group">
+                            <label>Loan Term (years)</label>
+                            <input type="number" id="personalTerm" placeholder="3">
+                        </div>
+                        <div class="input-group">
+                            <label>Processing Fee (%)</label>
+                            <input type="number" id="processingFee" step="0.1" placeholder="1.5">
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="calculateCurrentLoan()">Calculate Payment</button>
+
+                <div class="result" id="result">
+                    <h3 id="paymentAmount">Select calculator and enter </h3>
+                    <div class="visualization">
+                        <div class="chart-container" id="paymentChart"></div>
+                        <div id="breakdown"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SIDEBAR AD -->
+    <div class="ad-section sidebar-ad">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="0987654321" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- Bottom Ad -->
+    <div class="ad-section bottom-ad">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="1357924680" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+
+    <!--=================== How to Use Section -->
+    <div class="info-section">
+        <div class="how-to-use">
+            <div class="howto-formula">
+                <div class="info-header">
+                    <i class="fa-solid fa-circle-question"></i>
+                    <h2>How to Use the Calculator</h2>
+                </div>
+                <ol class="steps">
+                    <li>Select loan type from dropdown <i class="fa-solid fa-hand-pointer"></i></li>
+                    <li>Enter required financial details</li>
+                    <li>Click "Calculate Payment"</li>
+                    <li>View results & breakdown</li>
+                </ol>
+            </div>
+
+            <!-- Formula Display Section -->
+            <div class="formula-column">
+                <div class="formula-card active" data-type="emi">
+                    <div class="formula-header">
+                        <i class="fa-solid fa-square-root-variable"></i>
+                        <h3>EMI Calculation Formula</h3>
+                    </div>
+                    <div class="formula-content">
+                        <div class="formula">
+                            EMI = [P × R × (1+R)<sup>N</sup>] / [(1+R)<sup>N</sup>−1]
+                        </div>
+                        <div class="formula-key">
+                            <p><span>P:</span> Principal Amount</p>
+                            <p><span>R:</span> Monthly Interest Rate</p>
+                            <p><span>N:</span> Number of Months</p>
+                        </div>
+                        <div class="formula-example">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            Example: $50,000 loan at 8.5% for 5 years
+                        </div>
+                    </div>
+                </div>
+
+                <div class="formula-card" data-type="mortgage">
+                    <div class="formula-header">
+                        <i class="fa-solid fa-house-circle-check"></i>
+                        <h3>Mortgage Formula</h3>
+                    </div>
+                    <div class="formula-content">
+                        <div class="formula">
+                            M = P[r(1+r)<sup>n</sup>]/[(1+r)<sup>n</sup>−1]
+                        </div>
+                        <div class="formula-key">
+                            <p><span>M:</span> Monthly Payment</p>
+                            <p><span>P:</span> Loan Principal</p>
+                            <p><span>r:</span> Monthly Interest Rate</p>
+                            <p><span>n:</span> Number of Payments</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="formula-card" data-type="auto">
+                    <div class="formula-header">
+                        <i class="fa-solid fa-car-side"></i>
+                        <h3>Auto Loan Calculator Formula</h3>
+                    </div>
+                    <div class="formula-content">
+                        <div class="formula">
+                            M = P[r(1+r)<sup>n</sup>]/[(1+r)<sup>n</sup>−1]
+                        </div>
+                        <div class="formula-key">
+                            <p><span>M:</span> Monthly Payment</p>
+                            <p><span>P:</span> Loan Principal</p>
+                            <p><span>r:</span> Monthly Interest Rate</p>
+                            <p><span>n:</span> Number of Payments</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="formula-card" data-type="personal">
+                    <div class="formula-header">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                        <h3>Personal Loan Calculator Formula</h3>
+                    </div>
+                    <div class="formula-content">
+                        <div class="formula">
+                            M = P[r(1+r)<sup>n</sup>]/[(1+r)<sup>n</sup>−1]
+                        </div>
+                        <div class="formula-key">
+                            <p><span>M:</span> Monthly Payment</p>
+                            <p><span>P:</span> Loan Principal</p>
+                            <p><span>r:</span> Monthly Interest Rate</p>
+                            <p><span>n:</span> Number of Payments</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Updated Info Cards with Switch Buttons -->
+        <div class="info-grid">
+            <!-- EMI Calculator Card -->
+            <div class="info-card">
+                <div class="info-icon" style="background: var(--primary-1)">
+                    <i class="fa-solid fa-calculator"></i>
+                </div>
+                <h3>EMI Calculator</h3>
+                <p>Calculates Equated Monthly Installments for loans with fixed interest rates. Perfect for:</p>
+                <ul>
+                    <li><i class="fa-solid fa-circle-check"></i> Home loans</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Education loans</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Any fixed-term loan</li>
+                </ul>
+                <button class="info-card-btn" data-type="emi" onclick="switchCalculator('emi')">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    EMI Calculator
+                </button>
+            </div>
+
+            <!-- Mortgage Calculator Card -->
+            <div class="info-card">
+                <div class="info-icon" style="background: var(--primary-2)">
+                    <i class="fa-solid fa-house-chimney"></i>
+                </div>
+                <h3>Mortgage Calculator</h3>
+                <p>Estimates monthly mortgage payments including:</p>
+                <ul>
+                    <li><i class="fa-solid fa-percent"></i> Principal & interest</li>
+                    <li><i class="fa-solid fa-piggy-bank"></i> Down payment impact</li>
+                    <li><i class="fa-solid fa-chart-line"></i> Long-term amortization</li>
+                </ul>
+                <button class="info-card-btn" data-type="mortgage" onclick="switchCalculator('mortgage')">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    Mortgage Calculator
+                </button>
+            </div>
+
+            <!-- Auto Loan Calculator Card -->
+            <div class="info-card">
+                <div class="info-icon" style="background: var(--accent-2)">
+                    <i class="fa-solid fa-car-side"></i>
+                </div>
+                <h3>Auto Loan Calculator</h3>
+                <p>Determines car loan payments considering:</p>
+                <ul>
+                    <li><i class="fa-solid fa-car-burst"></i> Trade-in value</li>
+                    <li><i class="fa-solid fa-calendar-days"></i> Loan term (months)</li>
+                    <li><i class="fa-solid fa-gas-pump"></i> Total vehicle cost</li>
+                </ul>
+                <button class="info-card-btn" data-type="auto" onclick="switchCalculator('auto')">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    Open Auto Calculator
+                </button>
+            </div>
+
+            <!-- Personal Loan Calculator Card -->
+            <div class="info-card">
+                <div class="info-icon" style="background: var(--primary-3)">
+                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                </div>
+                <h3>Personal Loan</h3>
+                <p>Calculates unsecured loan payments including:</p>
+                <ul>
+                    <li><i class="fa-solid fa-scale-unbalanced"></i> Processing fees</li>
+                    <li><i class="fa-solid fa-clock"></i> Short-term financing</li>
+                    <li><i class="fa-solid fa-money-bill-wave"></i> Emergency funds</li>
+                </ul>
+                <button class="info-card-btn" data-type="personal" onclick="switchCalculator('personal')">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    Personal Calculator
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+
+                <!-- Connect Section -->
+                <div class="footer-column top-1">
+
+                    <div class="logo-container footer-logo">
+                        <div class="logo-2">
+                            <img src="/image/BSL1.png" alt=""><span> BrightsWebs</span>
+                        </div>
+
+                        <!-- <h4 class="footer-heading">Connect</h4> -->
+                        <div class="social-container">
+                            <div class="social-icons">
+                                <a href="#" class="social-link" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company Section -->
+                <div class="footer-column">
+                    <h3 class="footer-heading"> Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">About Us</a></li>
+                        <li><a href="#" class="footer-link">Our Team</a></li>
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                        <li><a href="#" class="footer-link">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Tools Section -->
+                <div class="footer-column l-left">
+                    <h3 class="footer-heading"> Tools</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">PDF Tools</a></li>
+                        <li><a href="#" class="footer-link">Image Tools</a></li>
+                        <li><a href="#" class="footer-link">Developer Tools</a></li>
+                        <li><a href="#" class="footer-link">Security Tools</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Section -->
+                <div class="footer-column">
+                    <h3 class="footer-heading"> Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li><a href="#" class="footer-link">GDPR</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Section -->
+                <div class="footer-column l-left">
+                    <h3 class="footer-heading"> card</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li><a href="#" class="footer-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="social-icons-m">
+                <a href="#" class="social--m" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2023 PDF Craft (BS WEB). All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AdSense ads
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <div class="search-suggestions" id="searchSuggestions">
+        <div class="search-suggestion-items" id="suggestionItems"></div>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <script src="/nav&footer.css/navfooter.js"></script>
+
+    <script>
+        let paymentType = 'monthly';
+
+        function cleanNumberInput(value) {
+            if (typeof value === 'string') {
+                return parseFloat(value.replace(/,/g, '')) || 0;
+            }
+            return value || 0;
+        }
+
+        function switchCalculator(type) {
+            document.querySelectorAll('.calculator-type').forEach(el => {
+                el.classList.remove('active');
+                if (el.dataset.type === type) el.classList.add('active');
+            });
+            document.getElementById('paymentAmount').textContent = 'Enter details and click Calculate';
+            document.getElementById('breakdown').innerHTML = '';
+            document.getElementById('paymentChart').innerHTML = '';
+        }
+
+        function togglePayment(type, event) {
+            paymentType = type;
+            document.querySelectorAll('.toggle-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        function calculateCurrentLoan() {
+            const type = document.getElementById('calculatorType').value;
+            switch (type) {
+                case 'emi': calculateEMI(); break;
+                case 'mortgage': calculateMortgage(); break;
+                case 'auto': calculateAutoLoan(); break;
+                case 'personal': calculatePersonalLoan(); break;
+                default: showError('Please select a valid loan type');
+            }
+        }
+
+        function calculateEMI() {
+            const amount = cleanNumberInput(document.getElementById('emiAmount').value);
+            const rate = cleanNumberInput(document.getElementById('emiRate').value) / 100 / 12;
+            const years = cleanNumberInput(document.getElementById('emiYears').value);
+
+            if (isNaN(amount) || amount <= 0) return showError('Please enter a valid loan amount');
+            if (isNaN(rate) || rate < 0) return showError('Please enter a valid interest rate');
+            if (isNaN(years) || years <= 0) return showError('Please enter a valid loan term');
+
+            const term = years * (paymentType === 'monthly' ? 12 : 1);
+            const monthlyPayment = calculateMonthlyPayment(amount, rate, term);
+            showResult(monthlyPayment, term, amount, 'EMI');
+        }
+
+        function calculateMortgage() {
+            const price = cleanNumberInput(document.getElementById('propertyPrice').value);
+            const down = cleanNumberInput(document.getElementById('downPayment').value);
+            const rate = cleanNumberInput(document.getElementById('mortgageRate').value) / 100 / 12;
+            const termYears = cleanNumberInput(document.getElementById('mortgageTerm').value);
+
+            if (isNaN(price) || price <= 0) return showError('Please enter a valid property price');
+            if (isNaN(down) || down < 0) return showError('Please enter a valid down payment');
+            if (isNaN(rate) || rate < 0) return showError('Please enter a valid interest rate');
+            if (isNaN(termYears) || termYears <= 0) return showError('Please enter a valid loan term');
+            if (down >= price) return showError('Down payment must be less than property price');
+
+            const amount = price - down;
+            const term = termYears * 12;
+            const monthlyPayment = calculateMonthlyPayment(amount, rate, term);
+            showResult(monthlyPayment, term, amount, 'Mortgage');
+        }
+
+        function calculateAutoLoan() {
+            const price = cleanNumberInput(document.getElementById('vehiclePrice').value);
+            const tradeIn = cleanNumberInput(document.getElementById('tradeIn').value) || 0;
+            const rate = cleanNumberInput(document.getElementById('autoRate').value) / 100 / 12;
+            const term = cleanNumberInput(document.getElementById('autoTerm').value);
+
+            if (isNaN(price) || price <= 0) return showError('Please enter a valid vehicle price');
+            if (isNaN(tradeIn) || tradeIn < 0) return showError('Please enter a valid trade-in value');
+            if (isNaN(rate) || rate < 0) return showError('Please enter a valid interest rate');
+            if (isNaN(term) || term <= 0) return showError('Please enter a valid loan term');
+            if (tradeIn >= price) return showError('Trade-in value must be less than vehicle price');
+
+            const amount = price - tradeIn;
+            const monthlyPayment = calculateMonthlyPayment(amount, rate, term);
+            showResult(monthlyPayment, term, amount, 'Auto Loan');
+        }
+
+        function calculatePersonalLoan() {
+            const amount = cleanNumberInput(document.getElementById('personalAmount').value);
+            const rate = cleanNumberInput(document.getElementById('personalRate').value) / 100 / 12;
+            const termYears = cleanNumberInput(document.getElementById('personalTerm').value);
+            const feePercent = cleanNumberInput(document.getElementById('processingFee').value) / 100 || 0;
+
+            if (isNaN(amount) || amount <= 0) return showError('Please enter a valid loan amount');
+            if (isNaN(rate) || rate < 0) return showError('Please enter a valid interest rate');
+            if (isNaN(termYears) || termYears <= 0) return showError('Please enter a valid loan term');
+
+            const term = termYears * 12;
+            const feeAmount = Math.min(amount * feePercent, amount * 0.5); // Cap fees at 50% of amount
+            const monthlyPayment = calculateMonthlyPayment(amount, rate, term);
+            showResult(monthlyPayment, term, amount, 'Personal Loan', feeAmount);
+        }
+
+        function calculateMonthlyPayment(amount, rate, term) {
+            if (rate === 0) return amount / term; // Handle 0% interest case
+            const numerator = amount * rate * Math.pow(1 + rate, term);
+            const denominator = Math.pow(1 + rate, term) - 1;
+            return numerator / denominator;
+        }
+
+        function showResult(monthly, term, principal, loanType, fees = 0) {
+            const totalPayment = monthly * term;
+            const totalInterest = totalPayment - principal;
+            const interestPercentage = principal > 0 ? (totalInterest / totalPayment) * 100 : 0;
+            const principalPercentage = Math.min(100, Math.max(0, 100 - interestPercentage));
+            const effectiveRate = principal > 0 ? ((totalInterest / principal) * 100 / (term / 12)) : 0;
+            const feePercentage = fees > 0 ? (fees / totalPayment) * 100 : 0;
+
+            document.getElementById('paymentAmount').innerHTML = `
+                <strong>${loanType} Monthly Payment:</strong> $${monthly.toFixed(2)}
+            `;
+
+            // Create chart visualization
+            const chartHTML = `
+                <div class="chart">
+                    <div class="chart-segment" 
+                         style="width: ${principalPercentage}%; background: var(--primary-color);" 
+                         data-label="Principal (${principalPercentage.toFixed(1)}%)">
+                        $${principal.toFixed(0)}
+                    </div>
+                    <div class="chart-segment" 
+                         style="width: ${interestPercentage}%; background: var(--pink-color);" 
+                         data-label="Interest (${interestPercentage.toFixed(1)}%)">
+                        $${totalInterest.toFixed(0)}
+                    </div>
+                    ${fees > 0 ? `
+                    <div class="chart-segment" 
+                         style="width: ${feePercentage}%; background: var(--accent-2);" 
+                         data-label="Fees (${feePercentage.toFixed(1)}%)">
+                        $${fees.toFixed(0)}
+                    </div>
+                    ` : ''}
+                </div>
+                <div class="chart-legend">
+                    <div class="chart-legend-item">
+                        <div class="chart-legend-color" style="background: var(--primary-color);"></div>
+                        <span>Principal</span>
+                    </div>
+                    <div class="chart-legend-item">
+                        <div class="chart-legend-color" style="background: var(--pink-color);"></div>
+                        <span>Interest</span>
+                    </div>
+                    ${fees > 0 ? `
+                    <div class="chart-legend-item">
+                        <div class="chart-legend-color" style="background: var(--accent-2);"></div>
+                        <span>Fees</span>
+                    </div>
+                    ` : ''}
+                </div>
+            `;
+
+            let breakdownHTML = `
+                <div class="breakdown-grid">
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">Total ${loanType} Cost:</span>
+                        <span class="breakdown-value">$${totalPayment.toFixed(2)}</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">Principal Amount:</span>
+                        <span class="breakdown-value">$${principal.toFixed(2)}</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">Total Interest:</span>
+                        <span class="breakdown-value">$${totalInterest.toFixed(2)}</span>
+                    </div>
+                    ${fees > 0 ? `
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">Processing Fees:</span>
+                        <span class="breakdown-value">$${fees.toFixed(2)}</span>
+                    </div>
+                    ` : ''}
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">Effective Interest Rate:</span>
+                        <span class="breakdown-value">${effectiveRate.toFixed(2)}%</span>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('paymentChart').innerHTML = chartHTML;
+            document.getElementById('breakdown').innerHTML = breakdownHTML;
+        }
+
+        function showError(message) {
+            document.getElementById('paymentAmount').textContent = message;
+            document.getElementById('breakdown').innerHTML = '';
+            document.getElementById('paymentChart').innerHTML = '';
+        }
+
+    </script>
+
+    <script>
+        function switchCalculator(type) {
+            // Update calculator visibility
+            document.querySelectorAll('.calculator-type').forEach(el => {
+                el.classList.remove('active');
+                if (el.dataset.type === type) el.classList.add('active');
+            });
+
+            // Update navigation tabs
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.dataset.type === type) link.classList.add('active');
+            });
+
+            // Switch formula cards
+            document.querySelectorAll('.formula-card').forEach(card => {
+                card.classList.remove('active');
+                if (card.dataset.type === type) card.classList.add('active');
+            });
+
+
+            // Update dropdown selector
+            document.getElementById('calculatorType').value = type;
+
+            // Reset result display
+            document.getElementById('paymentAmount').textContent = 'Enter details and click Calculate';
+            document.getElementById('breakdown').innerHTML = '';
+            document.getElementById('paymentChart').innerHTML = '';
+
+            // Always scroll to calculator section
+            const calculatorSection = document.querySelector('.calculator');
+            calculatorSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+
+            // Focus on first input field for better UX
+            const activeCalculator = document.querySelector(`.calculator-type[data-type="${type}"]`);
+            const firstInput = activeCalculator.querySelector('input');
+            if (firstInput) {
+                firstInput.focus();
+            }
+        }
+    </script>
+
+</body>
+
+</html>

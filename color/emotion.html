@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Primary Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <title>Emotion-Based Color Palette Generator | BrightsWebs - Color Psychology Tool</title>
+
+    <meta name="description"
+        content="Generate scientifically-backed color palettes based on emotions! Discover perfect color combinations for happiness, calmness, passion & 6+ moods. Get HEX/RGB codes with color psychology insights for designers & marketers.">
+
+    <!-- Keywords -->
+    <meta name="keywords"
+        content="emotional color palette, psychology color generator, mood-based colors, happy color scheme, calm color combinations, passionate red palettes, romantic color psychology, sad color gradients, mysterious color tones, joyful color combinations, peaceful color schemes, emotion-driven design">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="AI-Powered Emotion Color Generator | Psychology-Driven Palettes">
+    <meta property="og:description"
+        content="Create impactful designs using emotion-specific color combinations. Export HEX/RGB codes and learn color psychology principles for each palette">
+    <meta property="og:image" content="https://brightswebs.com/images/og-emotion-colors.jpg">
+
+    <!-- Favicons (Optimized Path Structure) -->
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Universal Fallback -->
+    <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+    <!-- Apple Devices -->
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon/favicon.ico?v=2">
+    <link rel="icon" href="/favicon/favicon.svg?v=2">
+    <!-- Windows Support -->
+    <meta name="msapplication-TileImage" content="/favicon/favicon-144x144.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+
+
+    <!-- Twitter Card -->
+    <meta name="twitter:title" content="Emotion-to-Color Generator: Design with Feeling">
+    <meta name="twitter:description"
+        content="Transform emotions into beautiful color schemes - 9 mood categories with psychological color associations. Free tool for designers & developers!">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Emotion Color Generator",
+  "url": "https://brightswebs.com/emotion-colors",
+  "description": "Advanced tool generating color palettes based on emotional associations and color psychology principles",
+  "applicationCategory": ["Design Tool", "Psychological Tool"],
+  "featureList": "Emotion mapping, Psychology insights, HEX/RGB export, Mood-based generation",
+  "screenshot": {
+    "@type": "ImageObject",
+    "url": "https://brightswebs.com/images/emotion-colors-interface.png",
+    "caption": "Emotion selection interface with generated color palettes"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+    <!-- Common Elements -->
+    <meta name="author" content="BrightsWebs">
+    <meta name="copyright" content="BrightsWebs.com">
+    <link rel="canonical" href="https://brightswebs.com/emotion-color-generator">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.brightswebs.com/color-palette-generator">
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow">
+
+    <!-- CSS & Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <link rel="stylesheet" href="/nav&footer.css/toolui.css">
+
+
+
+    <style>
+        /* * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* border: .5px solid green; 
+        } */
+
+        /* body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2rem;
+        } */
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            background-color: var(--rear-lite-blue);
+        }
+
+        .main-container {
+            display: flex;
+            gap: 3rem;
+            margin: 3rem;
+        }
+
+        h1 {
+            color: var(--lite-blue-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            background: var(--lite-purple-0);
+            padding: 4rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .emotion-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            justify-content: center;
+        }
+
+        .emotion-btn {
+            padding: 8px 16px;
+            background: var(--pink-color);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            text-transform: capitalize;
+        }
+
+        .emotion-btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 2rem;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 12px 20px;
+            border: 2px solid var(--pink-color);
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        button.generate-btn {
+            padding: 12px 25px;
+            background: var(--lite-blue-color);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        button.generate-btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .palette-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 2rem;
+        }
+
+        .color-card {
+            height: 150px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .color-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .color-code {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-family: monospace;
+            transition: all 0.3s ease;
+        }
+
+        .error {
+            color: #e74c3c;
+            text-align: center;
+            margin: 1rem 0;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .color-explanation {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--lite-gray);
+            border-radius: 10px;
+            border-left: 4px solid #8e44ad;
+        }
+
+        .color-explanation h3 {
+            color: var(--lite-blue-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .color-explanation ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .color-explanation li {
+            margin-bottom: 0.8rem;
+            padding: 8px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .color-swatch {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 2px solid #ddd;
+        }
+
+        strong {
+            color: var(--primary-color);
+
+        }
+
+        li {
+            color: var(--dark);
+        }
+
+        [data-theme="dark"] {
+            li {
+                color: var(--lite-blue-color);
+            }
+        }
+
+
+
+
+
+
+        @media (max-width: 768px) {
+            .main-container {
+
+                gap: 3rem;
+                margin: 3rem 1.5rem;
+            }
+
+            .emotion-buttons {
+                gap: 8px;
+                justify-content: space-between;
+            }
+
+            .emotion-btn {
+                flex: 0 0 calc(33% - 5px);
+                font-size: 0.8rem;
+                padding: 6px 12px;
+                text-align: center;
+            }
+
+            .input-group {
+                flex-wrap: nowrap;
+                gap: 8px;
+            }
+
+            input[type="text"] {
+                flex: 1;
+                min-width: 0;
+                padding: 10px 15px;
+            }
+
+            button.generate-btn {
+                flex-shrink: 0;
+                padding: 1px 10px;
+                font-size: 0.9rem;
+            }
+
+            /* Optional: Adjust container padding for mobile */
+            .container {
+                padding: 1rem;
+            }
+
+            .color-card {
+                height: 70px;
+                border-radius: 10px;
+            }
+
+            .palette-container {
+                grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+                gap: 10px;
+                margin-top: 2rem;
+            }
+
+            li {
+                font-size: .8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ==========================================Navbar start -->
+    <nav>
+        <div class="logo-container">
+            <div class="logo-1">
+                <img src="/image/BSL1.png" alt="">
+            </div>
+            <span> BrightsWebs</span>
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search..." class="search-input" id="searchInput">
+            <i class="fas fa-search search-icon"></i>
+            <div class="search-suggestions">
+                <div class="search-suggestion-items"></div>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <div class="dropdown">
+                <a href="#">BG REMOVE <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Image Background Remove</a>
+                    <a href="#">Change Background Color</a>
+                    <a href="#">Image Editor</a>
+                    <a href="#">Background Crop</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">CONVERTER <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">PDF Converter</a>
+                    <a href="#">Image Converter</a>
+                    <a href="#">Photo Converter</a>
+                    <a href="#">Image Compressor</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">GENERATOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Image To SVG</a>
+                    <a href="#">SVG Blob</a>
+                    <a href="#">AI Color Palette</a>
+                    <a href="#">QR Code</a>
+                    <a href="#">PIN</a>
+                    <a href="#">Password Generator</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">COLOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Color Picker</a>
+                    <a href="#">Gradient</a>
+                    <a href="#">Color Mixer</a>
+                    <a href="#">Color Shades</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">CALCULATOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">SIP</a>
+                    <a href="#">BMI</a>
+                    <a href="#">EMI</a>
+                    <a href="#">AGE</a>
+                    <a href="#">COMPOUND</a>
+                    <a href="#">LOAN</a>
+                    <a href="#">INCOME TAX</a>
+                    <a href="#">FD</a>
+                    <a href="#">CAGR</a>
+                    <a href="#">CAR LOAN</a>
+                    <a href="#">FRACTION</a>
+                    <a href="#">SALARY</a>
+                    <a href="#">CUBE ROOT</a>
+                    <a href="#">INFLATION</a>
+                    <a href="#">RATIO</a>
+                    <a href="#">RULE OF 72</a>
+                    <a href="#">SALES TAX</a>
+                    <a href="#">SPHERE</a>
+                    <a href="#">PRESSURE</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#" class="special-btn">More <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content more">
+                    <a href="#">HELP</a>
+                    <a href="#">ABOUT</a>
+                    <a href="#">CONTACT</a>
+                </div>
+            </div>
+        </ul>
+
+        <button class="menu-toggle">
+            <span class="menu-icon">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </span>
+        </button>
+    </nav>
+    <!-- ==========================================Navbar end -->
+
+    <!-- Modify your top ad section like this -->
+    <div class="ad-container adswitch" style="overflow:hidden; max-width:100vw; padding-bottom:10px">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9660515804448328" data-ad-slot="ooooooo"
+            data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+    <h1>🎨 Emotion-Based Color Palette Generator</h1>
+    <section class="main-container">
+
+        <div class="container">
+            <div class="emotion-buttons" id="emotionButtons"></div>
+            <div class="input-group">
+                <input type="text" id="emotionInput" placeholder="Type an emotion (e.g., joyful, peaceful, passionate)">
+                <button class="generate-btn" onclick="generatePalette()">Generate</button>
+            </div>
+            <div id="palette" class="palette-container"></div>
+            <div id="errorMessage" class="error"></div>
+            <div id="colorExplanation" class="color-explanation"></div>
+        </div>
+
+        <!-- SIDEBAR AD -->
+        <div class="ad-section sidebar-ad adswitch">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                data-ad-slot="0987654321" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        </div>
+
+    </section>
+
+    <!-- Bottom Ad -->
+    <div class="ad-section bottom-ad adswitch">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="1357924680" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- footer -->
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+
+                <!-- Connect Section -->
+                <div class="footer-column top-1">
+
+                    <div class="logo-container footer-logo">
+                        <div class="logo-2">
+                            <img src="/image/BSL1.png" alt=""><span> BrightsWebs</span>
+                        </div>
+
+                        <!-- <h4 class="footer-heading">Connect</h4> -->
+                        <div class="social-container">
+                            <div class="social-icons">
+                                <a href="#" class="social-link" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company Section -->
+                <div class="footer-column">
+                    <h3 class="footer-heading"> Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">About Us</a></li>
+                        <li><a href="#" class="footer-link">Our Team</a></li>
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                        <li><a href="#" class="footer-link">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Tools Section -->
+                <div class="footer-column l-left">
+                    <h3 class="footer-heading"> Tools</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">PDF Tools</a></li>
+                        <li><a href="#" class="footer-link">Image Tools</a></li>
+                        <li><a href="#" class="footer-link">Developer Tools</a></li>
+                        <li><a href="#" class="footer-link">Security Tools</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Section -->
+                <div class="footer-column">
+                    <h3 class="footer-heading"> Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li><a href="#" class="footer-link">GDPR</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Section -->
+                <div class="footer-column l-left">
+                    <h3 class="footer-heading"> card</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li><a href="#" class="footer-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="social-icons-m">
+                <a href="#" class="social--m" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2023 PDF Craft (BS WEB). All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <script>
+        // Initialize AdSense ads
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+
+    <div class="search-suggestions" id="searchSuggestions">
+        <div class="search-suggestion-items" id="suggestionItems"></div>
+    </div>
+
+
+    <script src="/nav&footer.css/navfooter.js"></script>
+
+    <script>
+        const emotionsMap = {
+            'happy': ['#FFD700', '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'],
+            'calm': ['#A8DADC', '#457B9D', '#1D3557', '#F1FAEE', '#E63946'],
+            'energetic': ['#FF0000', '#FFBD00', '#FF5400', '#00B4D8', '#7209B7'],
+            'romantic': ['#FF758F', '#FF7EB3', '#FFB3C1', '#FFDEE1', '#D4A5A5'],
+            'sad': ['#6C757D', '#495057', '#343A40', '#ADB5BD', '#DEE2E6'],
+            'mysterious': ['#2D00F7', '#6A00F4', '#8900F1', '#B100E8', '#DB00B6'],
+            'joyful': ['#FF9F1C', '#FFBF69', '#2EC4B6', '#CBF3F0', '#FF69EB'],
+            'peaceful': ['#87CEEB', '#98FB98', '#DDA0DD', '#FFFACD', '#AFEEEE'],
+            'passionate': ['#FF0000', '#FF4500', '#FF1493', '#8B0000', '#FFD700']
+        };
+
+        const colorExplanations = {
+            // Happy Colors
+            '#FFD700': 'Vibrant yellow representing joy and optimism',
+            '#FF6B6B': 'Warm coral symbolizing passion and excitement',
+            '#4ECDC4': 'Refreshing teal for balance and clarity',
+            '#45B7D1': 'Serene blue evoking calmness and trust',
+            '#96CEB4': 'Natural green representing growth and harmony',
+
+            // Calm Colors
+            '#A8DADC': 'Soft cyan creating a calming atmosphere',
+            '#457B9D': 'Deep azure symbolizing stability and depth',
+            '#1D3557': 'Navy blue representing professionalism and elegance',
+            '#F1FAEE': 'Mint green suggesting freshness and renewal',
+            '#E63946': 'Soft crimson for focused tranquility',
+
+            // Energetic Colors
+            '#FF0000': 'Bold red expressing raw energy and intensity',
+            '#FFBD00': 'Golden yellow for enthusiasm and creativity',
+            '#FF5400': 'Fiery orange representing action and adventure',
+            '#00B4D8': 'Electric cyan symbolizing mental stimulation',
+            '#7209B7': 'Vibrant purple for creative energy',
+
+            // Romantic Colors
+            '#FF758F': 'Blushing pink embodying tender affection',
+            '#FF7EB3': 'Sweet bubblegum pink for playful romance',
+            '#FFB3C1': 'Soft baby pink representing innocence',
+            '#FFDEE1': 'Pale rose suggesting delicate love',
+            '#D4A5A5': 'Dusky pink for mature romance',
+
+            // Sad Colors
+            '#6C757D': 'Cool gray reflecting melancholy',
+            '#495057': 'Stormy gray for solemn contemplation',
+            '#343A40': 'Charcoal gray representing isolation',
+            '#ADB5BD': 'Silver gray suggesting emotional distance',
+            '#DEE2E6': 'Misty gray for subdued emotions',
+
+            // Mysterious Colors
+            '#2D00F7': 'Deep cosmic blue for hidden depths',
+            '#6A00F4': 'Royal purple symbolizing esoteric knowledge',
+            '#8900F1': 'Magenta-tinged purple for mysticism',
+            '#B100E8': 'Electric violet representing enigma',
+            '#DB00B6': 'Psychedelic pink for surreal mystery',
+
+            // Joyful Colors
+            '#FF9F1C': 'Sunny orange for cheerful optimism',
+            '#FFBF69': 'Warm peach representing comfort',
+            '#2EC4B6': 'Tropical teal for refreshing joy',
+            '#CBF3F0': 'Ice blue suggesting carefree happiness',
+            '#FF69EB': 'Playful pink for youthful exuberance',
+
+            // Peaceful Colors
+            '#87CEEB': 'Sky blue evoking open possibilities',
+            '#98FB98': 'Pale mint for harmonious balance',
+            '#DDA0DD': 'Lavender representing spiritual calm',
+            '#FFFACD': 'Lemon chiffon suggesting gentle warmth',
+            '#AFEEEE': 'Seafoam green for natural serenity',
+
+            // Passionate Colors
+            '#FF4500': 'Burning orange-red for intense desire',
+            '#FF1493': 'Deep pink symbolizing bold love',
+            '#8B0000': 'Blood red representing deep commitment',
+            '#FFD700': 'Gold accent for luxurious passion'
+        };
+
+        // Create emotion buttons
+        function createEmotionButtons() {
+            const container = document.getElementById('emotionButtons');
+            Object.keys(emotionsMap).forEach(emotion => {
+                const btn = document.createElement('button');
+                btn.className = 'emotion-btn';
+                btn.textContent = emotion;
+                btn.onclick = () => {
+                    document.getElementById('emotionInput').value = emotion;
+                    generatePalette();
+                }
+                container.appendChild(btn);
+            });
+        }
+
+        function generatePalette() {
+            const emotion = document.getElementById('emotionInput').value.toLowerCase();
+            const paletteContainer = document.getElementById('palette');
+            const errorMessage = document.getElementById('errorMessage');
+            const explanationContainer = document.getElementById('colorExplanation');
+
+            paletteContainer.innerHTML = '';
+            errorMessage.textContent = '';
+            explanationContainer.innerHTML = '';
+
+            if (!emotionsMap[emotion]) {
+                errorMessage.innerHTML = `
+                ⚠️ Emotion not recognized! Try these:
+                ${Object.keys(emotionsMap).join(', ')}
+            `;
+                return;
+            }
+
+            const explanations = [];
+            emotionsMap[emotion].forEach(color => {
+                // Color card
+                const colorCard = document.createElement('div');
+                colorCard.className = 'color-card';
+                colorCard.style.backgroundColor = color;
+
+                // Color code
+                const colorCode = document.createElement('div');
+                colorCode.className = 'color-code';
+                colorCode.textContent = color;
+
+                colorCard.appendChild(colorCode);
+                colorCard.onclick = () => copyToClipboard(color);
+                paletteContainer.appendChild(colorCard);
+
+                // Explanations
+                if (colorExplanations[color]) {
+                    explanations.push(`
+                    <li>
+                        <div class="color-swatch" style="background: ${color}"></div>
+                        <strong>${color}:</strong> ${colorExplanations[color]}
+                    </li>
+                `);
+                }
+            });
+
+            // Add explanations
+            if (explanations.length > 0) {
+                explanationContainer.innerHTML = `
+                <h3>Color Meanings for "${emotion}"</h3>
+                <ul>${explanations.join('')}</ul>
+            `;
+            }
+        }
+
+        function copyToClipboard(color) {
+            navigator.clipboard.writeText(color);
+            const originalText = document.getElementById('emotionInput').value;
+            document.getElementById('emotionInput').value = `Copied: ${color}!`;
+            setTimeout(() => {
+                document.getElementById('emotionInput').value = originalText;
+            }, 1000);
+        }
+
+        // Initialize emotion buttons
+        createEmotionButtons();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <!-- Primary Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <title>CAGR Calculator Online - Free Compound Annual Growth Rate Calculator | BrightsWebs</title>
+
+    <meta name="description"
+        content="Calculate CAGR instantly with our advanced Compound Annual Growth Rate calculator. Analyze investment growth, business performance, and metric progression over multiple years. Get accurate annualized return percentages with detailed breakdowns.">
+
+    <!-- Keywords -->
+    <meta name="keywords"
+        content="cagr calculator, compound annual growth rate calculator, investment growth calculator, business growth calculator, annualized return calculator, financial growth calculator, multi-year growth rate, portfolio performance calculator, revenue growth calculator, sales cagr calculator, stock market cagr calculator, mutual fund growth calculator, calculate cagr with percentages">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Free CAGR Calculator - Calculate Compound Growth Rate Online | BrightsWebs">
+    <meta property="og:description"
+        content="Professional-grade CAGR calculator for investors, analysts, and business owners. Compute smoothed annual growth rates between any two values with time-period flexibility. Export results and visualize growth curves.">
+    <meta property="og:image" content="https://brightswebs.com/images/og-cagr-calculator.jpg">
+
+    <!-- Google Adsense -->
+    <meta name="google-adsense-account" content="ca-pub-9660515804448328">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9660515804448328"
+        crossorigin="anonymous"></script>
+
+    <!-- Common Elements -->
+    <meta name="author" content="BrightsWebs">
+    <meta name="copyright" content="BrightsWebs.com">
+    <link rel="canonical" href="https://brightswebs.com/cagr-calculator">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:title" content="Online CAGR Calculator - Measure Investment Growth Precisely">
+    <meta name="twitter:description"
+        content="Calculate compound annual growth rates for stocks, mutual funds, or business metrics. Compare multiple investments with side-by-side CAGR analysis. Mobile-friendly financial tool.">
+    <meta name="twitter:image" content="https://brightswebs.com/images/twitter-cagr-calculator.jpg">
+
+    <!-- Favicons (Optimized Path Structure) -->
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Universal Fallback -->
+    <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+    <!-- Apple Devices -->
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon/favicon.ico?v=2">
+    <link rel="icon" href="/favicon/favicon.svg?v=2">
+    <!-- Windows Support -->
+    <meta name="msapplication-TileImage" content="/favicon/favicon-144x144.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "CAGR Calculator",
+      "url": "https://brightswebs.com/cagr-calculator",
+      "description": "Financial tool for calculating compound annual growth rates between two values over specified periods",
+      "applicationCategory": ["Financial Calculator", "Investment Tool"],
+      "featureList": "Multi-year calculations, Percentage growth visualization, Exportable results, Historical comparisons",
+      "screenshot": {
+        "@type": "ImageObject",
+        "url": "https://brightswebs.com/images/cagr-calculator-interface.png",
+        "caption": "CAGR calculation interface with input fields and growth chart"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Investors, Financial Analysts, Business Owners"
+      }
+    }
+    </script>
+
+    <!-- Styles & Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="/nav&footer.css/toolui.css">
+    <link rel="stylesheet" href="/nav&footer.css/calculatorbuttoncard.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            min-height: 100vh;
+        }
+
+        /* Update the sidebar ad styles */
+        .sidebar-ad {
+            position: fixed;
+            top: 150px;
+            right: 20px;
+        }
+
+        /*=========================================== MAIN */
+
+        .main-container {
+            padding: 0 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .calculator-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+
+        h1 {
+            color: var(--primary-1);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid var(--pink-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-1);
+        }
+
+        button {
+            background-color: var(--primary-1);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .result {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: var(--lite-green-0);
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .cagr-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--success-color);
+            margin: 1rem 0;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            background-color: var(--primary-2);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            z-index: 100;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+
+
+            .calculator-card {
+                padding: 1.5rem;
+            }
+
+            .cagr-value {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* ===========================Information Sections Styles */
+        .info-sections {
+            max-width: 1000px;
+            margin: 3rem auto;
+            /* margin-right: 400px; */
+            padding: 0 1rem;
+        }
+
+        .info-card {
+            background: var(--rear-lite-blue);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: .2px solid var(--pink-color);
+            transition: transform 0.3s ease;
+
+            h2 {
+                color: var(--lite-blue-color);
+            }
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-header .icon {
+            font-size: 2rem;
+            color: var(--primary-1);
+            margin-right: 1rem;
+        }
+
+        .steps-grid,
+        .uses-grid,
+        .process-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .step-item,
+        .use-case,
+        .process-step {
+            background: var(--background-color);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .detail-item:hover,
+        .step-item:hover,
+        .use-case:hover,
+        .process-step:hover {
+            background: var(--lite-green-0);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-icon,
+        .process-icon {
+            position: relative;
+            font-size: 2rem;
+            color: var(--primary-1);
+            margin-bottom: 1rem;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent-1);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .formula-box {
+            background: var(--lite-purple-0);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .formula {
+            font-size: 1.5rem;
+            color: var(--primary-3);
+            font-weight: bold;
+        }
+
+        .formula-legend {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        .highlight {
+            color: var(--accent-1);
+            font-weight: 600;
+        }
+
+        .process-flow {
+            align-items: center;
+        }
+
+        .process-step {
+            padding: 1rem;
+        }
+
+        .use-case i {
+            font-size: 1.8rem;
+            color: var(--primary-2);
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .info-card {
+                padding: 1rem;
+            }
+
+            .steps-grid,
+            .uses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .section-header .icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+
+            .formula-box {
+                margin: 0;
+            }
+        }
+
+        /* ==============Percentage Info Specific Styles */
+        .calculation-details {
+            h3 {
+                color: var(--nav-col-2);
+            }
+
+            i {
+                color: var(--nav-col-7);
+            }
+        }
+
+        .percent-info .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .detail-item {
+            background: var(--lite-purple-0);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--lite-purple-1);
+        }
+
+        .spec-list li {
+            margin: 0.8rem 0;
+            padding-left: 1.5rem;
+            list-style: none;
+            position: relative;
+        }
+
+        .spec-list li:before {
+            content: "•";
+            color: var(--primary-1);
+            position: absolute;
+            left: 0;
+        }
+
+        .formula-visual .formula {
+            font-size: 1.3rem;
+        }
+
+        .color-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+
+        .color-dot.ev {
+            background: var(--accent-1)
+        }
+
+        .color-dot.bv {
+            background: var(--primary-2)
+        }
+
+        .color-dot.n {
+            background: var(--unique-golden-amber)
+        }
+
+        .example-box {
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: .2px solid var(--pink-color);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .calculation-steps {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .calculation-steps .step {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--lite-purple-0);
+            border-radius: 8px;
+        }
+
+        .calculation-steps .numbers {
+            color: var(--primary-2);
+            font-weight: bold;
+        }
+
+        .calculation-steps .operator {
+            color: var(--accent-2);
+        }
+
+        .calculation-steps .result {
+            color: var(--success-color);
+            font-weight: bold;
+        }
+
+        .special-cases .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .case-item {
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .case-item.negative {
+            background: var(--lite-purple-0);
+            border: 1px solid #ffcccc;
+        }
+
+        .case-item.zero {
+            background: var(--lite-green-0);
+            border: 1px solid #ffe699;
+        }
+
+        .case-item i {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .case-item.negative i {
+            color: var(--accent-1)
+        }
+
+        .case-item.zero i {
+            color: var(--unique-golden-amber)
+        }
+
+        @media (max-width: 768px) {
+            .percent-info .detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .calculation-steps .step {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: .5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==========================================Navbar start -->
+    <nav>
+        <div class="logo-container">
+            <div class="logo-1">
+                <img src="/image/BSL1.png" alt="">
+            </div>
+            <span> BrightsWebs</span>
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search..." class="search-input" id="searchInput">
+            <i class="fas fa-search search-icon"></i>
+            <div class="search-suggestions">
+                <div class="search-suggestion-items"></div>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <div class="dropdown">
+                <a href="#">BG REMOVE <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Image Background Remove</a>
+                    <a href="#">Change Background Color</a>
+                    <a href="#">Image Editor</a>
+                    <a href="#">Background Crop</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">CONVERTER <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">PDF Converter</a>
+                    <a href="#">Image Converter</a>
+                    <a href="#">Photo Converter</a>
+                    <a href="#">Image Compressor</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">GENERATOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Image To SVG</a>
+                    <a href="#">SVG Blob</a>
+                    <a href="#">AI Color Palette</a>
+                    <a href="#">QR Code</a>
+                    <a href="#">PIN</a>
+                    <a href="#">Password Generator</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">COLOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Color Picker</a>
+                    <a href="#">Gradient</a>
+                    <a href="#">Color Mixer</a>
+                    <a href="#">Color Shades</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">CALCULATOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">SIP</a>
+                    <a href="#">BMI</a>
+                    <a href="#">EMI</a>
+                    <a href="#">AGE</a>
+                    <a href="#">COMPOUND</a>
+                    <a href="#">LOAN</a>
+                    <a href="#">INCOME TAX</a>
+                    <a href="#">FD</a>
+                    <a href="#">CAGR</a>
+                    <a href="#">CAR LOAN</a>
+                    <a href="#">FRACTION</a>
+                    <a href="#">SALARY</a>
+                    <a href="#">CUBE ROOT</a>
+                    <a href="#">INFLATION</a>
+                    <a href="#">RATIO</a>
+                    <a href="#">RULE OF 72</a>
+                    <a href="#">SALES TAX</a>
+                    <a href="#">SPHERE</a>
+                    <a href="#">PRESSURE</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#" class="special-btn">More <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content more">
+                    <a href="#">HELP</a>
+                    <a href="#">ABOUT</a>
+                    <a href="#">CONTACT</a>
+                </div>
+            </div>
+        </ul>
+
+        <button class="menu-toggle">
+            <span class="menu-icon">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </span>
+        </button>
+    </nav>
+    <!-- ==========================================Navbar end -->
+
+    <!-- Modify your top ad section like this -->
+    <div class="ad-container" style="overflow:hidden; max-width:100vw; padding-bottom:10px">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9660515804448328" data-ad-slot="ooooooo"
+            data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+    <div class="main-container">
+
+        <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+        <div class="container">
+            <div class="calculator-card">
+                <h1>CAGR Calculator</h1>
+                <div class="input-group">
+                    <label for="beginning-value">Initial Investment Value</label>
+                    <input type="number" id="beginning-value" placeholder="Enter initial value">
+                </div>
+                <div class="input-group">
+                    <label for="ending-value">Final Investment Value</label>
+                    <input type="number" id="ending-value" placeholder="Enter final value">
+                </div>
+                <div class="input-group">
+                    <label for="years">Investment Period (Years)</label>
+                    <input type="number" id="years" placeholder="Enter number of years">
+                </div>
+                <button onclick="calculateCAGR()">Calculate CAGR</button>
+                <div class="result" id="result">
+                    <p>Compound Annual Growth Rate</p>
+                    <div class="cagr-value" id="cagr-value">0.00%</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SIDEBAR AD -->
+    <div class="ad-section sidebar-ad">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="0987654321" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- Bottom Ad -->
+    <div class="ad-section bottom-ad">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="1357924680" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+    <div class="info-sections">
+        <!-- How to Use Section -->
+        <div class="info-card how-to-use">
+            <div class="section-header">
+                <i class="fas fa-play-circle icon"></i>
+                <h2>How to Use the CAGR Calculator</h2>
+            </div>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i class="fas fa-check-circle"></i>
+                        <div class="step-number">1</div>
+                    </div>
+                    <h3>Enter Initial Value</h3>
+                    <p>Input your starting investment amount</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i class="fas fa-edit"></i>
+                        <div class="step-number">2</div>
+                    </div>
+                    <h3>Enter Final Value</h3>
+                    <p>Input your ending investment value</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i class="fas fa-calculator"></i>
+                        <div class="step-number">3</div>
+                    </div>
+                    <h3>Enter Duration</h3>
+                    <p>Provide investment period in years</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="step-number">4</div>
+                    </div>
+                    <h3>Get Results</h3>
+                    <p>View your annualized growth rate</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- About CAGR Section -->
+        <div class="info-card about-cagr">
+            <div class="section-header">
+                <i class="fas fa-info-circle icon"></i>
+                <h2>What is CAGR?</h2>
+            </div>
+            <div class="content-box">
+                <p>CAGR (Compound Annual Growth Rate) is the <span class="highlight">annualized growth rate</span> of an
+                    investment over a specified time period, assuming profits are reinvested each year.</p>
+                <div class="formula-box">
+                    <span class="formula">CAGR = (EV/BV)<sup>1/n</sup> - 1</span>
+                    <div class="formula-legend">
+                        <span>EV = Ending Value</span>
+                        <span>BV = Beginning Value</span>
+                        <span>n = Number of years</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- How It Works Section -->
+        <div class="info-card how-works">
+            <div class="section-header">
+                <i class="fas fa-cogs icon"></i>
+                <h2>How CAGR Calculation Works</h2>
+            </div>
+            <div class="process-flow">
+                <div class="process-step">
+                    <div class="process-icon">
+                        <i class="fas fa-chart-area"></i>
+                    </div>
+                    <p>Measures smoothed annual growth</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <p>Accounts for compounding effects</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <p>Ignores volatility between years</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Common Uses Section -->
+        <div class="info-card common-uses">
+            <div class="section-header">
+                <i class="fas fa-rocket icon"></i>
+                <h2>Common Uses of CAGR</h2>
+            </div>
+            <div class="uses-grid">
+                <div class="use-case">
+                    <i class="fas fa-money-bill-trend"></i>
+                    <h3>Investment Analysis</h3>
+                    <p>Compare different investment options</p>
+                </div>
+                <div class="use-case">
+                    <i class="fas fa-business-time"></i>
+                    <h3>Business Growth</h3>
+                    <p>Measure company revenue expansion</p>
+                </div>
+                <div class="use-case">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>Portfolio Review</h3>
+                    <p>Evaluate long-term portfolio performance</p>
+                </div>
+                <div class="use-case">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Startup Metrics</h3>
+                    <p>Track user/customer growth rates</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- =========================Precision Section -->
+        <div class="info-card percent-info">
+            <div class="section-header">
+                <i class="fas fa-percentage icon"></i>
+                <h2>CAGR Percentage Calculation</h2>
+            </div>
+
+            <div class="calculation-details">
+                <!-- Precision Section -->
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <h3><i class="fas fa-tachometer-alt"></i> Calculation Precision</h3>
+                        </div>
+
+                        <ul class="spec-list">
+                            <li><span class="highlight">2 Decimal Places</span> display</li>
+                            <li>Up to <span class="highlight">10<sup>12</sup></span> value support</li>
+                            <li><span class="highlight">0.01%</span> minimum increment</li>
+                        </ul>
+                    </div>
+
+                    <!-- Formula Visual -->
+                    <div class="detail-item formula-visual">
+                        <div class="formula-box">
+                            <span class="formula">CAGR = [(EV/BV)<sup>1/n</sup> - 1] × 100</span>
+                            <div class="formula-legend">
+                                <span><span class="color-dot ev"></span>EV = Final Value</span>
+                                <span><span class="color-dot bv"></span>BV = Initial Value</span>
+                                <span><span class="color-dot n"></span>n = Years</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example Calculation -->
+                <div class="example-box">
+                    <h3><i class="fas fa-calculator"></i> Example Calculation</h3>
+                    <div class="calculation-steps">
+                        <div class="step">
+                            <span class="numbers">₹10,000 → ₹19,500</span>
+                            <span class="operator"><i class="fas fa-arrow-right"></i></span>
+                            <span class="result">5 Years</span>
+                        </div>
+                        <div class="step">
+                            <span class="formula-part">(19500/10000)<sup>1/5</sup></span>
+                            <span class="operator">=</span>
+                            <span class="result">1.1428</span>
+                        </div>
+                        <div class="step">
+                            <span class="formula-part">1.1428 - 1</span>
+                            <span class="operator">=</span>
+                            <span class="result">0.1428</span>
+                        </div>
+                        <div class="step final">
+                            <span class="formula-part">0.1428 × 100</span>
+                            <span class="operator">=</span>
+                            <span class="result highlight">14.28%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Special Cases -->
+                <div class="special-cases">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Special Scenarios</h3>
+                    <div class="case-grid">
+                        <div class="case-item negative">
+                            <i class="fas fa-arrow-down"></i>
+                            <h4>Negative Growth</h4>
+                            <p>Shows <span class="highlight">red</span> percentage</p>
+                            <div class="example">-5.25%</div>
+                        </div>
+                        <div class="case-item zero">
+                            <i class="fas fa-ban"></i>
+                            <h4>Zero Value</h4>
+                            <p>Initial value = 0 → <span class="highlight">∞%</span></p>
+                            <div class="example">Not Available</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- other calculator card -->
+    <div class="other-calculator-cards">
+        <!-- FD & RD Card -->
+        <div class="card" id="fd-card">
+            <h2>Fixed & Recurring Deposits</h2>
+            <p>Plan your fixed deposit and recurring deposit investments. Compare returns and maturity values with
+                different tenure options.</p>
+            <a href="/calculator/fd&rdcalculater.html" class="card-button">Explore FD/RD</a>
+        </div>
+
+        <!-- Compound Interest Card -->
+        <div class="card" id="compound-card">
+            <h2>Compound Interest Calculator</h2>
+            <p>Understand the power of compounding. Calculate future value of investments with regular contributions.
+            </p>
+            <a href="/calculator/compoundcalculator.html" class="card-button">Calculate Now</a>
+        </div>
+
+        <!-- SIP & SWP Card -->
+        <div class="card" id="sip-card">
+            <h2>SIP & SWP Planner</h2>
+            <p>Plan systematic investment plans and systematic withdrawal plans. Manage your investment strategy
+                effectively.</p>
+            <a href="/calculator/sip&swpcalculator.html" class="card-button">Start Planning</a>
+        </div>
+    </div>
+
+    <!-- other calculator card -->
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+
+                <!-- Connect Section -->
+                <div class="footer-column top-1">
+
+                    <div class="logo-container footer-logo">
+                        <div class="logo-2">
+                            <img src="/image/BSL1.png" alt=""><span> BrightsWebs</span>
+                        </div>
+
+                        <!-- <h4 class="footer-heading">Connect</h4> -->
+                        <div class="social-container">
+                            <div class="social-icons">
+                                <a href="#" class="social-link" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company Section -->
+                <div class="footer-column">
+                    <h3 class="footer-heading"> Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">About Us</a></li>
+                        <li><a href="#" class="footer-link">Our Team</a></li>
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                        <li><a href="#" class="footer-link">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Tools Section -->
+                <div class="footer-column l-left">
+                    <h3 class="footer-heading"> Tools</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">PDF Tools</a></li>
+                        <li><a href="#" class="footer-link">Image Tools</a></li>
+                        <li><a href="#" class="footer-link">Developer Tools</a></li>
+                        <li><a href="#" class="footer-link">Security Tools</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Section -->
+                <div class="footer-column">
+                    <h3 class="footer-heading"> Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li><a href="#" class="footer-link">GDPR</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Section -->
+                <div class="footer-column l-left">
+                    <h3 class="footer-heading"> card</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li><a href="#" class="footer-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="social-icons-m">
+                <a href="#" class="social--m" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2023 PDF Craft (BS WEB). All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AdSense ads
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <div class="search-suggestions" id="searchSuggestions">
+        <div class="search-suggestion-items" id="suggestionItems"></div>
+    </div>
+
+    <script src="/nav&footer.css/navfooter.js"></script>
+
+    <script>
+        function calculateCAGR() {
+            const beginningValue = parseFloat(document.getElementById('beginning-value').value);
+            const endingValue = parseFloat(document.getElementById('ending-value').value);
+            const years = parseFloat(document.getElementById('years').value);
+
+            if (isNaN(beginningValue) || isNaN(endingValue) || isNaN(years)) {
+                alert('Please fill in all fields with valid numbers');
+                return;
+            }
+
+            if (years <= 0) {
+                alert('Investment period must be greater than 0 years');
+                return;
+            }
+
+            const cagr = (Math.pow(endingValue / beginningValue, 1 / years) - 1) * 100;
+            const resultDiv = document.getElementById('result');
+            const cagrValue = document.getElementById('cagr-value');
+
+            cagrValue.textContent = `${cagr.toFixed(2)}%`;
+            resultDiv.classList.add('show');
+        }
+    </script>
+</body>
+
+</html>

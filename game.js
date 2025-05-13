@@ -452,13 +452,46 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // 4. Basketball Game
+    // 4. Basketball Game with Mobile Fixes
+// Basketball Game - Complete Combined JS
+// Basketball Game with Mobile Touch Fix
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize game when modal opens
+    const basketballModal = document.getElementById('basketball');
+    if (basketballModal) {
+        // Different modal show events for different frameworks
+        basketballModal.addEventListener('shown', initBasketballGame);
+        basketballModal.addEventListener('shown.bs.modal', initBasketballGame);
+        
+        // Also initialize if modal is already visible
+        if (basketballModal.classList.contains('show')) {
+            initBasketballGame();
+        }
+    }
+
     function initBasketballGame() {
+        console.log('Initializing basketball game...');
+        
+        // Get elements
         const canvas = document.getElementById('basketball-canvas');
+        if (!canvas) {
+            console.error('Canvas element not found!');
+            return;
+        }
+        
         const ctx = canvas.getContext('2d');
+        if (!ctx) {
+            console.error('Could not get canvas context!');
+            return;
+        }
+        
         const scoreDisplay = document.getElementById('basketball-score');
         const shotsDisplay = document.getElementById('basketball-shots');
         const accuracyDisplay = document.getElementById('basketball-accuracy');
         const restartButton = document.getElementById('restart-basketball');
+
+        // Set initial canvas size
+        resizeCanvas();
         
         // Game variables
         let score = 0;
@@ -483,8 +516,34 @@ document.addEventListener('DOMContentLoaded', function() {
             backboardWidth: 10,
             backboardHeight: 60
         };
-        
-        // Draw functions
+
+        // Handle canvas resizing
+        function resizeCanvas() {
+            const container = canvas.parentElement;
+            const maxWidth = Math.min(400, window.innerWidth - 40);
+            const maxHeight = Math.min(600, window.innerHeight * 0.7);
+            
+            // Set display size
+            canvas.style.width = maxWidth + 'px';
+            canvas.style.height = maxHeight + 'px';
+            
+            // Set actual canvas dimensions
+            const scale = window.devicePixelRatio || 1;
+            canvas.width = maxWidth * scale;
+            canvas.height = maxHeight * scale;
+            
+            // Scale the context
+            ctx.scale(scale, scale);
+            
+            // Adjust positions
+            ball.x = maxWidth / 2;
+            ball.y = maxHeight - ball.radius;
+            hoop.x = maxWidth / 2;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+
+        // Drawing functions
         function drawBall() {
             ctx.beginPath();
             ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
@@ -512,7 +571,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 hoop.height
             );
             
-            // Net (simplified)
+            // Net
             ctx.strokeStyle = 'white';
             ctx.beginPath();
             ctx.moveTo(hoop.x - hoop.width / 2, hoop.y + hoop.backboardHeight + hoop.height);
@@ -520,70 +579,64 @@ document.addEventListener('DOMContentLoaded', function() {
             ctx.lineTo(hoop.x + hoop.width / 2, hoop.y + hoop.backboardHeight + hoop.height);
             ctx.stroke();
         }
-        
+
         // Game logic
         function update() {
             if (!ball.isThrown) return;
             
-            // Apply gravity
+            // Apply physics
             ball.dy += ball.gravity;
-            
-            // Apply friction
             ball.dx *= ball.friction;
-            
-            // Update position
             ball.x += ball.dx;
             ball.y += ball.dy;
             
             // Wall collision
-            if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
+            const canvasWidth = parseInt(canvas.style.width);
+            if (ball.x + ball.radius > canvasWidth || ball.x - ball.radius < 0) {
                 ball.dx = -ball.dx * 0.8;
+                ball.x = ball.x < ball.radius ? ball.radius : canvasWidth - ball.radius;
             }
             
             // Floor collision
-            if (ball.y + ball.radius > canvas.height) {
-                ball.y = canvas.height - ball.radius;
+            const canvasHeight = parseInt(canvas.style.height);
+            if (ball.y + ball.radius > canvasHeight) {
+                ball.y = canvasHeight - ball.radius;
                 ball.dy = -ball.dy * 0.6;
                 ball.dx *= 0.8;
                 
-                // Stop ball if it's barely moving
                 if (Math.abs(ball.dy) < 1) {
                     ball.isThrown = false;
-                    ball.y = canvas.height - ball.radius;
+                    ball.y = canvasHeight - ball.radius;
                     ball.dy = 0;
                 }
             }
             
-            // Hoop collision (scoring)
-            if (
-                ball.y - ball.radius < hoop.y + hoop.backboardHeight + hoop.height &&
+            // Scoring detection
+            if (ball.y - ball.radius < hoop.y + hoop.backboardHeight + hoop.height &&
                 ball.y + ball.radius > hoop.y + hoop.backboardHeight &&
                 ball.x + ball.radius > hoop.x - hoop.width / 2 &&
-                ball.x - ball.radius < hoop.x + hoop.width / 2
-            ) {
-                // Check if ball is going down through the hoop
-                if (ball.dy > 0 && 
-                    ball.y - ball.radius < hoop.y + hoop.backboardHeight + hoop.height / 2) {
-                    score++;
-                    scoreDisplay.textContent = score;
-                    resetBall();
-                }
+                ball.x - ball.radius < hoop.x + hoop.width / 2 &&
+                ball.dy > 0 && 
+                ball.y - ball.radius < hoop.y + hoop.backboardHeight + hoop.height / 2) {
+                score++;
+                if (scoreDisplay) scoreDisplay.textContent = score;
+                resetBall();
             }
         }
-        
+
         function resetBall() {
             ball.isThrown = false;
-            ball.x = canvas.width / 2;
-            ball.y = canvas.height - ball.radius;
+            ball.x = parseInt(canvas.style.width) / 2;
+            ball.y = parseInt(canvas.style.height) - ball.radius;
             ball.dx = 0;
             ball.dy = 0;
         }
-        
+
         function draw() {
             // Clear canvas
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             
-            // Draw elements
+            // Draw game elements
             drawHoop();
             drawBall();
             
@@ -593,125 +646,139 @@ document.addEventListener('DOMContentLoaded', function() {
             // Continue animation
             requestAnimationFrame(draw);
         }
-        
-        // Controls
+
+        // Input handling
         let dragStart = null;
-        
-        canvas.addEventListener('mousedown', function(e) {
+        let isDragging = false;
+
+        function getPosition(event) {
+            const rect = canvas.getBoundingClientRect();
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+            
+            let clientX, clientY;
+            
+            if (event.touches) {
+                clientX = event.touches[0].clientX;
+                clientY = event.touches[0].clientY;
+            } else {
+                clientX = event.clientX;
+                clientY = event.clientY;
+            }
+            
+            return {
+                x: (clientX - rect.left) * scaleX,
+                y: (clientY - rect.top) * scaleY
+            };
+        }
+
+        function handleStart(pos) {
             if (ball.isThrown) return;
             
-            const rect = canvas.getBoundingClientRect();
-            const mouseX = e.clientX - rect.left;
-            const mouseY = e.clientY - rect.top;
-            
-            // Check if mouse is on ball
             const dist = Math.sqrt(
-                Math.pow(mouseX - ball.x, 2) + 
-                Math.pow(mouseY - ball.y, 2)
+                Math.pow(pos.x - ball.x, 2) + 
+                Math.pow(pos.y - ball.y, 2)
             );
             
             if (dist <= ball.radius) {
-                dragStart = {x: mouseX, y: mouseY};
+                dragStart = pos;
+                isDragging = true;
+            }
+        }
+
+        function handleMove(pos) {
+            if (!isDragging || ball.isThrown) return;
+            ball.x = pos.x;
+            ball.y = pos.y;
+        }
+
+        function handleEnd(pos) {
+            if (!isDragging || ball.isThrown) return;
+            
+            // Calculate throw velocity (more sensitive for touch devices)
+            const sensitivity = isTouchDevice() ? 0.3 : 0.2;
+            ball.dx = (dragStart.x - pos.x) * sensitivity;
+            ball.dy = (dragStart.y - pos.y) * sensitivity;
+            ball.isThrown = true;
+            
+            // Update stats
+            shots++;
+            if (shotsDisplay) shotsDisplay.textContent = shots;
+            if (accuracyDisplay) {
+                const accuracy = Math.round((score / shots) * 100) || 0;
+                accuracyDisplay.textContent = `${accuracy}%`;
+            }
+            
+            // Reset drag state
+            dragStart = null;
+            isDragging = false;
+        }
+
+        function isTouchDevice() {
+            return 'ontouchstart' in window || navigator.maxTouchPoints;
+        }
+
+        // Mouse events
+        canvas.addEventListener('mousedown', function(e) {
+            handleStart(getPosition(e));
+        });
+
+        canvas.addEventListener('mousemove', function(e) {
+            handleMove(getPosition(e));
+        });
+
+        canvas.addEventListener('mouseup', function(e) {
+            handleEnd(getPosition(e));
+        });
+
+        canvas.addEventListener('mouseleave', function() {
+            if (isDragging) {
+                isDragging = false;
+                dragStart = null;
             }
         });
-        
-        canvas.addEventListener('mousemove', function(e) {
-            if (!dragStart || ball.isThrown) return;
-            
-            const rect = canvas.getBoundingClientRect();
-            const mouseX = e.clientX - rect.left;
-            const mouseY = e.clientY - rect.top;
-            
-            // Move ball with mouse
-            ball.x = mouseX;
-            ball.y = mouseY;
-        });
-        
-        canvas.addEventListener('mouseup', function(e) {
-            if (!dragStart || ball.isThrown) return;
-            
-            const rect = canvas.getBoundingClientRect();
-            const mouseX = e.clientX - rect.left;
-            const mouseY = e.clientY - rect.top;
-            
-            // Calculate throw velocity
-            ball.dx = (dragStart.x - mouseX) * 0.2;
-            ball.dy = (dragStart.y - mouseY) * 0.2;
-            ball.isThrown = true;
-            dragStart = null;
-            
-            // Update shots and accuracy
-            shots++;
-            shotsDisplay.textContent = shots;
-            const accuracy = Math.round((score / shots) * 100) || 0;
-            accuracyDisplay.textContent = `${accuracy}%`;
-        });
-        
-        // Touch controls for mobile
+
+        // Touch events
         canvas.addEventListener('touchstart', function(e) {
             e.preventDefault();
-            if (ball.isThrown) return;
-            
-            const rect = canvas.getBoundingClientRect();
-            const touchX = e.touches[0].clientX - rect.left;
-            const touchY = e.touches[0].clientY - rect.top;
-            
-            const dist = Math.sqrt(
-                Math.pow(touchX - ball.x, 2) + 
-                Math.pow(touchY - ball.y, 2)
-            );
-            
-            if (dist <= ball.radius) {
-                dragStart = {x: touchX, y: touchY};
-            }
-        });
-        
+            handleStart(getPosition(e.touches[0]));
+        }, { passive: false });
+
         canvas.addEventListener('touchmove', function(e) {
             e.preventDefault();
-            if (!dragStart || ball.isThrown) return;
-            
-            const rect = canvas.getBoundingClientRect();
-            const touchX = e.touches[0].clientX - rect.left;
-            const touchY = e.touches[0].clientY - rect.top;
-            
-            ball.x = touchX;
-            ball.y = touchY;
-        });
-        
+            handleMove(getPosition(e.touches[0]));
+        }, { passive: false });
+
         canvas.addEventListener('touchend', function(e) {
             e.preventDefault();
-            if (!dragStart || ball.isThrown) return;
-            
-            const rect = canvas.getBoundingClientRect();
-            const touchX = e.changedTouches[0].clientX - rect.left;
-            const touchY = e.changedTouches[0].clientY - rect.top;
-            
-            ball.dx = (dragStart.x - touchX) * 0.2;
-            ball.dy = (dragStart.y - touchY) * 0.2;
-            ball.isThrown = true;
-            dragStart = null;
-            
-            shots++;
-            shotsDisplay.textContent = shots;
-            const accuracy = Math.round((score / shots) * 100) || 0;
-            accuracyDisplay.textContent = `${accuracy}%`;
-        });
-        
+            if (e.changedTouches && e.changedTouches.length > 0) {
+                handleEnd(getPosition(e.changedTouches[0]));
+            }
+        }, { passive: false });
+
+        // Prevent page scrolling when touching canvas
+        document.body.addEventListener('touchmove', function(e) {
+            if (isDragging) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
         // Restart game
-        function restartGame() {
-            score = 0;
-            shots = 0;
-            scoreDisplay.textContent = score;
-            shotsDisplay.textContent = shots;
-            accuracyDisplay.textContent = '0%';
-            resetBall();
+        if (restartButton) {
+            restartButton.addEventListener('click', function() {
+                score = 0;
+                shots = 0;
+                if (scoreDisplay) scoreDisplay.textContent = score;
+                if (shotsDisplay) shotsDisplay.textContent = shots;
+                if (accuracyDisplay) accuracyDisplay.textContent = '0%';
+                resetBall();
+            });
         }
-        
-        restartButton.addEventListener('click', restartGame);
-        
-        // Start game
+
+        // Start the game
         draw();
     }
+});
     
     // 5. Space Invaders Game
     function initSpaceInvaders() {

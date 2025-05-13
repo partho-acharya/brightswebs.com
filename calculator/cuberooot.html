@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <!-- Primary Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <title>Cube Root Calculator - Find ∛x Online (3√ Calculator) | BrightsWebs</title>
+
+    <meta name="description"
+        content="Calculate cube roots instantly for positive/negative numbers and decimals. Simplify perfect cubes (∛8, ∛27) and get step-by-step solutions. Free online tool with mobile-friendly interface and no sign-up required.">
+
+    <!-- Keywords -->
+    <meta name="keywords"
+        content="cube root calculator, 3√ calculator, simplify cube roots, perfect cube calculator, cube root finder, negative number cube root, cube root of decimals, ∛ calculator, cube root solver, cubic root calculator, math root calculator, radical calculator, cube root formula">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Cube Root Calculator Online - Simplify ∛x Instantly">
+    <meta property="og:description"
+        content="Calculate cubic roots of any number with precision. Handles perfect cubes, negative values, and decimal inputs. Educational tool for students and professionals with clear solutions.">
+    <meta property="og:image" content="https://brightswebs.com/images/og-cube-root-calculator.jpg">
+
+    <!-- Google Adsense -->
+    <meta name="google-adsense-account" content="ca-pub-9660515804448328">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9660515804448328"
+        crossorigin="anonymous"></script>
+
+    <!-- Common Elements -->
+    <meta name="author" content="BrightsWebs">
+    <meta name="copyright" content="BrightsWebs.com">
+    <link rel="canonical" href="https://brightswebs.com/cube-root-calculator">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:title" content="Free Cube Root Calculator - Solve 3√ Equations Online">
+    <meta name="twitter:description"
+        content="Instant cube root calculations with step-by-step explanations. Perfect for algebra homework, engineering calculations, and competitive exams. Mobile-optimized math tool.">
+    <meta name="twitter:image" content="https://brightswebs.com/images/twitter-cube-root-calculator.jpg">
+
+
+    <!-- Favicons (Optimized Path Structure) -->
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Universal Fallback -->
+    <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+    <!-- Apple Devices -->
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon/favicon.ico?v=2">
+    <link rel="icon" href="/favicon/favicon.svg?v=2">
+    <!-- Windows Support -->
+    <meta name="msapplication-TileImage" content="/favicon/favicon-144x144.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Cube Root Calculator",
+      "url": "https://brightswebs.com/cube-root-calculator",
+      "description": "Mathematical tool for calculating cubic roots of positive/negative numbers and decimal values",
+      "applicationCategory": ["Math Calculator", "Education Tool"],
+      "featureList": "Negative number support, Perfect cube detection, Step-by-step solutions, Decimal precision",
+      "screenshot": {
+        "@type": "ImageObject",
+        "url": "https://brightswebs.com/images/cube-root-calculator-interface.png",
+        "caption": "Cube root calculator interface with example calculation ∛125 = 5"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Students, Teachers, Engineers"
+      }
+    }
+    </script>
+
+    <!-- Core Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="/nav&footer.css/toolui.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            min-height: 100vh;
+        }
+
+
+        /* ====================================Ad Section Styles end */
+        /* Update the sidebar ad styles */
+        .sidebar-ad {
+            position: fixed;
+            top: 150px;
+            right: 20px;
+        }
+
+        /* Adjust main container to prevent overlap */
+        .main-container {
+            margin-right: 340px;
+            padding: 1rem;
+            position: relative;
+        }
+
+        /* ====================================Ad Section Styles end */
+
+
+        /*=========================================== main */
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2rem;
+
+        }
+
+        .calculator {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 2rem auto;
+            border: .6px solid var(--pink-color);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--lite-blue-color);
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid var(--pink-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        button {
+            background-color: var(--primary-2);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: var(--lite-blue-color);
+        }
+
+        #result {
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: var(--background-color);
+        }
+
+        /* =======================================================info */
+        .info-section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 1rem;
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            border: .6px solid var(--pink-color);
+        }
+
+        .card-1 {
+            background-color: var(--cream-color);
+        }
+
+        .card-2 {
+            background-color: var(--rear-lite-blue);
+        }
+
+        .card-3 {
+            background-color: var(--orange-0);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-box {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            color: var(--lite-blue-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .math-example {
+            font-size: 1.4rem;
+            padding: 1rem;
+            background: var(--background-color);
+            border-radius: 8px;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .explanation-list {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .explanation-list li {
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .explanation-list li::before {
+            content: "▹";
+            color: var(--accent-2);
+            position: absolute;
+            left: -1rem;
+        }
+
+        .application-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+        }
+
+        .app-item {
+            padding: 0.6rem;
+            background: var(--background-color);
+            border-radius: 6px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-slide-up {
+            animation: slideUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+
+        /* Existing styles remain same until this line */
+
+        /* ======================= Responsive Design ======================= */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .calculator {
+                margin: 1.5rem auto;
+                padding: 1.5rem;
+            }
+
+            .info-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                margin: 0;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: clamp(1.5rem, 5vw, 2rem);
+                margin-bottom: 1.5rem;
+            }
+
+            .calculator {
+                margin: 1rem auto;
+                padding: 1rem;
+                border-radius: 10px;
+            }
+
+            .info-section {
+                gap: 1rem;
+                grid-template-columns: 1fr;
+            }
+
+            .info-card {
+                padding: 1.25rem;
+                border-radius: 12px;
+            }
+
+            .math-example {
+                font-size: 1.2rem;
+                padding: 0.8rem;
+            }
+
+            /* .application-grid {
+                grid-template-columns: 1fr;
+            } */
+        }
+
+        @media (max-width: 480px) {
+
+
+            .container {
+                padding: 0.75rem;
+            }
+
+            input {
+                font-size: 1.1rem;
+                padding: 0.75rem;
+            }
+
+            button {
+                padding: 0.75rem;
+                font-size: 1.1rem;
+            }
+
+            #result {
+                font-size: 1.1rem;
+                padding: 0.75rem;
+            }
+
+            .theme-toggle {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .icon-box {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            .app-item {
+                font-size: 0.85rem;
+                padding: 0.5rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .math-example {
+                font-size: 1.1rem;
+            }
+
+            .explanation-list li {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Mobile Landscape Optimization */
+        @media (max-height: 480px) and (orientation: landscape) {
+            body {
+                padding: 0.5rem;
+            }
+
+            .container {
+                padding: 0.5rem;
+            }
+
+            .calculator {
+                margin: 0.5rem auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==========================================Navbar start -->
+    <nav>
+        <div class="logo-container">
+            <div class="logo-1">
+                <img src="/image/BSL1.png" alt="">
+            </div>
+            <span> BrightsWebs</span>
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search..." class="search-input" id="searchInput">
+            <i class="fas fa-search search-icon"></i>
+            <div class="search-suggestions">
+                <div class="search-suggestion-items"></div>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <div class="dropdown">
+                <a href="#">BG REMOVE <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Image Background Remove</a>
+                    <a href="#">Change Background Color</a>
+                    <a href="#">Image Editor</a>
+                    <a href="#">Background Crop</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">CONVERTER <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">PDF Converter</a>
+                    <a href="#">Image Converter</a>
+                    <a href="#">Photo Converter</a>
+                    <a href="#">Image Compressor</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">GENERATOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Image To SVG</a>
+                    <a href="#">SVG Blob</a>
+                    <a href="#">AI Color Palette</a>
+                    <a href="#">QR Code</a>
+                    <a href="#">PIN</a>
+                    <a href="#">Password Generator</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">COLOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Color Picker</a>
+                    <a href="#">Gradient</a>
+                    <a href="#">Color Mixer</a>
+                    <a href="#">Color Shades</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">CALCULATOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">SIP</a>
+                    <a href="#">BMI</a>
+                    <a href="#">EMI</a>
+                    <a href="#">AGE</a>
+                    <a href="#">COMPOUND</a>
+                    <a href="#">LOAN</a>
+                    <a href="#">INCOME TAX</a>
+                    <a href="#">FD</a>
+                    <a href="#">CAGR</a>
+                    <a href="#">CAR LOAN</a>
+                    <a href="#">FRACTION</a>
+                    <a href="#">SALARY</a>
+                    <a href="#">CUBE ROOT</a>
+                    <a href="#">INFLATION</a>
+                    <a href="#">RATIO</a>
+                    <a href="#">RULE OF 72</a>
+                    <a href="#">SALES TAX</a>
+                    <a href="#">SPHERE</a>
+                    <a href="#">PRESSURE</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#" class="special-btn">More <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content more">
+                    <a href="#">HELP</a>
+                    <a href="#">ABOUT</a>
+                    <a href="#">CONTACT</a>
+                </div>
+            </div>
+        </ul>
+
+        <button class="menu-toggle">
+            <span class="menu-icon">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </span>
+        </button>
+    </nav>
+    <!-- ==========================================Navbar end -->
+
+    <!-- Modify your top ad section like this -->
+    <div class="ad-container" style="overflow:hidden; max-width:100vw; padding-bottom:10px">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9660515804448328" data-ad-slot="ooooooo"
+            data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+    <div class="main-container">
+        <div class="container">
+            <div class="calculator">
+                <h1>Cube Root Calculator</h1>
+                <div class="input-group">
+                    <input type="number" id="number" placeholder="Enter a number">
+                </div>
+                <button onclick="calculateCubeRoot()">Calculate Cube Root</button>
+                <div id="result"></div>
+            </div>
+        </div>
+
+        <button class="theme-toggle" onclick="toggleTheme()">
+            <i class="fas fa-moon"></i>
+        </button>
+
+        <!-- Add this inside the container div after the calculator -->
+        <div class="info-section">
+            <div class="info-card animate-slide-up card-1">
+                <div class="icon-box">🧊</div>
+                <h2>What is Cube Root?</h2>
+                <p>The cube root of a number is a value that, when multiplied by itself three times, gives the original
+                    number.</p>
+                <div class="math-example">
+                    ∛<span class="number">64</span> = <span class="result">4</span>
+                </div>
+            </div>
+
+            <div class="info-card animate-slide-up card-2" style="animation-delay: 0.2s">
+                <div class="icon-box">⚡</div>
+                <h2>How It Works</h2>
+                <ul class="explanation-list">
+                    <li>Uses inverse operation of cubing (x³)</li>
+                    <li>Works with positive and negative numbers</li>
+                    <li>Calculated using: ∛n = n^(1/3)</li>
+                </ul>
+            </div>
+
+            <div class="info-card animate-slide-up card-3" style="animation-delay: 0.4s">
+                <div class="icon-box">🌐</div>
+                <h2>Applications</h2>
+                <div class="application-grid">
+                    <div class="app-item">Volume Calculations</div>
+                    <div class="app-item">3D Graphics</div>
+                    <div class="app-item">Engineering</div>
+                    <div class="app-item">Physics</div>
+                    <div class="app-item">Finance</div>
+                    <div class="app-item">Cryptography</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- SIDEBAR AD -->
+    <div class="ad-section sidebar-ad">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="0987654321" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- Bottom Ad -->
+    <div class="ad-section bottom-ad">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="1357924680" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- footer -->
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+
+                <!-- Connect Section -->
+                <div class="footer-column top-1">
+
+                    <div class="logo-container footer-logo">
+                        <div class="logo-2">
+                            <img src="/image/BSL1.png" alt=""><span> BrightsWebs</span>
+                        </div>
+
+                        <!-- <h4 class="footer-heading">Connect</h4> -->
+                        <div class="social-container">
+                            <div class="social-icons">
+                                <a href="#" class="social-link" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company Section -->
+                <div class="footer-column">
+                    <h3 class="footer-heading"> Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">About Us</a></li>
+                        <li><a href="#" class="footer-link">Our Team</a></li>
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                        <li><a href="#" class="footer-link">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Tools Section -->
+                <div class="footer-column l-left">
+                    <h3 class="footer-heading"> Tools</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">PDF Tools</a></li>
+                        <li><a href="#" class="footer-link">Image Tools</a></li>
+                        <li><a href="#" class="footer-link">Developer Tools</a></li>
+                        <li><a href="#" class="footer-link">Security Tools</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Section -->
+                <div class="footer-column">
+                    <h3 class="footer-heading"> Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li><a href="#" class="footer-link">GDPR</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Section -->
+                <div class="footer-column l-left">
+                    <h3 class="footer-heading"> card</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li><a href="#" class="footer-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="social-icons-m">
+                <a href="#" class="social--m" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2023 PDF Craft (BS WEB). All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AdSense ads
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <div class="search-suggestions" id="searchSuggestions">
+        <div class="search-suggestion-items" id="suggestionItems"></div>
+    </div>
+
+    <script src="/nav&footer.css/navfooter.js"></script>
+
+    <script>
+        function calculateCubeRoot() {
+            const number = parseFloat(document.getElementById('number').value);
+            const resultElement = document.getElementById('result');
+
+            if (isNaN(number)) {
+                resultElement.textContent = "Please enter a valid number";
+                resultElement.style.color = getComputedStyle(document.documentElement)
+                    .getPropertyValue('--accent-1');
+                return;
+            }
+
+            const cubeRoot = Math.cbrt(number);
+            resultElement.innerHTML = `Cube root of ${number} is: <strong>${cubeRoot.toFixed(4)}</strong>`;
+            resultElement.style.color = getComputedStyle(document.documentElement)
+                .getPropertyValue('--success-color');
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <!-- Primary Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <title>AI Color Extractor | Smart Image Palette Generator | BrightsWebs</title>
+
+    <meta name="description"
+        content="Advanced AI-powered color extraction tool: Automatically identify dominant colors from images. Generate perfect palettes with HEX/RGB codes, CSS exports & color theory insights. Batch process images with AI analysis.">
+
+    <!-- Keywords -->
+    <meta name="keywords"
+        content="AI color extractor, automated palette generator, image color analysis, dominant color detection, AI color picker, smart color detection, image to palette converter, batch color extraction, CSS color variables generator, product color identifier, brand color analyzer, machine learning color tool">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="AI-Powered Color Extraction Tool - Instant Palette Generation">
+    <meta property="og:description"
+        content="Extract color schemes from any image using AI technology. Get precise color codes, CSS exports & downloadable palettes in seconds">
+    <meta property="og:image" content="https://brightswebs.com/images/og-ai-color-extractor.jpg">
+    <meta property="og:url" content="https://brightswebs.com/ai-color-extractor">
+
+    <!-- Favicons (Optimized Path Structure) -->
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Universal Fallback -->
+    <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+    <!-- Apple Devices -->
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon/favicon.ico?v=2">
+    <link rel="icon" href="/favicon/favicon.svg?v=2">
+    <!-- Windows Support -->
+    <meta name="msapplication-TileImage" content="/favicon/favicon-144x144.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Color Detector: Smart Image Analysis & Palette Export">
+    <meta name="twitter:description"
+        content="Automatically extract color schemes from photos & artworks. Perfect for designers, marketers & e-commerce product optimization">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "AI Color Extractor",
+  "url": "https://brightswebs.com/ai-color-extractor",
+  "description": "Artificial Intelligence powered tool for automatic color scheme extraction from digital images with palette generation capabilities",
+  "applicationCategory": ["Design Tool", "AI Application"],
+  "featureList": "AI color detection, Batch processing, CSS/SASS export, Color theory analysis",
+  "operatingSystem": ["Web"],
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "ratingCount": "950"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BrightsWebs",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://brightswebs.com/logo.png"
+    }
+  }
+}
+</script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <!-- Common Elements -->
+    <meta name="author" content="BrightsWebs">
+    <meta name="copyright" content="BrightsWebs.com">
+    <link rel="canonical" href="https://brightswebs.com/ai-color-extractor">
+    <meta name="google-adsense-account" content="ca-pub-9660515804448328">
+
+    <link rel="stylesheet" href="/nav&footer.css/toolui.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            background-color: var(--rear-lite-blue);
+        }
+
+        /* Add container for max width */
+        .container {
+            display: flex;
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 0 1rem;
+            gap: 30px;
+
+        }
+
+        .main {
+            text-align: center;
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+
+            h1 {
+                color: var(--lite-blue-color);
+            }
+
+        }
+
+        .upload-zone {
+            border: 3px dashed var(--pink-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            background: var(--card-bg);
+            cursor: pointer;
+            margin-bottom: 2rem;
+            position: relative;
+            transition: background 0.2s;
+
+            &:hover {
+                border: 3px dashed var(--primary-color);
+
+                p {
+                    color: var(--primary-color);
+                }
+            }
+        }
+
+        .upload-zone::before {
+            content: '📤';
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 1rem;
+            filter: grayscale(1);
+            transition: filter 0.2s;
+        }
+
+        .upload-zone:hover::before {
+            filter: grayscale(0);
+        }
+
+        .info-header::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+            background-size: contain;
+        }
+
+        .image-preview {
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .controls {
+            display: flex;
+            width: 60%;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem auto;
+            /* flex-wrap: wrap; */
+            background-color: var(--lite-purple-0);
+            padding: 3rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+            label {
+                color: var(--lite-blue-color);
+                font-weight: 600;
+                font-size: 20px;
+            }
+
+        }
+
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .color-card {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            background: var(--card-bg);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .color-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .color-preview {
+            width: 100%;
+            height: 120px;
+            transition: height 0.2s;
+            border-radius: 0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+
+            &:hover {
+                background: var(--lite-blue-color);
+            }
+        }
+
+        input[type="range"] {
+            width: 200px;
+        }
+
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            place-items: center;
+            color: white;
+            font-size: 2rem;
+            z-index: 1000;
+        }
+
+        .app-info {
+            display: grid;
+            max-width: 1200px;
+            width: 100%;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            background: var(--grad-col-hero);
+        }
+
+        .info-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .info-section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-header {
+            color: var(--primary-2);
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-3);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-header::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(45deg, var(--primary-1), var(--primary-3));
+            border-radius: 4px;
+        }
+
+        .info-content {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .info-content ol,
+        .info-content ul {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+            list-style: none;
+        }
+
+        .info-content li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+            position: relative;
+        }
+
+        .info-content ol li::before {
+            content: counter(list-item);
+            position: absolute;
+            left: -1.8em;
+            width: 1.4em;
+            height: 1.4em;
+            background: var(--accent-1);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
+        }
+
+        .info-content ul li::before {
+            content: '';
+            position: absolute;
+            left: -1.2em;
+            top: 0.6em;
+            width: 6px;
+            height: 6px;
+            background: var(--accent-2);
+            border-radius: 50%;
+        }
+
+        .info-content strong {
+            color: var(--unique-vivid-pink);
+            font-weight: 600;
+        }
+
+        /* Dark mode adjustments */
+        [data-theme="dark"] .info-section {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        [data-theme="dark"] .info-content li::before {
+            filter: brightness(1.2);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .app-info {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+                gap: .5rem;
+            }
+
+            .info-section {
+                margin-bottom: 1rem;
+            }
+
+            .controls {
+                width: 100%;
+                padding: 1.5rem;
+
+                label {
+                    margin-bottom: 5px;
+                }
+            }
+
+            .info-content ol,
+            .info-content ul {
+                padding-left: 1rem;
+                margin: 0;
+            }
+
+            .info-content li {
+                margin-bottom: 0;
+                padding-left: 0;
+                font-size: 15px;
+            }
+        }
+
+        /* Copy Button Styling */
+        .color-card button {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .color-card button:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .color-card button svg {
+            width: 20px;
+            height: 20px;
+            stroke: white;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .color-palette {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .color-palette {
+                grid-template-columns: 1fr;
+            }
+
+            .color-preview {
+                height: 160px;
+            }
+        }
+
+        /* Specific icons for each section */
+        .info-section:nth-child(1) .info-header::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234CAF50'%3E%3Cpath d='M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z'/%3E%3C/svg%3E");
+        }
+
+        .info-section:nth-child(2) .info-header::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234CAF50'%3E%3Cpath d='M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm2.59-11.42L10 14.17l-1.59-1.58L6 14l4 4 8-8-1.41-1.42z'/%3E%3C/svg%3E");
+        }
+
+        .info-section:nth-child(3) .info-header::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234CAF50'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ==========================================Navbar start -->
+    <nav>
+        <div class="logo-container">
+            <div class="logo-1">
+                <img src="/image/BSL1.png" alt="">
+            </div>
+            <span> BrightsWebs</span>
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search..." class="search-input" id="searchInput">
+            <i class="fas fa-search search-icon"></i>
+            <div class="search-suggestions">
+                <div class="search-suggestion-items"></div>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <div class="dropdown">
+                <a href="#">BG REMOVE <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Image Background Remove</a>
+                    <a href="#">Change Background Color</a>
+                    <a href="#">Image Editor</a>
+                    <a href="#">Background Crop</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">CONVERTER <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">PDF Converter</a>
+                    <a href="#">Image Converter</a>
+                    <a href="#">Photo Converter</a>
+                    <a href="#">Image Compressor</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">GENERATOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Image To SVG</a>
+                    <a href="#">SVG Blob</a>
+                    <a href="#">AI Color Palette</a>
+                    <a href="#">QR Code</a>
+                    <a href="#">PIN</a>
+                    <a href="#">Password Generator</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">COLOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Color Picker</a>
+                    <a href="#">Gradient</a>
+                    <a href="#">Color Mixer</a>
+                    <a href="#">Color Shades</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">CALCULATOR <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">SIP</a>
+                    <a href="#">BMI</a>
+                    <a href="#">EMI</a>
+                    <a href="#">AGE</a>
+                    <a href="#">COMPOUND</a>
+                    <a href="#">LOAN</a>
+                    <a href="#">INCOME TAX</a>
+                    <a href="#">FD</a>
+                    <a href="#">CAGR</a>
+                    <a href="#">CAR LOAN</a>
+                    <a href="#">FRACTION</a>
+                    <a href="#">SALARY</a>
+                    <a href="#">CUBE ROOT</a>
+                    <a href="#">INFLATION</a>
+                    <a href="#">RATIO</a>
+                    <a href="#">RULE OF 72</a>
+                    <a href="#">SALES TAX</a>
+                    <a href="#">SPHERE</a>
+                    <a href="#">PRESSURE</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#" class="special-btn">More <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content more">
+                    <a href="#">HELP</a>
+                    <a href="#">ABOUT</a>
+                    <a href="#">CONTACT</a>
+                </div>
+            </div>
+        </ul>
+
+        <button class="menu-toggle">
+            <span class="menu-icon">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </span>
+        </button>
+    </nav>
+    <!-- ==========================================Navbar end -->
+
+    <!-- Modify your top ad section like this -->
+    <div class="ad-container adswitch" style="overflow:hidden; max-width:100vw; padding-bottom:10px">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9660515804448328" data-ad-slot="ooooooo"
+            data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+    <div class="container">
+        <div class="main">
+            <div class="loading" id="loading">Processing...</div>
+            <div class="header">
+                <h1>AI Color Extractor</h1>
+            </div>
+
+            <div class="upload-zone" id="drop-zone">
+                <p>Drag & Drop image or click to upload</p>
+                <input type="file" id="file-input" hidden accept="image/*">
+            </div>
+
+            <div class="image-preview" id="image-preview"></div>
+
+            <div class="controls">
+                <div>
+                    <label>Color Count: </label>
+                    <input type="range" id="color-count" min="2" max="15" value="5">
+                    <span id="count-value">5</span>
+                </div>
+                <button id="export-figma">Export to Figma</button>
+            </div>
+
+            <div class="color-palette" id="palette"></div>
+
+            <section class="app-info">
+                <div class="info-section">
+                    <h2 class="info-header">🖌️ How to Use</h2>
+                    <div class="info-content">
+                        <ol>
+                            <li><strong>Upload Image:</strong> Click the upload zone or drag & drop any image file</li>
+                            <li><strong>Adjust Colors:</strong> Use the slider to select number of colors (2-15)</li>
+                            <li><strong>Refine Colors:</strong> Adjust individual color hues using the sliders</li>
+                            <li><strong>Export:</strong> Copy colors or export to design tools</li>
+                            <li><strong>Toggle Theme:</strong> Switch between dark/light modes using the top-right
+                                button
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h2 class="info-header">🎨 What to Use It For</h2>
+                    <div class="info-content">
+                        <p>This tool helps designers and developers:</p>
+                        <ul>
+                            <li>Extract brand colors from logos/product images</li>
+                            <li>Create harmonious color schemes for websites/apps</li>
+                            <li>Analyze visual styles from inspiration images</li>
+                            <li>Generate palette bases for design systems</li>
+                            <li>Understand color distribution in images</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h2 class="info-header">🤖 About This App</h2>
+                    <div class="info-content">
+                        <p><strong>AI-Powered Color Extraction</strong><br>
+                            Uses k-means clustering algorithm to group similar colors and find dominant hues</p>
+                        <p><strong>Technical Features:</strong></p>
+                        <ul>
+                            <li>Real-time image processing in browser</li>
+                            <li>HSL-based color adjustment</li>
+                            <li>Responsive design with CSS Grid</li>
+                            <li>Theme-aware interface</li>
+                            <li>Clipboard integration</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- SIDEBAR AD -->
+        <div class="ad-section sidebar-ad adswitch">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                data-ad-slot="0987654321" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        </div>
+    </div>
+    <!-- Bottom Ad -->
+    <div class="ad-section bottom-ad adswitch">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="1357924680" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- footer -->
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+
+                <!-- Connect Section -->
+                <div class="footer-column top-1">
+
+                    <div class="logo-container footer-logo">
+                        <div class="logo-2">
+                            <img src="/image/BSL1.png" alt=""><span> BrightsWebs</span>
+                        </div>
+
+                        <!-- <h4 class="footer-heading">Connect</h4> -->
+                        <div class="social-container">
+                            <div class="social-icons">
+                                <a href="#" class="social-link" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company Section -->
+                <div class="footer-column">
+                    <h3 class="footer-heading"> Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">About Us</a></li>
+                        <li><a href="#" class="footer-link">Our Team</a></li>
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                        <li><a href="#" class="footer-link">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Tools Section -->
+                <div class="footer-column l-left">
+                    <h3 class="footer-heading"> Tools</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">PDF Tools</a></li>
+                        <li><a href="#" class="footer-link">Image Tools</a></li>
+                        <li><a href="#" class="footer-link">Developer Tools</a></li>
+                        <li><a href="#" class="footer-link">Security Tools</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Section -->
+                <div class="footer-column">
+                    <h3 class="footer-heading"> Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li><a href="#" class="footer-link">GDPR</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Section -->
+                <div class="footer-column l-left">
+                    <h3 class="footer-heading"> card</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li><a href="#" class="footer-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="social-icons-m">
+                <a href="#" class="social--m" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="social--m" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2023 PDF Craft (BS WEB). All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <script>
+        // Initialize AdSense ads
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+
+    <div class="search-suggestions" id="searchSuggestions">
+        <div class="search-suggestion-items" id="suggestionItems"></div>
+    </div>
+
+    <script src="/nav&footer.css/navfooter.js"></script>
+
+    <!-- Modified color card template in JS -->
+    <script>
+        function updatePalette(colors) {
+            const palette = document.getElementById('palette');
+            palette.innerHTML = colors.map(color => `
+                <div class="color-card">
+                    <div class="color-preview" style="background:${color}"></div>
+                    <p>${color}</p>
+                    <input type="range" class="hue-adjust" min="0" max="360" value="${getHue(color)}">
+                    <button onclick="copyColor('${color}')" title="Copy color">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2"/>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                        </svg>
+                    </button>
+                </div>
+            `).join('');
+            // ... rest of the function
+        }
+    </script>
+
+    <script>
+        // Theme Toggle
+        // const themeToggle = document.getElementById('theme-toggle');
+        // themeToggle.addEventListener('click', () => {
+        //     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        //     document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        // });
+
+        // File Handling
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        const loading = document.getElementById('loading');
+
+        // Click handler
+        dropZone.addEventListener('click', () => fileInput.click());
+
+        // File input handler
+        fileInput.addEventListener('change', (e) => handleImage(e.target.files));
+
+        // Drag and drop handlers
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.style.backgroundColor = 'var(--lite-gray)';
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.style.backgroundColor = 'var(--card-bg)';
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.style.backgroundColor = 'var(--card-bg)';
+
+            const files = [];
+            if (e.dataTransfer.items) {
+                [...e.dataTransfer.items].forEach((item) => {
+                    if (item.kind === 'file' && item.type.startsWith('image/')) {
+                        files.push(item.getAsFile());
+                    }
+                });
+            } else {
+                [...e.dataTransfer.files].forEach((file) => {
+                    if (file.type.startsWith('image/')) {
+                        files.push(file);
+                    }
+                });
+            }
+
+            if (files.length > 0) {
+                handleImage(files);
+            } else {
+                alert('No valid image files found');
+            }
+        });
+
+        // Image processing
+        async function handleImage(files) {
+            try {
+                if (!files || files.length === 0) throw new Error('No file selected');
+
+                const file = files[0];
+                if (!file.type.startsWith('image/')) {
+                    throw new Error('Please upload an image file (JPEG, PNG, GIF, WEBP)');
+                }
+
+                loading.style.display = 'grid';
+                const image = await createImageBitmap(file);
+                const preview = document.getElementById('image-preview');
+                preview.innerHTML = `<img src="${URL.createObjectURL(file)}" alt="Preview" style="max-width:100%">`;
+
+                const colors = await extractColors(image);
+                updatePalette(colors);
+            } catch (error) {
+                alert(error.message);
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+
+        // Color extraction
+        async function extractColors(image) {
+            const canvas = new OffscreenCanvas(image.width, image.height);
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(image, 0, 0);
+
+            // Downsample image
+            const sampleRate = 10;
+            const pixels = [];
+            for (let y = 0; y < canvas.height; y += sampleRate) {
+                for (let x = 0; x < canvas.width; x += sampleRate) {
+                    const [r, g, b] = ctx.getImageData(x, y, 1, 1).data;
+                    pixels.push([r, g, b]);
+                }
+            }
+
+            return kMeansClustering(pixels, document.getElementById('color-count').value);
+        }
+
+        // K-means algorithm
+        function kMeansClustering(pixels, k, maxIterations = 10) {
+            let centroids = pixels.sort(() => Math.random() - 0.5).slice(0, k);
+
+            for (let i = 0; i < maxIterations; i++) {
+                const clusters = Array.from({ length: k }, () => []);
+
+                pixels.forEach(pixel => {
+                    let minDistance = Infinity;
+                    let clusterIndex = -1;
+
+                    centroids.forEach((centroid, index) => {
+                        const distance = euclideanDistance(pixel, centroid);
+                        if (distance < minDistance) {
+                            minDistance = distance;
+                            clusterIndex = index;
+                        }
+                    });
+
+                    clusters[clusterIndex].push(pixel);
+                });
+
+                centroids = clusters.map(cluster => {
+                    if (cluster.length === 0) return centroids[Math.floor(Math.random() * centroids.length)];
+                    return cluster[0].map((_, i) =>
+                        cluster.reduce((sum, p) => sum + p[i], 0) / cluster.length
+                    );
+                });
+            }
+
+            return centroids
+                .map(c => c.map(Math.round))
+                .sort((a, b) => (b[0] + b[1] + b[2]) - (a[0] + a[1] + a[2]))
+                .map(rgb => rgbToHex(...rgb));
+        }
+
+        // Helper functions
+        function euclideanDistance(a, b) {
+            return Math.sqrt(a.reduce((acc, val, i) => acc + Math.pow(val - b[i], 2), 0));
+        }
+
+        function rgbToHex(r, g, b) {
+            return `#${[r, g, b].map(x => x.toString(16).padStart(2, '0')).join('')}`;
+        }
+
+        // Palette update
+        function updatePalette(colors) {
+            const palette = document.getElementById('palette');
+            palette.innerHTML = colors.map(color => `
+                <div class="color-card">
+                    <div class="color-preview" style="background:${color}"></div>
+                    <p>${color}</p>
+                    <input type="range" class="hue-adjust" min="0" max="360" value="${getHue(color)}">
+                    <button onclick="copyColor('${color}')">Copy</button>
+                </div>
+            `).join('');
+
+            document.querySelectorAll('.hue-adjust').forEach(slider => {
+                slider.addEventListener('input', (e) => {
+                    const preview = e.target.parentElement.querySelector('.color-preview');
+                    const newColor = adjustHue(preview.style.backgroundColor, e.target.value);
+                    preview.style.backgroundColor = newColor;
+                    e.target.parentElement.querySelector('p').textContent = newColor;
+                });
+            });
+        }
+
+        // Color adjustments
+        function getHue(hex) {
+            const rgb = hexToRgb(hex);
+            const hsl = rgbToHsl(...rgb);
+            return Math.round(hsl[0]);
+        }
+
+        function adjustHue(rgbColor, hue) {
+            const rgb = rgbColor.match(/\d+/g).map(Number);
+            const hsl = rgbToHsl(...rgb);
+            return hslToHex(hue, hsl[1], hsl[2]);
+        }
+
+        // Color conversion
+        function hexToRgb(hex) {
+            const bigint = parseInt(hex.slice(1), 16);
+            return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
+        }
+
+        function rgbToHsl(r, g, b) {
+            r /= 255; g /= 255; b /= 255;
+            const max = Math.max(r, g, b), min = Math.min(r, g, b);
+            let h, s, l = (max + min) / 2;
+
+            if (max !== min) {
+                const d = max - min;
+                s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                switch (max) {
+                    case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                    case g: h = (b - r) / d + 2; break;
+                    case b: h = (r - g) / d + 4; break;
+                }
+                h *= 60;
+            } else {
+                h = s = 0;
+            }
+            return [h, s * 100, l * 100];
+        }
+
+        function hslToHex(h, s, l) {
+            l /= 100;
+            const a = s * Math.min(l, 1 - l) / 100;
+            const f = n => {
+                const k = (n + h / 30) % 12;
+                const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+                return Math.round(255 * color).toString(16).padStart(2, '0');
+            };
+            return `#${f(0)}${f(8)}${f(4)}`;
+        }
+
+        // Copy to clipboard
+        function copyColor(color) {
+            navigator.clipboard.writeText(color).catch(() => {
+                alert('Failed to copy color');
+            });
+        }
+
+        // Controls
+        document.getElementById('color-count').addEventListener('input', async (e) => {
+            document.getElementById('count-value').textContent = e.target.value;
+            if (document.getElementById('image-preview').children.length > 0) {
+                try {
+                    loading.style.display = 'grid';
+                    const image = await createImageBitmap(fileInput.files[0]);
+                    const colors = await extractColors(image);
+                    updatePalette(colors);
+                } catch (error) {
+                    alert(error.message);
+                } finally {
+                    loading.style.display = 'none';
+                }
+            }
+        });
+
+        // Export functionality
+        document.getElementById('export-figma').addEventListener('click', () => {
+            const colors = Array.from(document.querySelectorAll('.color-card p'))
+                .map(p => p.textContent);
+
+            if (colors.length === 0) {
+                alert('Please process an image first!');
+                return;
+            }
+
+            console.log('Exporting colors:', colors);
+            alert(`Exported ${colors.length} colors to console!\n${colors.join('\n')}`);
+        });
+    </script>
+</body>
+
+</html>
