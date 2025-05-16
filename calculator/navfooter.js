@@ -63,46 +63,102 @@ function initMobileMenu() {
  * Search Suggestions
  * Handles search input and suggestions
  */
+// function initSearchSuggestions() {
+//     const searchData = [
+//         { text: 'PDF Converter', link: 'pdf.html' },
+//         { text: 'Image Compressor', link: 'imageconverter.html' },
+//         { text: 'Image Converter', link: 'pdf.html' },
+//         { text: 'Photo Converter', link: '#' },
+
+//         { text: 'Image To SVG', link: '#' },
+//         { text: 'SVG Blob', link: '#' },
+//         { text: 'Password Generator', link: '#' },
+//         { text: 'AI Color Palette', link: 'index.html' },
+//         { text: 'QR Code', link: 'services.html#web' },
+//         { text: 'PIN', link: 'services.html#graphic' },
+
+//         { text: 'Color Picker', link: 'contact.html' },
+//         { text: 'Gradient', link: 'about.html' },
+//         { text: 'Color Mixer', link: 'team.html' },
+//         { text: 'Color Shades', link: 'projects.html' },
+
+//         { text: 'SIP', link: '#' },
+//         { text: 'BMI', link: '#' },
+//         { text: 'EMI', link: '#' },
+//         { text: 'AGE', link: '#' },
+//         { text: 'COMPOUND', link: '#' },
+//         { text: 'LOAN', link: '#' },
+//         { text: 'INCOME TAX', link: '#' },
+//         { text: 'FD', link: '#' },
+//         { text: 'CAGR', link: '#' },
+//         { text: 'CAR LOAN', link: '#' },
+//         { text: 'FRACTION', link: '#' },
+//         { text: 'SALARY', link: '#' },
+//         { text: 'CUBE ROOT', link: '#' },
+//         { text: 'INFLATION', link: '#' },
+//         { text: 'RATIO', link: '#' },
+//         { text: 'RULE OF 72', link: '#' },
+//         { text: 'SALES TAX', link: '#' },
+//         { text: 'SPHERE', link: '#' },
+//         { text: 'PRESSURE', link: '#' },
+
+//     ];
+
+
 function initSearchSuggestions() {
     const searchData = [
-        { text: 'PDF Converter', link: 'pdf.html' },
-        { text: 'Image Compressor', link: 'imageconverter.html' },
-        { text: 'Image Converter', link: 'pdf.html' },
-        { text: 'Photo Converter', link: '#' },
+        // BG REMOVE Dropdown
+        { text: 'BG REMOVE', link: '../imagebackgroundremove-edit/imagebackgroundremove.html' },
+        { text: 'IMAGE BACKGROUND REMOVE', link: '../imagebackgroundremove-edit/imagebackgroundremove.html' },
+        { text: 'IMAGE BACKGROUND EDITOR', link: '../imagebackgroundremove-edit/imagebackgroundeditor.html' },
 
-        { text: 'Image To SVG', link: '#' },
-        { text: 'SVG Blob', link: '#' },
-        { text: 'Password Generator', link: '#' },
-        { text: 'AI Color Palette', link: 'index.html' },
-        { text: 'QR Code', link: 'services.html#web' },
-        { text: 'PIN', link: 'services.html#graphic' },
+        // CONVERTER Dropdown
+        { text: 'CONVERTER', link: '../converter/imageConverter.html' },
+        { text: 'IMAGE CONVERTER', link: '../converter/imageConverter.html' },
+        { text: 'PDF CONVERTER', link: '../converter/pdfconverter.html' },
+        { text: 'IMAGE PAIR CONVERTER', link: '../converter/imagepairconverter.html' },
+        { text: 'IMAGE COMPRESSOR', link: '../converter/imagecompressor.html' },
 
-        { text: 'Color Picker', link: 'contact.html' },
-        { text: 'Gradient', link: 'about.html' },
-        { text: 'Color Mixer', link: 'team.html' },
-        { text: 'Color Shades', link: 'projects.html' },
+        // GENERATOR Dropdown
+        { text: 'GENERATOR', link: '#' },
+        { text: 'IMAGE TO SVG', link: '#' },
+        { text: 'SVG BLOB', link: '#' },
+        { text: 'AI COLOR PALETTE', link: '#' },
+        { text: 'QR CODE', link: '#' },
+        { text: 'PIN', link: '#' },
+        { text: 'PASSWORD GENERATOR', link: '#' },
 
-        { text: 'SIP', link: '#' },
-        { text: 'BMI', link: '#' },
-        { text: 'EMI', link: '#' },
-        { text: 'AGE', link: '#' },
-        { text: 'COMPOUND', link: '#' },
-        { text: 'LOAN', link: '#' },
-        { text: 'INCOME TAX', link: '#' },
-        { text: 'FD', link: '#' },
-        { text: 'CAGR', link: '#' },
-        { text: 'CAR LOAN', link: '#' },
-        { text: 'FRACTION', link: '#' },
-        { text: 'SALARY', link: '#' },
-        { text: 'CUBE ROOT', link: '#' },
-        { text: 'INFLATION', link: '#' },
-        { text: 'RATIO', link: '#' },
-        { text: 'RULE OF 72', link: '#' },
-        { text: 'SALES TAX', link: '#' },
-        { text: 'SPHERE', link: '#' },
-        { text: 'PRESSURE', link: '#' },
+        // COLOR Dropdown
+        { text: 'COLOR', link: '../color/colorpicker.html' },
+        { text: 'COLOR PICKER', link: '../color/colorpicker.html' },
+        { text: 'EMOTION COLOR', link: '../color/emotion.html' },
+        { text: 'AI COLOR EXTRACTOR', link: '../color/aicolorextractor.html' },
+        { text: 'COLOR CONTRAST CHECKER', link: '../color/contrastchecker.html' },
 
+        // CALCULATOR Dropdown
+        { text: 'CALCULATOR', link: 'calculator.html' },
+        { text: 'SIP & SWP', link: 'sip&swpcalculator.html' },
+        { text: 'BMI', link: 'bmicalculator.html' },
+        { text: 'EMI', link: 'emicalculator.html' },
+        { text: 'AGE', link: 'agecalculator.html' },
+        { text: 'COMPOUND', link: 'compoundcalculator.html' },
+        { text: 'MULTI LOAN', link: 'multiloancalculator.html' },
+        { text: 'FD & RD', link: 'fd&rdcalculater.html' },
+        { text: 'CAGR', link: 'cagrcalculator.html' },
+        { text: 'CAR LOAN', link: 'carloancalculator.html' },
+        { text: 'FRACTION', link: 'fractioncalculator.html' },
+        { text: 'SALARY', link: 'salarycalculator.html' },
+        { text: 'CUBE ROOT', link: 'cuberooot.html' },
+        { text: 'INFLATION', link: 'InflationCalculator.html' },
+
+        // HOME Dropdown
+        { text: 'HOME', link: '../index.html' },
+        { text: 'ABOUT', link: '../about.html' },
+        { text: 'HELP', link: '../help.html' }
     ];
+
+
+
 
     const searchInput = document.getElementById('searchInput');
     const searchBox = document.querySelector('.search-box');

@@ -63,46 +63,104 @@ function initMobileMenu() {
  * Search Suggestions
  * Handles search input and suggestions
  */
+
+// function initSearchSuggestions() {
+//     const searchData = [
+//         { text: 'PDF Converter', link: 'pdfconverter.html' },
+//         { text: 'Image Compressor', link: 'imagecompressor.html' },
+//         { text: 'Image Converter', link: 'imageConverter.html' },
+//         { text: 'Photo Converter', link: 'imagepairconverter.html' },
+
+//         { text: 'BG remove', link: '../imagebackgroundremove-edit/imagebackgroundremove.html' },
+
+//         { text: 'Image To SVG', link: '#' },
+//         { text: 'SVG Blob', link: '#' },
+//         { text: 'Password Generator', link: '#' },
+//         { text: 'AI Color Palette', link: 'index.html' },
+//         { text: 'QR Code', link: 'services.html#web' },
+//         { text: 'PIN', link: 'services.html#graphic' },
+
+//         { text: 'Color Picker', link: 'contact.html' },
+//         { text: 'Gradient', link: 'about.html' },
+//         { text: 'Color Mixer', link: 'team.html' },
+//         { text: 'Color Shades', link: 'projects.html' },
+
+//         { text: 'SIP', link: '#' },
+//         { text: 'BMI', link: '#' },
+//         { text: 'EMI', link: '#' },
+//         { text: 'AGE', link: '#' },
+//         { text: 'COMPOUND', link: '#' },
+//         { text: 'LOAN', link: '#' },
+//         { text: 'INCOME TAX', link: '#' },
+//         { text: 'FD', link: '#' },
+//         { text: 'CAGR', link: '#' },
+//         { text: 'CAR LOAN', link: '#' },
+//         { text: 'FRACTION', link: '#' },
+//         { text: 'SALARY', link: '#' },
+//         { text: 'CUBE ROOT', link: '#' },
+//         { text: 'INFLATION', link: '#' },
+//         { text: 'RATIO', link: '#' },
+//         { text: 'RULE OF 72', link: '#' },
+//         { text: 'SALES TAX', link: '#' },
+//         { text: 'SPHERE', link: '#' },
+//         { text: 'PRESSURE', link: '#' },
+
+//     ];
+
 function initSearchSuggestions() {
     const searchData = [
-        { text: 'PDF Converter', link: 'pdf.html' },
-        { text: 'Image Compressor', link: 'imageconverter.html' },
-        { text: 'Image Converter', link: 'pdf.html' },
-        { text: 'Photo Converter', link: '#' },
+        // BG REMOVE Dropdown
+        { text: 'BG REMOVE', link: '../imagebackgroundremove-edit/imagebackgroundremove.html' },
+        { text: 'IMAGE BACKGROUND REMOVE', link: '../imagebackgroundremove-edit/imagebackgroundremove.html' },
+        { text: 'IMAGE BACKGROUND EDITOR', link: '../imagebackgroundremove-edit/imagebackgroundeditor.html' },
 
-        { text: 'Image To SVG', link: '#' },
-        { text: 'SVG Blob', link: '#' },
-        { text: 'Password Generator', link: '#' },
-        { text: 'AI Color Palette', link: 'index.html' },
-        { text: 'QR Code', link: 'services.html#web' },
-        { text: 'PIN', link: 'services.html#graphic' },
+        // CONVERTER Dropdown
+        { text: 'CONVERTER', link: 'imageConverter.html' },
+        { text: 'IMAGE CONVERTER', link: 'imageConverter.html' },
+        { text: 'PDF CONVERTER', link: 'pdfconverter.html' },
+        { text: 'IMAGE PAIR CONVERTER', link: 'imagepairconverter.html' },
+        { text: 'IMAGE COMPRESSOR', link: 'imagecompressor.html' },
 
-        { text: 'Color Picker', link: 'contact.html' },
-        { text: 'Gradient', link: 'about.html' },
-        { text: 'Color Mixer', link: 'team.html' },
-        { text: 'Color Shades', link: 'projects.html' },
+        // GENERATOR Dropdown
+        { text: 'GENERATOR', link: '#' },
+        { text: 'IMAGE TO SVG', link: '#' },
+        { text: 'SVG BLOB', link: '#' },
+        { text: 'AI COLOR PALETTE', link: '#' },
+        { text: 'QR CODE', link: '#' },
+        { text: 'PIN', link: '#' },
+        { text: 'PASSWORD GENERATOR', link: '#' },
 
-        { text: 'SIP', link: '#' },
-        { text: 'BMI', link: '#' },
-        { text: 'EMI', link: '#' },
-        { text: 'AGE', link: '#' },
-        { text: 'COMPOUND', link: '#' },
-        { text: 'LOAN', link: '#' },
-        { text: 'INCOME TAX', link: '#' },
-        { text: 'FD', link: '#' },
-        { text: 'CAGR', link: '#' },
-        { text: 'CAR LOAN', link: '#' },
-        { text: 'FRACTION', link: '#' },
-        { text: 'SALARY', link: '#' },
-        { text: 'CUBE ROOT', link: '#' },
-        { text: 'INFLATION', link: '#' },
-        { text: 'RATIO', link: '#' },
-        { text: 'RULE OF 72', link: '#' },
-        { text: 'SALES TAX', link: '#' },
-        { text: 'SPHERE', link: '#' },
-        { text: 'PRESSURE', link: '#' },
+        // COLOR Dropdown
+        { text: 'COLOR', link: '../color/colorpicker.html' },
+        { text: 'COLOR PICKER', link: '../color/colorpicker.html' },
+        { text: 'EMOTION COLOR', link: '../color/emotion.html' },
+        { text: 'AI COLOR EXTRACTOR', link: '../color/aicolorextractor.html' },
+        { text: 'COLOR CONTRAST CHECKER', link: '../color/contrastchecker.html' },
 
+        // CALCULATOR Dropdown
+        { text: 'CALCULATOR', link: '../calculator/calculator.html' },
+        { text: 'SIP & SWP', link: '../calculator/sip&swpcalculator.html' },
+        { text: 'BMI', link: '../calculator/bmicalculator.html' },
+        { text: 'EMI', link: '../calculator/emicalculator.html' },
+        { text: 'AGE', link: '../calculator/agecalculator.html' },
+        { text: 'COMPOUND', link: '../calculator/compoundcalculator.html' },
+        { text: 'MULTI LOAN', link: '../calculator/multiloancalculator.html' },
+        { text: 'FD & RD', link: '../calculator/fd&rdcalculater.html' },
+        { text: 'CAGR', link: '../calculator/cagrcalculator.html' },
+        { text: 'CAR LOAN', link: '../calculator/carloancalculator.html' },
+        { text: 'FRACTION', link: '../calculator/fractioncalculator.html' },
+        { text: 'SALARY', link: '../calculator/salarycalculator.html' },
+        { text: 'CUBE ROOT', link: '../calculator/cuberooot.html' },
+        { text: 'INFLATION', link: '../calculator/InflationCalculator.html' },
+
+        // HOME Dropdown
+        { text: 'HOME', link: '../index.html' },
+        { text: 'ABOUT', link: '../about.html' },
+        { text: 'HELP', link: '../help.html' }
     ];
+
+    // Rest of your search suggestion implementation
+
 
     const searchInput = document.getElementById('searchInput');
     const searchBox = document.querySelector('.search-box');

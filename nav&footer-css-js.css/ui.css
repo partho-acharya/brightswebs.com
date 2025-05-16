@@ -22,6 +22,12 @@
     --primary-3: #9C27B0;
     --secondary-color: #45a049;
 
+    /* slider extra */
+    --primary-4: #ff4081;
+    --primary-5: #7c4dff;
+    --primary-6: #448aff;
+    --primary-7: #FF9800;
+
     /* Accent Colors */
     --accent-1: #FF4081;
     --accent-2: #FF9800;
@@ -313,7 +319,7 @@ nav {
     background: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    padding: 10px 0;
+    padding: 10px 0 0 0;
     visibility: hidden;
     opacity: 0;
     transition: all 0.3s;

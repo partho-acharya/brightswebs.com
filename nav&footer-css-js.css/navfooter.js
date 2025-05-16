@@ -65,7 +65,7 @@ function initMobileMenu() {
  */
 function initSearchSuggestions() {
     const searchData = [
-        { text: 'PDF Converter', link: 'pdf.html' },
+        { text: 'PDF Converter', link: 'pdf' },
         { text: 'Image Compressor', link: 'imageconverter.html' },
         { text: 'Image Converter', link: 'pdf.html' },
         { text: 'Photo Converter', link: '#' },

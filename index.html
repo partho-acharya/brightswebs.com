@@ -116,6 +116,61 @@
       }
     }
     </script>
+
+    <!-- <style>
+        /* Add these styles to your CSS */
+        .tools-section {
+            padding: 2rem;
+            background: #f9f9f9;
+        }
+
+        .slider-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem 0;
+        }
+
+        .slider-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .slider-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tool-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .tool-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .slider-card h3 {
+            margin: 0.5rem 0;
+            color: #333;
+            font-size: 1.2rem;
+        }
+
+        .slider-card p {
+            color: #666;
+            font-size: 0.9rem;
+            min-height: 60px;
+            margin-bottom: 1rem;
+        }
+    </style> -->
 </head>
 
 
@@ -212,8 +267,8 @@
                 <a href="index.html" class="special-btn ">HOME <i class="fas fa-chevron-down"></i></a>
                 <div class="dropdown-content more">
                     <a href="index.html">HOME</a>
-                    <a href="../about.html">ABOUT</a>
-                    <a href="../help.html">HELP</a>
+                    <a href="about/about.html">ABOUT</a>
+                    <a href="help/help.html">HELP</a>
                 </div>
             </div>
         </ul>
@@ -259,7 +314,7 @@
         </section>
         <!-- /* ==============================TOP DROPDOWN BUTTON START  */ -->
 
-        <div class="unique-button-container">
+        <div class="unique-button-container" id="btn">
             <!-- Button 1 -->
             <div class="unique-btn-group">
                 <button class="unique-main-btn unique-btn1 button-3d " onclick="uniqueToggleDropdown(1)">
@@ -366,92 +421,13 @@
         <!-- /* ==============================TOP DROPDOWN BUTTON END  */ -->
 
         <!-- Featured Tools Slider -->
-        <section class="featured-section">
+        <section class="featured-section" id="tools">
             <h2 class="section-title">Featured Tools</h2>
             <p class="section-subtitle">Check out our most popular utilities</p>
 
             <div class="slider-container">
                 <div class="slider-track">
-
-                    <!-- Slide 1 -->
-                    <div class="slider-card">
-                        <div class="tool-icon" style="background-color: var(--primary-1)">
-                            <i class="fas fa-file-pdf"></i>
-                        </div>
-                        <h3>PDF to JPG</h3>
-                        <p>Convert PDF pages to high-quality JPG images instantly</p>
-                        <a href="converter/imagepairconverter.html" class="btn small-btn">Try Now</a>
-                    </div>
-
-                    <!-- Slide 2 -->
-                    <div class="slider-card">
-                        <div class="tool-icon" style="background-color: var(--primary-2)">
-                            <i class="fas fa-qrcode"></i>
-                        </div>
-                        <h3>Image Converter</h3>
-                        <p>Create customizable QR codes for URLs, text, and more</p>
-                        <a href="converter/imageConverter.html" class="btn small-btn">Try Now</a>
-                    </div>
-
-                    <!-- Slide 3 -->
-                    <div class="slider-card">
-                        <div class="tool-icon" style="background-color: var(--primary-3)">
-                            <i class="fas fa-cut"></i>
-                        </div>
-                        <h3>BG Remover</h3>
-                        <p>Remove backgrounds from images automatically</p>
-                        <a href="imagebackgroundremove-edit/imagebackgroundremove.html" class="btn small-btn">Try
-                            Now</a>
-                    </div>
-
-                    <!-- Slide 4 -->
-                    <div class="slider-card">
-                        <div class="tool-icon" style="background-color: var(--accent-1)">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <h3>Color Picker</h3>
-                        <p>Extract colors from images and create palettes</p>
-                        <a href="color/colorpicker.html" class="btn small-btn">Try Now</a>
-                    </div>
-
-                    <!-- Slide 5 -->
-                    <div class="slider-card">
-                        <div class="tool-icon" style="background-color: var(--accent-2)">
-                            <i class="fas fa-compress-alt"></i>
-                        </div>
-                        <h3>Image Compressor</h3>
-                        <p>Reduce image size without losing quality</p>
-                        <a href="converter/imagecompressor.html" class="btn small-btn">Try Now</a>
-                    </div>
-
-                    <!-- Slide 6 -->
-                    <div class="slider-card">
-                        <div class="tool-icon" style="background-color: var(--pink-color)">
-                            <i class="fas fa-calculator"></i>
-                        </div>
-                        <h3>All Calculator</h3>
-                        <p>Calculate loan EMIs with detailed breakdown</p>
-                        <a href="calculator/calculator.html" class="btn small-btn">Try Now</a>
-                    </div>
-                </div>
-
-                <div class="slider-nav">
-                    <button class="slider-dot active"></button>
-                    <button class="slider-dot"></button>
-                    <button class="slider-dot"></button>
-                    <button class="slider-dot"></button>
-                    <button class="slider-dot"></button>
-                    <button class="slider-dot"></button>
-                    <button class="slider-dot"></button>
-                    <button class="slider-dot"></button>
-                    <button class="slider-dot"></button>
-                    <button class="slider-dot"></button>
-                    <button class="slider-dot"></button>
-                    <button class="slider-dot"></button>
-                    <button class="slider-dot"></button>
-                    <button class="slider-dot"></button>
-                    <button class="slider-dot"></button>
-                    <button class="slider-dot"></button>
+                    <!-- slider card coming from JS -->
                 </div>
             </div>
         </section>
@@ -497,7 +473,7 @@
                             </div>
                         </div>
 
-                        <a href="#tools" class="btn secondary-btn with-icon">
+                        <a href="#btn" class="btn secondary-btn with-icon">
                             <i class="fas fa-rocket"></i> Explore All Tools
                         </a>
                     </div>
@@ -505,7 +481,8 @@
                         <div class="image-frame">
                             <img src="display/bwebs.jpg" alt="About Our Tools" loading="lazy">
                             <div class="image-badge">
-                                <i class="fas fa-check-circle"></i> Trusted by 50,000+ users
+                                <i class="fas fa-check-circle"></i>  <!--Trusted by 50,000+ users -->
+                                Your All-in-One Digital Toolkit
                             </div>
                         </div>
                     </div>
@@ -521,11 +498,11 @@
                 <div class="about-content reverse">
                     <div class="about-image">
                         <div class="team-image">
-                            <img src="display/misson.jpg" alt="Our Team" loading="lazy">
+                            <img src="display/team.jpeg" alt="Our Team" loading="lazy">
                             <div class="team-dots">
-                                <div class="dot" style="top: 20%; left: 30%;" data-tooltip="UI Designer"></div>
-                                <div class="dot" style="top: 40%; left: 70%;" data-tooltip="Developer"></div>
-                                <div class="dot" style="top: 70%; left: 50%;" data-tooltip="Founder"></div>
+                                <div class="dot" style="top: 20%; left: 30%;" data-tooltip="UI Designer (Raj Acharya & Team)"></div>
+                                <div class="dot" style="top: 40%; left: 70%;" data-tooltip="Developer (Brights Webs Team)"></div>
+                                <div class="dot" style="top: 70%; left: 50%;" data-tooltip="Founder (Raj Acharya)"></div>
                             </div>
                         </div>
                     </div>
@@ -549,7 +526,7 @@
                             </div>
                         </div>
 
-                        <a href="#" class="btn secondary-btn with-icon">
+                        <a href="mailto:bsweb888@gmail.com" class="btn secondary-btn with-icon">
                             <i class="fas fa-paper-plane"></i> Contact Us
                         </a>
                     </div>
@@ -686,8 +663,9 @@
                     <p>Need a new signboard for your business? Make it beautiful with our signage experts. From
                         storefront signs to digital displays, we create signage that gets noticed.</p>
                     <div class="partner-cta">
-                        <a href="#" class="btn secondary-btn">Explore Signage Options</a>
-                        <a href="#" class="btn outline-btn">Contact Sign Experts</a>
+                        <a href="https://brightsparks.in/" class="btn secondary-btn">Explore Signage Options</a>
+                        <a href="https://brightsparks.in/contactUs.html" class="btn outline-btn">Contact Sign
+                            Experts</a>
                     </div>
                 </div>
             </div>
@@ -817,19 +795,6 @@
         </section>
     </div>
 
-    <!-- SIDEBAR AD -->
-    <div class="ad-section sidebar-ad">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-            data-ad-slot="0987654321" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    </div>
-
-    <!-- Bottom Ad -->
-    <div class="ad-section bottom-ad">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-            data-ad-slot="1357924680" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    </div>
-
-    <!-- footer -->
     <!-- Footer -->
     <footer>
         <div class="footer-container">
