@@ -145,7 +145,7 @@ nav {
     z-index: 100000;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     transition: all 0.3s ease;
 }
@@ -287,6 +287,9 @@ nav {
     display: flex;
     align-items: center;
     gap: 20px;
+    /* width: 1200px; */
+     justify-content: space-between;
+   
 }
 
 .nav-links a {
@@ -424,7 +427,7 @@ nav {
 
 /*============================================== nav responsive */
 
-@media (max-width: 992px) {
+@media (max-width: 1700px) {
     nav {
         padding: 0 10px;
     }

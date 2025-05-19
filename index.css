@@ -6,6 +6,8 @@
     font-family: "Poppins", sans-serif;
 } */
 
+
+
 body {
     background-color: var(--lite-purple-0);
     color: var(--text-color);
@@ -240,7 +242,7 @@ h5 {
        Main Container Styles
        =========================================== */
 .main-container {
-    max-width: 1400px;
+    max-width: 90%;
     margin: 2rem auto;
     padding: 0 1.5rem;
 }
@@ -762,6 +764,16 @@ h5 {
         font-size: 0.5rem;
         padding: 0.5rem 1rem;
     }
+
+    .slider-dot {
+        width: 8px;
+        height: 8px; 
+    }
+
+    .slider-dots {
+    gap: 5px;
+    margin-top: 18px;
+}
 }
 
 /* ===========================================
